@@ -1,0 +1,2019 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rising Stars Math Adventures &middot; Summer Program Grades 4-5</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --navy: #1a2a4a; --navy-deep: #0c1633;
+      --gold: #FFD100; --gold-deep: #b8860b;
+      --cream: #fef3c7; --paper: #fdf6e3;
+      --ocean: #0d9488; --sand: #d97706;
+      --cave: #7c3aed; --sky: #0284c7; --space: #4338ca;
+      --ink: #1f2937; --dim: #64748b;
+      --good: #16a34a; --bad: #dc2626;
+    }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #fef3c7 0%, #fdf6e3 50%, #e0f2fe 100%);
+      color: var(--ink); min-height: 100vh; line-height: 1.55;
+    }
+    .container { max-width: 1280px; margin: 0 auto; padding: 0 22px; }
+
+    /* ─── TOP NAV ──────────────────────────────────────── */
+    .topnav {
+      background: linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 100%);
+      color: #fff; padding: 16px 0;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.15);
+      position: sticky; top: 0; z-index: 50;
+    }
+    .topnav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+    }
+    .topnav-title { font-size: 1.2rem; font-weight: 900; color: #fff; }
+    .topnav-title .gold { color: var(--gold); }
+    .topnav-tabs { display: flex; gap: 8px; }
+    .nav-tab {
+      background: rgba(255,255,255,0.08);
+      border: 2px solid transparent;
+      color: #fff; padding: 8px 18px; border-radius: 8px;
+      font-weight: 800; font-size: 0.9rem; cursor: pointer;
+      transition: all 0.15s;
+    }
+    .nav-tab:hover { background: rgba(255,209,0,0.15); }
+    .nav-tab.active {
+      background: var(--gold); color: var(--navy);
+      border-color: var(--gold-deep);
+      box-shadow: 0 4px 12px rgba(255,209,0,0.4);
+    }
+    .topnav-actions { display: flex; gap: 10px; }
+    .pack-btn {
+      background: var(--ocean); color: #fff; border: none;
+      padding: 8px 14px; border-radius: 8px;
+      font-weight: 800; font-size: 0.85rem; cursor: pointer;
+    }
+    .pack-btn:hover { background: #0f766e; }
+
+    /* ─── VIEW WRAPPERS ───────────────────────────────── */
+    .view { display: none; }
+    .view.active { display: block; animation: fadeIn 0.25s; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+
+    /* ═══════════════════════════════════════════════════ */
+    /* ═══ OVERVIEW VIEW ═════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════ */
+
+    .hero {
+      position: relative;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(255,209,0,0.18) 0%, transparent 50%),
+        radial-gradient(circle at 80% 60%, rgba(13,148,136,0.20) 0%, transparent 50%),
+        linear-gradient(135deg, var(--navy-deep) 0%, var(--navy) 60%, #1e3a8a 100%);
+      color: #fff; padding: 60px 22px 70px; overflow: hidden;
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0;
+      background-image:
+        radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+        radial-gradient(1px 1px at 60% 20%, #fff, transparent),
+        radial-gradient(2px 2px at 85% 45%, #fff, transparent),
+        radial-gradient(1px 1px at 35% 65%, #fff, transparent),
+        radial-gradient(1.5px 1.5px at 75% 80%, #fff, transparent),
+        radial-gradient(1px 1px at 10% 80%, #fff, transparent);
+      opacity: 0.6; pointer-events: none;
+    }
+    .hero-inner {
+      max-width: 1280px; margin: 0 auto; position: relative; z-index: 2;
+      display: grid; grid-template-columns: 2fr 1fr; gap: 40px; align-items: center;
+    }
+    .hero-eyebrow {
+      display: inline-block;
+      background: var(--gold); color: var(--navy);
+      padding: 6px 14px; border-radius: 20px;
+      font-weight: 800; font-size: 0.78rem;
+      letter-spacing: 0.1em; margin-bottom: 18px;
+    }
+    .hero h1 {
+      font-size: 3.2rem; font-weight: 900; line-height: 1.05;
+      letter-spacing: -0.02em; margin-bottom: 14px;
+    }
+    .hero h1 .accent { color: var(--gold); }
+    .hero-sub {
+      font-size: 1.15rem; opacity: 0.92; max-width: 580px; margin-bottom: 22px;
+    }
+    .hero-meta { display: flex; gap: 18px; flex-wrap: wrap; }
+    .hero-meta-item {
+      background: rgba(255,255,255,0.10); backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,209,0,0.3);
+      padding: 10px 16px; border-radius: 10px; font-size: 0.9rem;
+    }
+    .hero-meta-item strong { color: var(--gold); display: block; font-size: 1.15rem; }
+    .hero-cta {
+      display: inline-block; margin-top: 24px;
+      background: var(--gold); color: var(--navy);
+      padding: 14px 28px; border-radius: 10px;
+      text-decoration: none; font-weight: 800; font-size: 1rem;
+      box-shadow: 0 6px 20px rgba(255,209,0,0.4);
+      border: none; cursor: pointer;
+      transition: all 0.2s;
+    }
+    .hero-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,209,0,0.6); }
+    .compass {
+      width: 220px; height: 220px; margin: 0 auto;
+      filter: drop-shadow(0 8px 28px rgba(255,209,0,0.35));
+    }
+    @media (max-width: 800px) {
+      .hero h1 { font-size: 2.2rem; }
+      .hero-inner { grid-template-columns: 1fr; }
+      .compass { width: 160px; height: 160px; }
+    }
+
+    .journey { padding: 50px 0; }
+    .section-eyebrow {
+      display: inline-block; background: var(--navy); color: var(--gold);
+      padding: 5px 14px; border-radius: 16px;
+      font-weight: 800; font-size: 0.72rem;
+      letter-spacing: 0.1em; margin-bottom: 12px;
+    }
+    .section-title {
+      font-size: 2rem; font-weight: 900; color: var(--navy);
+      margin-bottom: 12px; letter-spacing: -0.01em;
+    }
+    .section-sub {
+      font-size: 1.05rem; color: var(--dim); max-width: 740px; margin-bottom: 30px;
+    }
+    .journey-path {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 12px; position: relative;
+    }
+    .journey-path::before {
+      content: ""; position: absolute;
+      top: 50%; left: 8%; right: 8%; height: 4px;
+      background: repeating-linear-gradient(to right, var(--gold) 0 14px, transparent 14px 24px);
+      z-index: 1; transform: translateY(-50%);
+    }
+    .land-pin {
+      position: relative; z-index: 2; text-align: center;
+      background: #fff; border-radius: 16px; padding: 22px 14px;
+      box-shadow: 0 6px 22px rgba(26,42,74,0.10);
+      transition: transform 0.2s; border-top: 5px solid;
+    }
+    .land-pin:hover { transform: translateY(-6px); }
+    .land-pin .week-num {
+      position: absolute; top: -16px; left: 50%; transform: translateX(-50%);
+      background: var(--navy); color: var(--gold);
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 0.92rem;
+      border: 3px solid #fff; box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    }
+    .land-pin .icon { font-size: 2.4rem; margin: 8px 0 10px; line-height: 1; }
+    .land-pin .land-name { font-weight: 800; color: var(--navy); font-size: 0.95rem; margin-bottom: 4px; }
+    .land-pin .land-focus { font-size: 0.78rem; color: var(--dim); }
+    @media (max-width: 800px) {
+      .journey-path { grid-template-columns: repeat(2, 1fr); }
+      .journey-path::before { display: none; }
+    }
+
+    .week-section {
+      margin: 60px 0; border-radius: 22px; overflow: hidden;
+      box-shadow: 0 12px 40px rgba(26,42,74,0.13); background: #fff;
+    }
+    .week-banner {
+      padding: 32px 36px 24px; color: #fff;
+      display: grid; grid-template-columns: 70px 1fr auto;
+      gap: 22px; align-items: center;
+    }
+    .week-banner.w1 { background: linear-gradient(135deg, #0d9488 0%, #134e4a 100%); }
+    .week-banner.w2 { background: linear-gradient(135deg, #d97706 0%, #78350f 100%); }
+    .week-banner.w3 { background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%); }
+    .week-banner.w4 { background: linear-gradient(135deg, #0284c7 0%, #1e40af 100%); }
+    .week-banner.w5 { background: linear-gradient(135deg, #4338ca 0%, #1e1b4b 100%); }
+    .week-num-big {
+      background: rgba(255,255,255,0.18); backdrop-filter: blur(8px);
+      border: 2px solid rgba(255,209,0,0.4);
+      width: 70px; height: 70px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 900; font-size: 1.8rem; color: var(--gold);
+    }
+    .week-banner h2 { font-size: 1.7rem; font-weight: 900; margin-bottom: 2px; line-height: 1.1; }
+    .week-banner .week-tag {
+      font-size: 0.74rem; letter-spacing: 0.1em;
+      color: var(--gold); font-weight: 800; text-transform: uppercase; margin-bottom: 4px;
+    }
+    .week-banner .week-icon { font-size: 3rem; line-height: 1; }
+    .week-body {
+      padding: 26px 36px 32px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 18px;
+    }
+    .week-body .span-2 { grid-column: 1 / -1; }
+    .week-body h3 {
+      font-size: 0.76rem; text-transform: uppercase; letter-spacing: 0.08em;
+      font-weight: 800; color: var(--navy); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .narrative {
+      background: var(--paper); border-left: 4px solid var(--gold);
+      padding: 12px 16px; border-radius: 6px;
+      font-style: italic; color: #5b3d00; font-size: 0.92rem;
+    }
+    .focus-box {
+      background: #f0f9ff; border-left: 4px solid var(--navy);
+      padding: 12px 16px; border-radius: 6px;
+    }
+    .focus-list { font-size: 0.88rem; color: var(--ink); }
+    .focus-list li { padding: 2px 0 2px 16px; position: relative; list-style: none; }
+    .focus-list li::before { content: "▸"; color: var(--navy); position: absolute; left: 0; font-weight: 700; }
+
+    .days-table { width: 100%; border-collapse: collapse; font-size: 0.86rem;
+      border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .days-table th {
+      background: var(--navy); color: var(--gold);
+      padding: 9px 12px; text-align: left;
+      font-size: 0.72rem; letter-spacing: 0.08em; font-weight: 800;
+    }
+    .days-table td { padding: 10px 14px; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+    .days-table tr:last-child td { border-bottom: none; }
+    .days-table tr:nth-child(even) td { background: #fafafa; }
+    .day-num {
+      background: var(--gold); color: var(--navy); font-weight: 900;
+      width: 32px; text-align: center; border-radius: 6px;
+    }
+    .day-title { font-weight: 800; color: var(--navy); }
+    .day-skill { color: var(--dim); font-size: 0.8rem; font-style: italic; }
+    .boss-row td { background: linear-gradient(90deg, #fef3c7 0%, #fff 100%) !important; }
+    .boss-row .day-num { background: #f59e0b; color: #fff; }
+
+    .supplies {
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      border: 2px dashed var(--gold-deep);
+      border-radius: 10px; padding: 12px 16px;
+    }
+    .supplies h3 { color: #92400e; }
+    .supplies-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      gap: 6px; margin-top: 6px;
+    }
+    .supply-chip {
+      background: #fff; border-radius: 6px; padding: 6px 8px;
+      text-align: center; font-size: 0.8rem; font-weight: 600;
+      color: #78350f; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .supply-chip .ico { display: block; font-size: 1.3rem; margin-bottom: 2px; }
+
+    .boss-card {
+      background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+      color: #fff; border-radius: 10px;
+      padding: 16px 20px; border: 2px solid var(--gold); position: relative;
+    }
+    .boss-card::before {
+      content: "BOSS CHALLENGE";
+      position: absolute; top: -10px; left: 18px;
+      background: var(--gold); color: var(--navy);
+      padding: 2px 10px; border-radius: 4px;
+      font-size: 0.7rem; font-weight: 900; letter-spacing: 0.08em;
+    }
+    .boss-card h3 { color: var(--gold); margin-top: 6px; }
+    .boss-card p { font-size: 0.9rem; color: #e5e7eb; }
+    @media (max-width: 800px) {
+      .week-banner { grid-template-columns: 1fr; text-align: center; padding: 22px; }
+      .week-body { grid-template-columns: 1fr; padding: 20px; }
+    }
+
+    .daily-section { padding: 50px 0; background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,0.7) 100%); }
+    .daily-flow {
+      display: grid; grid-template-columns: repeat(5, 1fr);
+      gap: 12px; position: relative;
+    }
+    .daily-flow::before {
+      content: ""; position: absolute; top: 40px; left: 10%; right: 10%;
+      height: 3px; background: var(--gold); z-index: 0;
+    }
+    .flow-step {
+      background: #fff; border-radius: 12px; padding: 18px 14px;
+      text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      position: relative; z-index: 1;
+    }
+    .flow-step .step-circle {
+      width: 50px; height: 50px; border-radius: 50%;
+      background: var(--navy); color: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; margin: 0 auto 8px;
+      border: 4px solid var(--gold);
+    }
+    .flow-step .step-time {
+      background: var(--gold); color: var(--navy);
+      padding: 2px 10px; border-radius: 10px;
+      font-size: 0.7rem; font-weight: 800; display: inline-block; margin-bottom: 6px;
+    }
+    .flow-step h4 { color: var(--navy); font-size: 0.9rem; font-weight: 800; margin-bottom: 4px; }
+    .flow-step p { font-size: 0.78rem; color: var(--dim); line-height: 1.4; }
+    @media (max-width: 800px) {
+      .daily-flow { grid-template-columns: repeat(2, 1fr); }
+      .daily-flow::before { display: none; }
+    }
+
+    .rewards-section { padding: 50px 0; }
+    .rewards-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+    .reward-card {
+      background: #fff; border-radius: 14px;
+      padding: 22px 20px; text-align: center;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08); border-top: 5px solid var(--gold);
+    }
+    .reward-card .ico { font-size: 2.4rem; line-height: 1; margin-bottom: 8px; display: block; }
+    .reward-card h4 { color: var(--navy); font-weight: 800; margin-bottom: 6px; }
+    .reward-card p { font-size: 0.86rem; color: var(--dim); line-height: 1.5; }
+
+    .materials-section {
+      padding: 50px 0;
+      background: linear-gradient(135deg, #1a2a4a 0%, #0c1633 100%);
+      color: #fff; margin-top: 30px;
+    }
+    .materials-section .section-title { color: #fff; }
+    .materials-section .section-sub { color: rgba(255,255,255,0.75); }
+    .materials-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 14px;
+    }
+    .material-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,209,0,0.2);
+      border-radius: 12px; padding: 20px; backdrop-filter: blur(8px);
+    }
+    .material-card h4 {
+      color: var(--gold); font-weight: 800; margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .material-card ul { list-style: none; padding: 0; }
+    .material-card li {
+      padding: 3px 0 3px 18px; position: relative;
+      font-size: 0.86rem; color: rgba(255,255,255,0.88);
+    }
+    .material-card li::before { content: "◆"; color: var(--gold); position: absolute; left: 0; font-size: 0.66rem; top: 8px; }
+
+    .faq-section { padding: 50px 0; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .faq-item {
+      background: #fff; padding: 18px 22px; border-radius: 12px;
+      border-left: 4px solid var(--gold);
+      box-shadow: 0 3px 12px rgba(0,0,0,0.06);
+    }
+    .faq-item h5 { color: var(--navy); font-weight: 800; margin-bottom: 8px; }
+    .faq-item p { font-size: 0.9rem; color: var(--ink); line-height: 1.55; }
+    @media (max-width: 800px) { .faq-grid { grid-template-columns: 1fr; } }
+
+    footer {
+      background: var(--navy-deep); color: rgba(255,255,255,0.7);
+      padding: 26px 22px; text-align: center; font-size: 0.85rem;
+    }
+    footer .gold { color: var(--gold); font-weight: 700; }
+
+    /* ═══════════════════════════════════════════════════ */
+    /* ═══ LESSONS VIEW ══════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════ */
+
+    .name-banner {
+      background: #fff; border-radius: 12px;
+      padding: 14px 20px; margin: 22px 0 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+    }
+    .name-banner label { font-weight: 800; color: var(--navy); }
+    .name-banner input {
+      flex: 1; min-width: 200px;
+      padding: 10px 14px; border: 2px solid var(--navy);
+      border-radius: 8px; font-size: 1rem;
+    }
+    .name-banner .status {
+      background: var(--paper); padding: 6px 12px; border-radius: 6px;
+      font-size: 0.85rem; color: var(--gold-deep); font-weight: 700;
+    }
+
+    .week-group {
+      background: #fff; border-radius: 14px; padding: 14px;
+      margin-bottom: 14px; box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    }
+    .week-group-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 10px; flex-wrap: wrap; gap: 8px;
+    }
+    .week-group-title {
+      font-size: 0.98rem; font-weight: 900; color: var(--navy);
+      display: flex; align-items: center; gap: 8px;
+    }
+    .week-group-title .week-icon { font-size: 1.4rem; }
+    .week-group-title .week-num-chip {
+      background: var(--gold); color: var(--navy);
+      padding: 2px 10px; border-radius: 12px;
+      font-size: 0.72rem; letter-spacing: 0.05em;
+    }
+    .week-progress { font-size: 0.76rem; color: var(--dim); font-weight: 700; }
+    .day-tabs { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; }
+    .day-tab {
+      background: #f1f5f9; border: 2px solid transparent;
+      padding: 9px 6px; border-radius: 8px;
+      text-align: center; cursor: pointer;
+      transition: all 0.15s; user-select: none; position: relative;
+    }
+    .day-tab:hover:not(.locked) { background: #fef3c7; transform: translateY(-2px); }
+    .day-tab.active { background: var(--gold); border-color: var(--gold-deep); box-shadow: 0 4px 10px rgba(255,209,0,0.4); }
+    .day-tab.done { background: #dcfce7; }
+    .day-tab.done.active { background: var(--gold); }
+    .day-tab.locked { background: #e2e8f0; cursor: not-allowed; opacity: 0.6; }
+    .day-tab .day-num-chip {
+      background: var(--navy); color: var(--gold);
+      width: 22px; height: 22px; border-radius: 50%;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 0.66rem; font-weight: 900; margin-bottom: 3px;
+    }
+    .day-tab.done .day-num-chip { background: var(--good); color: #fff; }
+    .day-tab .day-name { font-size: 0.7rem; font-weight: 700; color: var(--navy); line-height: 1.2; }
+    .day-tab .lock, .day-tab .check {
+      position: absolute; top: 4px; right: 6px; font-size: 0.78rem;
+    }
+    .day-tab .check { color: var(--good); display: none; }
+    .day-tab.done .check { display: inline; }
+    .day-tab.done .lock { display: none; }
+    .day-tab.boss::after {
+      content: "BOSS";
+      position: absolute; bottom: 1px; left: 50%; transform: translateX(-50%);
+      font-size: 0.52rem; background: #dc2626; color: #fff;
+      padding: 1px 4px; border-radius: 3px; font-weight: 900;
+    }
+
+    .lesson-view { padding: 6px 0 40px; min-height: 360px; }
+    .empty-state { text-align: center; padding: 50px 22px; color: var(--dim); }
+    .empty-state .ico { font-size: 4.5rem; margin-bottom: 12px; }
+
+    .l-banner {
+      border-radius: 14px; padding: 24px 26px; color: #fff;
+      box-shadow: 0 6px 22px rgba(0,0,0,0.12);
+      display: flex; gap: 22px; align-items: center; flex-wrap: wrap;
+    }
+    .l-banner.ocean { background: linear-gradient(135deg, #0d9488 0%, #134e4a 100%); }
+    .l-banner.sand  { background: linear-gradient(135deg, #d97706 0%, #78350f 100%); }
+    .l-banner.cave  { background: linear-gradient(135deg, #7c3aed 0%, #4c1d95 100%); }
+    .l-banner.sky   { background: linear-gradient(135deg, #0284c7 0%, #1e40af 100%); }
+    .l-banner.space { background: linear-gradient(135deg, #4338ca 0%, #1e1b4b 100%); }
+    .l-banner.boss  { background: linear-gradient(135deg, #991b1b 0%, #450a0a 100%); border: 3px solid var(--gold); }
+    .l-banner .b-icon { font-size: 3.2rem; line-height: 1; }
+    .l-banner h2 { font-size: 1.6rem; font-weight: 900; margin-bottom: 2px; line-height: 1.1; }
+    .l-banner .b-tag {
+      color: var(--gold); font-size: 0.72rem; letter-spacing: 0.1em;
+      text-transform: uppercase; font-weight: 800; margin-bottom: 4px;
+    }
+    .l-banner .b-skill { font-size: 0.92rem; opacity: 0.9; }
+
+    .story-card {
+      background: var(--paper); border-left: 5px solid var(--gold);
+      padding: 16px 22px; border-radius: 10px; margin-top: 18px;
+      font-style: italic; color: #5b3d00; font-size: 0.95rem;
+      box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    }
+    .story-card strong { color: var(--gold-deep); font-style: normal; }
+
+    .teach {
+      background: #fff; border-radius: 14px; padding: 20px 24px; margin-top: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    }
+    .teach h3 {
+      color: var(--navy); font-size: 1.05rem; font-weight: 800; margin-bottom: 10px;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .teach-step {
+      background: #f0f9ff; border-left: 4px solid var(--sky);
+      padding: 10px 14px; border-radius: 6px; margin-bottom: 8px;
+      font-size: 0.92rem;
+    }
+    .teach-step strong { color: var(--navy); }
+    .teach-step.green { background: #f0fdf4; border-left-color: var(--good); }
+    .teach-step.gold  { background: #fef3c7; border-left-color: var(--gold-deep); }
+
+    .place-value-table {
+      display: grid; grid-template-columns: repeat(6, 1fr);
+      gap: 4px; margin: 8px 0; max-width: 440px;
+    }
+    .pv-cell {
+      background: #fff; border: 2px solid var(--navy);
+      padding: 6px 4px; text-align: center; border-radius: 6px;
+    }
+    .pv-cell .num { font-size: 1.2rem; font-weight: 900; color: var(--navy); }
+    .pv-cell .lbl { font-size: 0.62rem; color: var(--dim); }
+    .fraction-vis { display: inline-block; text-align: center; margin: 4px 6px; }
+    .fraction-vis .bar {
+      width: 90px; height: 22px; display: flex;
+      border: 2px solid var(--navy); border-radius: 4px; overflow: hidden;
+    }
+    .fraction-vis .bar .seg { flex: 1; border-right: 1px solid var(--navy); }
+    .fraction-vis .bar .seg:last-child { border-right: none; }
+    .fraction-vis .bar .filled { background: var(--gold); }
+    .fraction-vis .label { margin-top: 4px; font-weight: 800; color: var(--navy); font-size: 0.8rem; }
+
+    .practice {
+      background: #fff; border-radius: 14px; padding: 20px 24px; margin-top: 16px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+    }
+    .practice-head {
+      display: flex; justify-content: space-between; align-items: center;
+      margin-bottom: 14px; flex-wrap: wrap; gap: 10px;
+    }
+    .practice-head h3 {
+      color: var(--navy); font-size: 1.05rem; font-weight: 800;
+      display: flex; align-items: center; gap: 6px;
+    }
+    .progress-bar {
+      flex: 1; max-width: 180px; height: 11px;
+      background: #e2e8f0; border-radius: 6px; overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%; background: linear-gradient(90deg, var(--gold) 0%, var(--gold-deep) 100%);
+      transition: width 0.4s ease; width: 0%;
+    }
+    .progress-text { font-size: 0.8rem; font-weight: 800; color: var(--navy); }
+
+    .question {
+      background: #f8fafc; border-radius: 10px;
+      padding: 16px 18px; border-left: 4px solid var(--navy);
+    }
+    .question .q-num {
+      background: var(--navy); color: var(--gold);
+      padding: 3px 10px; border-radius: 12px;
+      font-size: 0.7rem; font-weight: 800;
+      display: inline-block; margin-bottom: 8px; letter-spacing: 0.05em;
+    }
+    .question .q-text {
+      font-size: 1.02rem; color: var(--ink); font-weight: 600;
+      line-height: 1.5; margin-bottom: 12px;
+    }
+    .options { display: grid; gap: 7px; margin-bottom: 10px; }
+    .opt {
+      display: block; padding: 10px 14px;
+      background: #fff; border: 2px solid #e2e8f0;
+      border-radius: 8px; cursor: pointer; transition: all 0.15s;
+      font-size: 0.92rem;
+    }
+    .opt:hover { background: #fef3c7; border-color: var(--gold); }
+    .opt.selected { background: var(--gold); border-color: var(--gold-deep); font-weight: 700; }
+    .opt input { display: none; }
+    .opt.disabled { cursor: not-allowed; pointer-events: none; }
+    .opt.correct { background: #dcfce7; border-color: var(--good); }
+    .opt.incorrect { background: #fee2e2; border-color: var(--bad); }
+
+    .num-input {
+      width: 140px; padding: 10px 14px;
+      border: 2px solid var(--navy); border-radius: 8px;
+      font-size: 1.05rem; font-weight: 700; color: var(--navy);
+      text-align: center;
+    }
+    .num-input:focus { outline: 3px solid var(--gold); }
+
+    .check-btn, .next-btn {
+      background: var(--navy); color: var(--gold);
+      border: none; padding: 10px 20px; border-radius: 8px;
+      font-weight: 800; font-size: 0.9rem; cursor: pointer;
+      transition: all 0.15s; margin-right: 8px;
+    }
+    .check-btn:hover, .next-btn:hover { background: var(--navy-deep); transform: translateY(-1px); }
+    .check-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
+
+    .feedback {
+      margin-top: 12px; padding: 12px 16px; border-radius: 8px;
+      font-weight: 600; display: none;
+    }
+    .feedback.show { display: block; animation: pop 0.3s; }
+    @keyframes pop { from { transform: scale(0.95); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+    .feedback.correct { background: #dcfce7; color: #14532d; border-left: 4px solid var(--good); }
+    .feedback.incorrect { background: #fee2e2; color: #7f1d1d; border-left: 4px solid var(--bad); }
+    .feedback strong { display: block; margin-bottom: 4px; font-size: 1rem; }
+
+    .complete {
+      background: linear-gradient(135deg, var(--gold) 0%, var(--gold-deep) 100%);
+      color: var(--navy); padding: 26px 26px;
+      border-radius: 14px; margin-top: 20px;
+      text-align: center;
+      box-shadow: 0 8px 28px rgba(255,209,0,0.35);
+    }
+    .complete h2 { font-size: 1.7rem; font-weight: 900; margin-bottom: 6px; }
+    .complete .badge-icon { font-size: 3.6rem; margin-bottom: 4px; line-height: 1; }
+    .complete .score-big { font-size: 1.3rem; font-weight: 800; margin: 10px 0; }
+    .complete .supply-earned {
+      background: #fff; border: 3px dashed var(--navy);
+      border-radius: 10px; padding: 12px 20px; margin: 12px auto;
+      display: inline-block; max-width: 400px;
+    }
+    .complete .supply-earned .label {
+      font-size: 0.72rem; letter-spacing: 0.1em;
+      color: var(--gold-deep); font-weight: 800;
+    }
+    .complete .supply-earned .ico { font-size: 2.6rem; display: block; margin: 4px 0; line-height: 1; }
+    .complete .supply-earned .name { font-weight: 900; color: var(--navy); }
+    .complete .badge-name {
+      background: var(--navy); color: var(--gold);
+      display: inline-block; padding: 5px 16px;
+      border-radius: 20px; font-size: 0.85rem; font-weight: 800;
+      margin: 8px 0 14px;
+    }
+    .complete-actions {
+      display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 10px;
+    }
+    .complete-actions button {
+      background: var(--navy); color: var(--gold);
+      border: none; padding: 10px 18px; border-radius: 8px;
+      font-weight: 800; cursor: pointer; font-size: 0.9rem;
+    }
+    .complete-actions button.email { background: #1e40af; color: #fff; }
+    .complete-actions button.email:hover { background: #1e3a8a; }
+    .complete-actions button:hover { background: var(--navy-deep); }
+
+    /* MODAL */
+    .modal-bg {
+      position: fixed; inset: 0; background: rgba(0,0,0,0.6);
+      display: none; align-items: center; justify-content: center;
+      z-index: 100; padding: 20px;
+    }
+    .modal-bg.show { display: flex; animation: pop 0.2s; }
+    .modal {
+      background: #fff; border-radius: 14px;
+      max-width: 700px; width: 100%;
+      max-height: 90vh; overflow-y: auto;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    }
+    .modal-head {
+      background: var(--navy); color: var(--gold);
+      padding: 18px 24px; border-radius: 14px 14px 0 0;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .modal-head h3 { font-size: 1.15rem; font-weight: 900; }
+    .modal-close {
+      background: none; border: none; color: var(--gold);
+      font-size: 1.5rem; cursor: pointer; font-weight: 900;
+    }
+    .modal-body { padding: 22px 24px; }
+    .pack-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 10px;
+    }
+    .pack-item {
+      background: #fef3c7; border: 2px solid var(--gold);
+      border-radius: 10px; padding: 10px 6px; text-align: center;
+    }
+    .pack-item.locked { background: #f1f5f9; border: 2px dashed #cbd5e0; opacity: 0.5; }
+    .pack-item .ico { font-size: 1.8rem; line-height: 1; display: block; margin-bottom: 4px; }
+    .pack-item .name { font-size: 0.72rem; font-weight: 800; color: var(--navy); line-height: 1.2; }
+    .pack-summary {
+      background: var(--paper); padding: 14px 18px; border-radius: 8px;
+      margin-bottom: 16px; text-align: center;
+    }
+    .pack-summary .big { font-size: 1.8rem; font-weight: 900; color: var(--navy); }
+
+    /* Multi-profile UI */
+    .explorer-banner {
+      background: #fff; border-radius: 12px;
+      padding: 14px 20px; margin: 22px 0 18px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+      display: flex; gap: 16px; align-items: center; flex-wrap: wrap;
+    }
+    .explorer-info { display: flex; gap: 12px; align-items: center; flex: 1; min-width: 200px; }
+    .explorer-info .avatar { font-size: 2rem; line-height: 1; }
+    .explorer-info .explorer-name { font-weight: 800; color: var(--navy); font-size: 1.05rem; }
+    .explorer-info .explorer-progress { font-size: 0.82rem; color: var(--dim); }
+    .explorer-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+    .explorer-actions button {
+      background: #f1f5f9; color: var(--navy);
+      border: 1px solid #cbd5e0;
+      padding: 7px 13px; border-radius: 6px;
+      font-weight: 700; font-size: 0.78rem; cursor: pointer;
+    }
+    .explorer-actions button:hover { background: var(--paper); border-color: var(--gold); }
+    .no-profile-state {
+      background: #fff; padding: 50px 22px; border-radius: 14px;
+      text-align: center; box-shadow: 0 4px 14px rgba(0,0,0,0.07);
+      margin: 22px 0;
+    }
+    .no-profile-state .ico { font-size: 4.5rem; margin-bottom: 14px; }
+    .no-profile-state .big-btn {
+      background: var(--gold); color: var(--navy); border: none;
+      padding: 14px 28px; border-radius: 10px;
+      font-weight: 800; font-size: 1rem; cursor: pointer;
+      box-shadow: 0 6px 20px rgba(255,209,0,0.4); margin-top: 14px;
+    }
+    .no-profile-state .big-btn:hover { transform: translateY(-2px); }
+    .profile-card {
+      background: #f8fafc; border: 2px solid #e2e8f0;
+      border-radius: 10px; padding: 12px 16px; margin-bottom: 8px;
+      display: flex; gap: 12px; align-items: center;
+      cursor: pointer; transition: all 0.15s;
+    }
+    .profile-card:hover { background: var(--paper); border-color: var(--gold); }
+    .profile-card.active { background: var(--paper); border-color: var(--gold-deep); border-width: 3px; }
+    .profile-card .avatar { font-size: 2rem; line-height: 1; }
+    .profile-card .info { flex: 1; }
+    .profile-card .name { font-weight: 800; color: var(--navy); }
+    .profile-card .progress { font-size: 0.8rem; color: var(--dim); }
+    .profile-card .delete {
+      background: none; border: none; color: var(--bad);
+      font-size: 1.2rem; cursor: pointer; padding: 4px 8px;
+    }
+    .profile-card .delete:hover { background: #fee2e2; border-radius: 4px; }
+    .add-profile-form {
+      border-top: 1px solid #e2e8f0; margin-top: 14px; padding-top: 14px;
+      display: flex; gap: 8px; flex-wrap: wrap; align-items: center;
+    }
+    .add-profile-form input {
+      flex: 1; min-width: 140px;
+      padding: 10px 14px; border: 2px solid var(--navy);
+      border-radius: 8px; font-size: 0.95rem;
+    }
+    .add-profile-form select {
+      padding: 10px 12px; border: 2px solid var(--navy);
+      border-radius: 8px; font-size: 1.4rem; background: #fff; cursor: pointer;
+    }
+    .add-profile-form button {
+      background: var(--navy); color: var(--gold); border: none;
+      padding: 10px 18px; border-radius: 8px; font-weight: 800; cursor: pointer;
+    }
+    .add-profile-form button:hover { background: var(--navy-deep); }
+
+    @media print {
+      body { background: #fff; }
+      .topnav { position: static; }
+      .nav-tab, .pack-btn, .hero-cta { display: none; }
+      .week-section { page-break-inside: avoid; box-shadow: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══ TOP NAV ═══════════════════════════════════════════ -->
+<header class="topnav">
+  <div class="container topnav-inner">
+    <div class="topnav-title">🌟 <span class="gold">Rising Stars</span> Math Adventures</div>
+    <div class="topnav-tabs">
+      <button class="nav-tab active" id="navOverview" onclick="showView('overview')">📋 Program Overview</button>
+      <button class="nav-tab" id="navLessons" onclick="showView('lessons')">🎮 Adventure Lessons</button>
+    </div>
+    <div class="topnav-actions">
+      <button class="pack-btn" onclick="openPack()">🎒 My Pack</button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══ OVERVIEW VIEW ════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="view active" id="view-overview">
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <span class="hero-eyebrow">SUMMER PROGRAM &middot; GRADES 4–5</span>
+      <h1>Rising Stars<br><span class="accent">Math Adventures</span></h1>
+      <p class="hero-sub">Five weeks. Five lands. Five missions. Explorers travel through ancient temples, crystal caves, sky kingdoms, and beyond — solving math challenges to earn supplies, unlock maps, and complete their quest.</p>
+      <div class="hero-meta">
+        <div class="hero-meta-item"><strong>5 weeks</strong>of math adventure</div>
+        <div class="hero-meta-item"><strong>25 days</strong>of game-based learning</div>
+        <div class="hero-meta-item"><strong>1h 45min</strong>per day</div>
+        <div class="hero-meta-item"><strong>Grades 4–5</strong>rising explorers</div>
+      </div>
+      <button class="hero-cta" onclick="showView('lessons')">🚀 Begin the Adventure →</button>
+    </div>
+    <div>
+      <svg class="compass" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="92" fill="#FFD100" stroke="#fff" stroke-width="3"/>
+        <circle cx="100" cy="100" r="78" fill="none" stroke="#1a2a4a" stroke-width="2"/>
+        <circle cx="100" cy="100" r="60" fill="#fef3c7" stroke="#1a2a4a" stroke-width="1.5"/>
+        <polygon points="100,30 110,100 100,170 90,100" fill="#1a2a4a"/>
+        <polygon points="30,100 100,110 170,100 100,90" fill="#b8860b"/>
+        <circle cx="100" cy="100" r="8" fill="#1a2a4a"/>
+        <text x="100" y="22" font-size="14" font-weight="900" fill="#1a2a4a" text-anchor="middle">N</text>
+        <text x="178" y="105" font-size="14" font-weight="900" fill="#1a2a4a" text-anchor="middle">E</text>
+        <text x="100" y="190" font-size="14" font-weight="900" fill="#1a2a4a" text-anchor="middle">S</text>
+        <text x="22" y="105" font-size="14" font-weight="900" fill="#1a2a4a" text-anchor="middle">W</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<section class="journey">
+  <div class="container">
+    <span class="section-eyebrow">THE JOURNEY</span>
+    <h2 class="section-title">Five Lands Await</h2>
+    <p class="section-sub">Every week the explorers reach a new land. Each land has its own math treasures to unlock and its own boss challenge to conquer. Complete all five lands and earn the title of <strong>Rising Star Captain</strong>.</p>
+    <div class="journey-path">
+      <div class="land-pin" style="border-top-color: var(--ocean);"><div class="week-num">1</div><div class="icon">🏝️</div><div class="land-name">Lost Island of Numbers</div><div class="land-focus">Place Value &amp; Operations</div></div>
+      <div class="land-pin" style="border-top-color: var(--sand);"><div class="week-num">2</div><div class="icon">🏛️</div><div class="land-name">Temple of Fractions</div><div class="land-focus">Fractions &amp; Equivalence</div></div>
+      <div class="land-pin" style="border-top-color: var(--cave);"><div class="week-num">3</div><div class="icon">💎</div><div class="land-name">Cave of Decimals</div><div class="land-focus">Decimals &amp; Measurement</div></div>
+      <div class="land-pin" style="border-top-color: var(--sky);"><div class="week-num">4</div><div class="icon">☁️</div><div class="land-name">Sky Kingdom of Geometry</div><div class="land-focus">Geometry &amp; Coordinates</div></div>
+      <div class="land-pin" style="border-top-color: var(--space);"><div class="week-num">5</div><div class="icon">🚀</div><div class="land-name">Space Station of Stars</div><div class="land-focus">Data &amp; Capstone</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+<section class="week-section"><div class="week-banner w1"><div class="week-num-big">1</div><div><div class="week-tag">WEEK ONE · PLACE VALUE &amp; OPERATIONS</div><h2>Lost Island of Numbers</h2></div><div class="week-icon">🏝️</div></div><div class="week-body"><div class="span-2"><div class="narrative">🌊 <strong>The Story.</strong> A storm has wrecked the ship. The explorers wake up on a mysterious island where numbers grow on palm trees and tides whisper place values. The only way home is to gather supplies, decode the compass rose, and build a raft strong enough for the open sea.</div></div><div><div class="focus-box"><h3>🎯 Math Focus</h3><ul class="focus-list"><li>Place value through hundred-thousands</li><li>Rounding to nearest 10, 100, 1,000</li><li>Multi-digit addition &amp; subtraction</li><li>Multi-digit multiplication</li><li>Long division</li></ul></div></div><div><div class="supplies"><h3>🎒 Supplies Earned</h3><div class="supplies-grid"><div class="supply-chip"><span class="ico">🥥</span>Coconut Counter</div><div class="supply-chip"><span class="ico">⭐</span>Star Chart</div><div class="supply-chip"><span class="ico">🪵</span>Sturdy Logs</div><div class="supply-chip"><span class="ico">🦀</span>Crab Trap</div><div class="supply-chip"><span class="ico">🧭</span>Compass</div></div></div></div><div class="span-2"><h3>📅 Five-Day Quest</h3><table class="days-table"><thead><tr><th>Day</th><th>Mission</th><th>Math Skill</th></tr></thead><tbody><tr><td class="day-num">1</td><td><span class="day-title">Counting the Shipwreck Supplies</span><br><span class="day-skill">"How many coconuts in the pile?"</span></td><td>Place value</td></tr><tr><td class="day-num">2</td><td><span class="day-title">Reading the Tide</span><br><span class="day-skill">Rounding for safe rafting</span></td><td>Rounding</td></tr><tr><td class="day-num">3</td><td><span class="day-title">Building the Shelter</span><br><span class="day-skill">Stacking palm logs</span></td><td>Add &amp; subtract</td></tr><tr><td class="day-num">4</td><td><span class="day-title">Crab Catch Multiplication</span><br><span class="day-skill">"6 traps, 24 crabs each"</span></td><td>Multiplication</td></tr><tr class="boss-row"><td class="day-num">5</td><td><span class="day-title">⚔ THE COMPASS QUEST</span><br><span class="day-skill">Final island escape</span></td><td>All Week 1 skills</td></tr></tbody></table></div></div></section>
+
+<section class="week-section"><div class="week-banner w2"><div class="week-num-big">2</div><div><div class="week-tag">WEEK TWO · FRACTIONS</div><h2>Temple of Fractions</h2></div><div class="week-icon">🏛️</div></div><div class="week-body"><div class="span-2"><div class="narrative">🏛️ <strong>The Story.</strong> An ancient temple in the jungle with three locked chambers. Each holds a Sacred Relic. Solve the fraction riddles carved into the doors.</div></div><div><div class="focus-box"><h3>🎯 Math Focus</h3><ul class="focus-list"><li>Equivalent fractions</li><li>Comparing fractions</li><li>Adding fractions</li><li>Subtracting fractions</li><li>Mixed numbers</li></ul></div></div><div><div class="supplies"><h3>🎒 Supplies Earned</h3><div class="supplies-grid"><div class="supply-chip"><span class="ico">📜</span>Sacred Scroll</div><div class="supply-chip"><span class="ico">🪞</span>Magic Mirror</div><div class="supply-chip"><span class="ico">💧</span>Water Drop</div><div class="supply-chip"><span class="ico">🗝️</span>Stone Key</div><div class="supply-chip"><span class="ico">🔑</span>Pyramid Key</div></div></div></div></div></section>
+
+<section class="week-section"><div class="week-banner w3"><div class="week-num-big">3</div><div><div class="week-tag">WEEK THREE · DECIMALS</div><h2>Cave of Decimals</h2></div><div class="week-icon">💎</div></div><div class="week-body"><div class="span-2"><div class="narrative">💎 <strong>The Story.</strong> The map leads underground into a cave glittering with crystals. Each has a numeric weight. Measure with decimals, compare crystal sizes, combine and split.</div></div><div><div class="focus-box"><h3>🎯 Math Focus</h3><ul class="focus-list"><li>Decimal place value</li><li>Comparing decimals</li><li>Adding decimals</li><li>Subtracting decimals</li><li>Multiplying by 10, 100</li></ul></div></div><div><div class="supplies"><h3>🎒 Supplies Earned</h3><div class="supplies-grid"><div class="supply-chip"><span class="ico">🔦</span>Crystal Lantern</div><div class="supply-chip"><span class="ico">🔍</span>Magnifier</div><div class="supply-chip"><span class="ico">⚗️</span>Crystal Vial</div><div class="supply-chip"><span class="ico">⛏️</span>Pickaxe</div><div class="supply-chip"><span class="ico">💖</span>Crystal Heart</div></div></div></div></div></section>
+
+<section class="week-section"><div class="week-banner w4"><div class="week-num-big">4</div><div><div class="week-tag">WEEK FOUR · GEOMETRY</div><h2>Sky Kingdom of Geometry</h2></div><div class="week-icon">☁️</div></div><div class="week-body"><div class="span-2"><div class="narrative">☁️ <strong>The Story.</strong> A staircase of clouds leads up to the Sky Kingdom — floating islands held together by shapes, angles, and coordinate lines.</div></div><div><div class="focus-box"><h3>🎯 Math Focus</h3><ul class="focus-list"><li>Perimeter of polygons</li><li>Area of rectangles</li><li>Angles (right, acute, obtuse)</li><li>Coordinate plane</li><li>Symmetry</li></ul></div></div><div><div class="supplies"><h3>🎒 Supplies Earned</h3><div class="supplies-grid"><div class="supply-chip"><span class="ico">📐</span>Sky Protractor</div><div class="supply-chip"><span class="ico">🐑</span>Sheep Counter</div><div class="supply-chip"><span class="ico">🦅</span>Sky Bird</div><div class="supply-chip"><span class="ico">⭐</span>Star Compass</div><div class="supply-chip"><span class="ico">🌉</span>Bridge Plans</div></div></div></div></div></section>
+
+<section class="week-section"><div class="week-banner w5"><div class="week-num-big">5</div><div><div class="week-tag">WEEK FIVE · DATA &amp; CAPSTONE</div><h2>Space Station of Stars</h2></div><div class="week-icon">🚀</div></div><div class="week-body"><div class="span-2"><div class="narrative">🚀 <strong>The Story.</strong> The final stop is a space station orbiting a distant star. Mission Control needs every skill the explorers have learned to plot the journey home.</div></div><div><div class="focus-box"><h3>🎯 Math Focus</h3><ul class="focus-list"><li>Reading bar &amp; line graphs</li><li>Mean, median, range</li><li>Patterns &amp; ratios</li><li>Large numbers; scientific notation</li><li>Multi-step word problems</li></ul></div></div><div><div class="supplies"><h3>🎒 Supplies Earned</h3><div class="supplies-grid"><div class="supply-chip"><span class="ico">📊</span>Data Pad</div><div class="supply-chip"><span class="ico">✨</span>Star Decoder</div><div class="supply-chip"><span class="ico">🌌</span>Cosmic Map</div><div class="supply-chip"><span class="ico">🛸</span>Engine Plans</div><div class="supply-chip"><span class="ico">🏆</span>Captain's Badge</div></div></div></div></div></section>
+</div>
+
+<section class="daily-section">
+  <div class="container">
+    <span class="section-eyebrow">A DAY IN THE LIFE</span>
+    <h2 class="section-title">One Hour Forty-Five, Five Flows</h2>
+    <p class="section-sub">Every day follows the same rhythm so explorers always know what's coming next.</p>
+    <div class="daily-flow">
+      <div class="flow-step"><div class="step-circle">📖</div><span class="step-time">10 min</span><h4>Story Time</h4><p>The day's chapter of the adventure</p></div>
+      <div class="flow-step"><div class="step-circle">🧠</div><span class="step-time">15 min</span><h4>Mini-Lesson</h4><p>The math skill of the day with manipulatives</p></div>
+      <div class="flow-step"><div class="step-circle">🎲</div><span class="step-time">35 min</span><h4>Game Stations</h4><p>Three rotating small-group game stations</p></div>
+      <div class="flow-step"><div class="step-circle">🎯</div><span class="step-time">30 min</span><h4>Mission</h4><p>Apply the skill to a story-driven mission</p></div>
+      <div class="flow-step"><div class="step-circle">📓</div><span class="step-time">15 min</span><h4>Journal &amp; Loot</h4><p>Captain's log + supply distribution</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="rewards-section">
+  <div class="container">
+    <span class="section-eyebrow">REWARDS &amp; PROGRESSION</span>
+    <h2 class="section-title">Loot, Maps &amp; Badges</h2>
+    <p class="section-sub">Math mastery is the real reward, but explorers love tangible loot. Every day, every week, every mission earns something.</p>
+    <div class="rewards-grid">
+      <div class="reward-card"><span class="ico">🎒</span><h4>Daily Supplies</h4><p>Each day's mission earns a themed supply (compass, lantern, key) added to the explorer's pack.</p></div>
+      <div class="reward-card"><span class="ico">🗺️</span><h4>Weekly Map Pieces</h4><p>Five map pieces — one per week — assemble into the Master Atlas.</p></div>
+      <div class="reward-card"><span class="ico">🏅</span><h4>Mission Badges</h4><p>Navigator, Riddle-Solver, Crystal Bearer, Sky Engineer, Captain.</p></div>
+      <div class="reward-card"><span class="ico">📔</span><h4>Captain's Journal</h4><p>Daily reflections, math work, and crew memories.</p></div>
+      <div class="reward-card"><span class="ico">👨‍👩‍👧</span><h4>Family Showcase</h4><p>The final day is a showcase event for families.</p></div>
+      <div class="reward-card"><span class="ico">🏆</span><h4>Captain's Title</h4><p>Every explorer who completes all 5 weeks earns the title of Rising Star Captain.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="materials-section">
+  <div class="container">
+    <span class="section-eyebrow" style="background: var(--gold); color: var(--navy);">FOR THE TEACHER</span>
+    <h2 class="section-title">Materials List</h2>
+    <p class="section-sub">What you'll need to outfit the adventure for 12–20 explorers.</p>
+    <div class="materials-grid">
+      <div class="material-card"><h4>🎲 Manipulatives</h4><ul><li>Base-10 blocks</li><li>Fraction tiles &amp; circles</li><li>Decimal squares &amp; grids</li><li>Pattern blocks</li><li>Coins (real or play)</li></ul></div>
+      <div class="material-card"><h4>📐 Measurement</h4><ul><li>Rulers (cm and inches)</li><li>Protractors</li><li>Measuring tape</li><li>Graph paper</li><li>Stopwatches</li></ul></div>
+      <div class="material-card"><h4>🎨 Craft &amp; Print</h4><ul><li>Cardstock for supply cards</li><li>Map paper for Master Atlas</li><li>Markers, crayons, pencils</li><li>String and rulers</li><li>Adventure journals</li></ul></div>
+      <div class="material-card"><h4>🎮 Game Pieces</h4><ul><li>Treasure chests (one per crew)</li><li>Compass rose templates</li><li>Glow sticks (cave week)</li><li>Printed badges</li><li>Dice, spinners, cards</li></ul></div>
+      <div class="material-card"><h4>🖼️ Classroom Setup</h4><ul><li>Large blank world map</li><li>5 "land" station displays</li><li>Crew-name posters</li><li>Atlas display board</li></ul></div>
+      <div class="material-card"><h4>📲 Digital (optional)</h4><ul><li>Projector for daily slides</li><li>Tablets with math games</li><li>Khan Academy modules</li><li>Adventure sound effects</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="container">
+    <span class="section-eyebrow">PARENT &amp; ADMIN</span>
+    <h2 class="section-title">Frequently Asked Questions</h2>
+    <div class="faq-grid">
+      <div class="faq-item"><h5>What grade levels is this for?</h5><p>Rising 4th and 5th graders. Mixed-level crews work well because older students mentor younger.</p></div>
+      <div class="faq-item"><h5>How many students per session?</h5><p>12–20 explorers, in crews of 3–4. One head teacher plus one assistant works best.</p></div>
+      <div class="faq-item"><h5>How much math vs. play?</h5><p>Roughly 60% direct math practice, 40% story/game framing. The framing is the carrot — the math is the meal.</p></div>
+      <div class="faq-item"><h5>What if a student misses a day?</h5><p>Each day's mission stands alone. They can complete the week's boss challenge with crew support.</p></div>
+      <div class="faq-item"><h5>Is there homework?</h5><p>It's summer — minimal. One short adventure journal entry per night.</p></div>
+      <div class="faq-item"><h5>What does my child take home?</h5><p>Journal, explorer pack, five map pieces, five mission badges, plus the Captain badge.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <span class="gold">Rising Stars Math Adventures</span> &middot; A 5-week summer program for Grades 4–5<br>
+    Mary, Star of the Sea School &middot; Designed by Dr. Peter Park &middot; Summer 2026
+  </div>
+</footer>
+
+</div><!-- /view-overview -->
+
+
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══ LESSONS VIEW ═════════════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="view" id="view-lessons">
+<div class="container">
+
+  <div id="lessonSelector">
+    <div class="explorer-banner" id="explorerBanner" style="display:none;">
+      <div class="explorer-info">
+        <span class="avatar" id="bannerAvatar">🧭</span>
+        <div>
+          <div class="explorer-name" id="bannerName">Explorer</div>
+          <div class="explorer-progress" id="bannerProgress">0 of 25 lessons complete</div>
+        </div>
+      </div>
+      <div class="explorer-actions">
+        <button onclick="openProfileModal()">🔄 Switch Explorer</button>
+        <button onclick="exportProgress()">💾 Save to File</button>
+        <button onclick="importProgress()">📂 Load from File</button>
+      </div>
+    </div>
+
+    <div class="no-profile-state" id="noProfileState" style="display:none;">
+      <div class="ico">🧭</div>
+      <h2 style="color:var(--navy); font-weight:900; margin-bottom:8px;">Welcome, Explorer!</h2>
+      <p style="color:var(--dim); max-width:540px; margin:0 auto 6px;">Create your explorer profile to start tracking your accomplishments across all 25 lessons. You can switch between explorers anytime, and you can save your progress to a file to take home.</p>
+      <button class="big-btn" onclick="openProfileModal()">+ Create Your Explorer</button>
+      <button class="big-btn" style="background:#1a2a4a; color:var(--gold); margin-left:8px;" onclick="importProgress()">📂 Load from File</button>
+    </div>
+
+    <div id="weekSections"></div>
+  </div>
+
+  <div class="lesson-view" id="lessonView" style="display:none;"></div>
+</div>
+</div><!-- /view-lessons -->
+
+<!-- Profile Modal -->
+<div class="modal-bg" id="profileModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>🧭 Choose Your Explorer</h3>
+      <button class="modal-close" onclick="closeProfileModal()">×</button>
+    </div>
+    <div class="modal-body">
+      <div id="profileList"></div>
+      <div class="add-profile-form">
+        <select id="newAvatar" title="Pick an avatar">
+          <option>🧭</option><option>⭐</option><option>🚀</option><option>🦄</option>
+          <option>🐉</option><option>🦅</option><option>🐬</option><option>🦊</option>
+          <option>🐯</option><option>🐢</option><option>🦁</option><option>🐧</option>
+        </select>
+        <input type="text" id="newProfileName" placeholder="New explorer's name" maxlength="40" onkeypress="if(event.key==='Enter') createProfile()">
+        <button onclick="createProfile()">+ Add Explorer</button>
+      </div>
+    </div>
+  </div>
+</div>
+<input type="file" id="importFile" accept=".json" style="display:none" onchange="handleImport(event)">
+
+<!-- Pack Modal -->
+<div class="modal-bg" id="packModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>🎒 Explorer's Pack</h3>
+      <button class="modal-close" onclick="closePack()">×</button>
+    </div>
+    <div class="modal-body">
+      <div class="pack-summary">
+        <div>Supplies Earned</div>
+        <div class="big" id="packCount">0 / 25</div>
+      </div>
+      <div class="pack-grid" id="packGrid"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════
+// HELPERS
+// ═══════════════════════════════════════════════════════════════════
+const rand = (a, b) => Math.floor(Math.random() * (b - a + 1)) + a;
+const choose = a => a[rand(0, a.length - 1)];
+const shuffleA = a => { for (let i = a.length - 1; i > 0; i--) { const j = rand(0, i); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+const fmt = n => Number.isInteger(n) ? n.toLocaleString() : String(n);
+const mcQ = (q, opts, correct, hint) => {
+  const shuffled = shuffleA([...opts]);
+  return { type: "mc", q, opts: shuffled.map(String), ans: shuffled.indexOf(correct), hint };
+};
+const mcFixed = (q, opts, ansIdx, hint) => ({ type: "mc", q, opts, ans: ansIdx, hint });
+const numQ = (q, ans, hint) => ({ type: "num", q, ans, hint });
+const gcd = (a, b) => b === 0 ? a : gcd(b, a % b);
+
+// ═══════════════════════════════════════════════════════════════════
+// LESSON METADATA + GENERATORS
+// ═══════════════════════════════════════════════════════════════════
+const LESSONS = [
+  // ━━ WEEK 1 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { week:1, day:1, theme:"ocean", icon:"🏝️", title:"Counting the Shipwreck Supplies",
+    tag:"WEEK 1 · DAY 1 · LOST ISLAND", skill:"Place value through hundred-thousands",
+    supply:{icon:"🥥",name:"Coconut Counter"}, badge:"Counter",
+    story:"🌊 Your ship has crashed onto a mysterious island. Coconuts, barrels, and ropes are scattered everywhere. Survival starts with knowing how to <em>count</em>.",
+    teach:`<div class="teach-step"><strong>Every digit lives in a "place."</strong> Look at <strong>234,567</strong>:<div class="place-value-table" style="margin-top:8px;"><div class="pv-cell"><div class="num">2</div><div class="lbl">100,000s</div></div><div class="pv-cell"><div class="num">3</div><div class="lbl">10,000s</div></div><div class="pv-cell"><div class="num">4</div><div class="lbl">1,000s</div></div><div class="pv-cell"><div class="num">5</div><div class="lbl">100s</div></div><div class="pv-cell"><div class="num">6</div><div class="lbl">10s</div></div><div class="pv-cell"><div class="num">7</div><div class="lbl">1s</div></div></div></div><div class="teach-step green"><strong>Same digit, different value.</strong> A 4 in thousands = 4,000.</div><div class="teach-step gold"><strong>Read large numbers</strong> in groups of 3.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { // value of digit
+          const places=[100000,10000,1000,100,10,1];
+          const names=["hundred-thousands","ten-thousands","thousands","hundreds","tens","ones"];
+          const n=rand(100000,999999);
+          const idx=rand(0,5);
+          const d=Number(String(n)[idx]);
+          if (d===0) return LESSONS[0].gen(slot); // re-roll if zero
+          const correct=d*places[idx];
+          const opts=[d, d*10, d*100, d*1000, d*10000, d*100000].filter(v=>v>0);
+          const uniq=[...new Set(opts)];
+          shuffleA(uniq);
+          const four=uniq.slice(0,4);
+          if(!four.includes(correct)){four[0]=correct;shuffleA(four);}
+          return mcQ(`What is the <strong>value</strong> of the digit ${d} in ${fmt(n)}?`, four, correct, `The ${d} is in the ${names[idx]} place — worth ${fmt(correct)}.`);
+        }
+        case 1: { // place name
+          const places=[1,10,100,1000,10000,100000];
+          const names=["ones","tens","hundreds","thousands","ten-thousands","hundred-thousands"];
+          const n=rand(100000,999999);
+          const idx=rand(0,5);
+          const d=Number(String(n).split('').reverse()[idx]);
+          if (d===0) return LESSONS[0].gen(slot);
+          const opts=[...names].slice(0,4);
+          if(!opts.includes(names[idx])) opts[0]=names[idx];
+          return mcQ(`What is the <strong>place</strong> of the ${d} in ${fmt(n)}?`, opts, names[idx], `Counting from right: ones, tens, hundreds, thousands... the ${d} is in ${names[idx]}.`);
+        }
+        case 2: { // compare two close numbers
+          const base=rand(10000,99999);
+          const a=base*10+rand(0,9);
+          const b=base*10+rand(0,9);
+          if (a===b) return LESSONS[0].gen(slot);
+          const bigger=Math.max(a,b);
+          return mcQ(`Which is GREATER: <strong>${fmt(a)}</strong> or <strong>${fmt(b)}</strong>?`, [fmt(a), fmt(b), "Equal"], fmt(bigger), `Compare digit by digit from left. ${fmt(bigger)} wins.`);
+        }
+        case 3: { // word form to number
+          const a=rand(2,9), b=rand(0,9), c=rand(0,9);
+          const num=a*100000 + b*10000 + c*1000 + rand(0,999);
+          const numStr=fmt(num);
+          const distractors=[num+1000, num-100, num+10000].filter(v=>v>0 && v!==num);
+          const opts=[num, ...distractors.slice(0,3)];
+          // Build word form
+          const ths=Math.floor(num/1000), rem=num%1000;
+          const wordTh=`${fmt(ths)} thousand`;
+          const wordRem=rem===0?'':`${fmt(rem)}`;
+          const wordForm=wordRem?`${wordTh}, ${wordRem}`:wordTh;
+          return mcQ(`Which number is <em>${wordForm}</em>?`, opts.map(fmt), fmt(num), `${wordForm} = ${numStr}.`);
+        }
+        case 4: { // build from parts
+          const t=rand(1,9), h=rand(0,9), o=rand(0,9);
+          const ans=t*1000+h*100+o;
+          return numQ(`${t} thousand${t>1?"s":""} + ${h} hundred${h===1?"":"s"} + ${o} one${o===1?"":"s"} = ?`, ans, `${t}×1000 + ${h}×100 + ${o} = ${fmt(ans)}.`);
+        }
+      }
+    }
+  },
+  { week:1, day:2, theme:"ocean", icon:"🏝️", title:"Reading the Tide",
+    tag:"WEEK 1 · DAY 2 · LOST ISLAND", skill:"Rounding to 10, 100, 1,000",
+    supply:{icon:"⭐",name:"Star Chart"}, badge:"Navigator",
+    story:"🌊 The tide is rising and falling. <em>Round</em> tide heights to predict when rocks stay dry.",
+    teach:`<div class="teach-step"><strong>Rounding</strong> means picking the nearest "nice" number.</div><div class="teach-step green"><strong>Less than 5 → round down. 5 or more → round up.</strong></div><div class="teach-step gold"><strong>Trick:</strong> Look at the digit JUST RIGHT of the place you're rounding to.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const n=rand(11,99); const r=Math.round(n/10)*10; return numQ(`Round <strong>${n}</strong> to the nearest 10.`, r, `Ones digit is ${n%10}. ${n%10>=5?"Round UP":"Round DOWN"} to ${r}.`); }
+        case 1: { const n=rand(110,999); const r=Math.round(n/100)*100; return numQ(`Round <strong>${n}</strong> to the nearest 100.`, r, `Tens digit is ${Math.floor((n%100)/10)}. ${Math.floor((n%100)/10)>=5?"Round UP":"Round DOWN"} to ${fmt(r)}.`); }
+        case 2: { const n=rand(1100,9999); const r=Math.round(n/1000)*1000; return numQ(`Round <strong>${fmt(n)}</strong> to the nearest 1,000.`, r, `Hundreds digit is ${Math.floor((n%1000)/100)}. ${Math.floor((n%1000)/100)>=5?"Round UP":"Round DOWN"} to ${fmt(r)}.`); }
+        case 3: { const target=choose([1000,5000,3000,7000]); const a=target-rand(50,499); const b=target+rand(50,499); const closer=Math.abs(a-target)<Math.abs(b-target)?a:b; return mcQ(`Which is CLOSER to ${fmt(target)}?`, [fmt(a), fmt(b), "Equal"], fmt(closer), `Distance: ${fmt(a)}→${Math.abs(a-target)}, ${fmt(b)}→${Math.abs(b-target)}. Smaller distance wins.`); }
+        case 4: { const n=rand(2100,8999); const r=Math.round(n/1000)*1000; return numQ(`Tide chart reads <strong>${fmt(n)} mm</strong>. Rounded to the nearest 1,000?`, r, `${Math.floor((n%1000)/100)>=5?"Round up":"Round down"} → ${fmt(r)}.`); }
+      }
+    }
+  },
+  { week:1, day:3, theme:"ocean", icon:"🏝️", title:"Building the Shelter",
+    tag:"WEEK 1 · DAY 3 · LOST ISLAND", skill:"Multi-digit add &amp; subtract",
+    supply:{icon:"🪵",name:"Sturdy Logs"}, badge:"Builder",
+    story:"🌊 Build a shelter before the storm! Add up palm logs, subtract what you've used.",
+    teach:`<div class="teach-step"><strong>Stack &amp; align</strong> the place values.</div><div class="teach-step green"><strong>Carry over</strong> when a column sums to 10+. <strong>Borrow</strong> when needed.</div><div class="teach-step gold"><strong>Check:</strong> if A + B = C, then C - B = A.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const a=rand(100,899), b=rand(100,999); return numQ(`${a} + ${b} = ?`, a+b, `${a} + ${b} = ${a+b}.`); }
+        case 1: { const a=rand(1000,4999), b=rand(1000,4999); return numQ(`${fmt(a)} + ${fmt(b)} = ? (no commas)`, a+b, `${fmt(a)} + ${fmt(b)} = ${fmt(a+b)}.`); }
+        case 2: { const b=rand(100,500), a=b+rand(100,499); return numQ(`${a} − ${b} = ?`, a-b, `${a} − ${b} = ${a-b}.`); }
+        case 3: { const b=rand(1000,1999), a=2000+rand(0,500); return numQ(`${fmt(a)} − ${fmt(b)} = ?`, a-b, `${fmt(a)} − ${fmt(b)} = ${fmt(a-b)}.`); }
+        case 4: { const need=rand(200,400), have=rand(50, need-30); return numQ(`You need ${need} logs. You have ${have}. How many more do you need?`, need-have, `${need} − ${have} = ${need-have}.`); }
+      }
+    }
+  },
+  { week:1, day:4, theme:"ocean", icon:"🏝️", title:"Crab Catch Multiplication",
+    tag:"WEEK 1 · DAY 4 · LOST ISLAND", skill:"Multi-digit multiplication",
+    supply:{icon:"🦀",name:"Crab Trap"}, badge:"Hunter",
+    story:"🌊 The crabs come at sunset. Multiply correctly and you'll eat for a week!",
+    teach:`<div class="teach-step"><strong>Multiplication is repeated addition.</strong></div><div class="teach-step green"><strong>Box method:</strong> 23 × 15 = (20+3)(10+5) = 200+100+30+15 = 345.</div><div class="teach-step gold"><strong>Estimate first.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const a=rand(2,9), b=rand(11,19); return numQ(`${a} × ${b} = ?`, a*b, `${a} × ${b} = ${a*b}.`); }
+        case 1: { const a=rand(11,29), b=rand(11,19); return numQ(`${a} × ${b} = ?`, a*b, `${a} × ${b} = ${a*b}.`); }
+        case 2: { const t=rand(4,8), c=rand(20,30); return numQ(`${t} traps × ${c} crabs each = ?`, t*c, `${t} × ${c} = ${t*c}.`); }
+        case 3: { const d=rand(3,7), c=rand(12,25); return numQ(`Each day you catch ${c} crabs. After ${d} days, total?`, d*c, `${d} × ${c} = ${d*c}.`); }
+        case 4: { const i=rand(10,18), b=rand(10,15); return numQ(`${i} islands, each with ${b} crab beaches. Beaches total?`, i*b, `${i} × ${b} = ${i*b}.`); }
+      }
+    }
+  },
+  { week:1, day:5, theme:"ocean", icon:"⚔", boss:true, title:"The Compass Quest (BOSS)",
+    tag:"WEEK 1 · DAY 5 · BOSS", skill:"All Week 1 skills",
+    supply:{icon:"🧭",name:"Compass + Island Map Piece"}, badge:"Captain of Week 1",
+    story:"⚔ The final challenge of Week 1. Apply everything you've learned to escape the island!",
+    teach:`<div class="teach-step"><strong>Boss strategies:</strong> read every problem twice.</div><div class="teach-step green"><strong>Multi-step:</strong> break problems into smaller steps.</div><div class="teach-step gold"><strong>Estimate before computing.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: return LESSONS[0].gen(0); // place value
+        case 1: return LESSONS[1].gen(2); // rounding
+        case 2: { const big=rand(2000,5000), small=rand(1000, big-500); return numQ(`You have ${fmt(big)} fish; your crew ate ${fmt(small)}. Fish remaining?`, big-small, `${fmt(big)} − ${fmt(small)} = ${fmt(big-small)}.`); }
+        case 3: { const r=rand(10,15), p=rand(15,25); return numQ(`Each raft fits ${p} explorers. ${r} rafts carry how many?`, r*p, `${r} × ${p} = ${r*p}.`); }
+        case 4: { const km=rand(200,300), d=rand(6,10); return numQ(`🧭 FINAL: You sail ${km} km per day for ${d} days. Trip length?`, km*d, `${km} × ${d} = ${fmt(km*d)} km.`); }
+      }
+    }
+  },
+  // ━━ WEEK 2 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { week:2, day:1, theme:"sand", icon:"🏛️", title:"The Stone of Equivalence",
+    tag:"WEEK 2 · DAY 1 · TEMPLE", skill:"Equivalent fractions",
+    supply:{icon:"📜",name:"Sacred Scroll"}, badge:"Riddle-Solver",
+    story:"🏛️ The temple door is sealed. Prove you know that <em>two fractions can look different but mean the same thing</em>.",
+    teach:`<div class="teach-step"><strong>Equivalent fractions name the same value.</strong></div><div class="teach-step green"><strong>Multiply top &amp; bottom by the same number.</strong></div><div class="teach-step gold"><strong>Simplify</strong> by dividing.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { // find equivalent
+          const pairs=[[1,2],[1,3],[1,4],[2,3],[3,4],[2,5],[3,5]];
+          const [n,d]=choose(pairs);
+          const k=rand(2,4);
+          const correct=`${n*k}/${d*k}`;
+          const distractors=[`${n+1}/${d}`,`${n}/${d+1}`,`${n*2}/${d}`,`${n+1}/${d+1}`].filter(s=>s!==`${n}/${d}` && s!==correct);
+          return mcQ(`Which fraction is <strong>equivalent</strong> to ${n}/${d}?`, [correct, ...distractors.slice(0,3)], correct, `${n}/${d} × ${k}/${k} = ${correct}.`);
+        }
+        case 1: { // fill in blank
+          const pairs=[[1,2,4],[1,3,6],[2,3,6],[3,4,8],[1,4,8],[2,5,10]];
+          const [n,d,td]=choose(pairs);
+          const k=td/d;
+          const ans=n*k;
+          return numQ(`Fill the blank: ${n}/${d} = ?/${td}`, ans, `${n}/${d} × ${k}/${k} = ${ans}/${td}.`);
+        }
+        case 2: { // simplify
+          const pairs=[[6,8,3,4],[4,6,2,3],[10,15,2,3],[6,9,2,3],[8,12,2,3],[9,12,3,4]];
+          const [n,d,sn,sd]=choose(pairs);
+          const correct=`${sn}/${sd}`;
+          const distractors=[`${n/2}/${d/2}`,`${sn+1}/${sd+1}`,`${n}/${d}`].filter(s=>s!==correct);
+          return mcQ(`Simplify <strong>${n}/${d}</strong> to lowest terms:`, [correct, ...distractors.slice(0,3)], correct, `Divide top and bottom by ${gcd(n,d)}: ${correct}.`);
+        }
+        case 3: { // not equivalent
+          const pairs=[[2,3,[4,6],[6,9],[8,12]],[1,2,[2,4],[3,6],[4,8]],[3,4,[6,8],[9,12],[12,16]]];
+          const set=choose(pairs);
+          const [n,d,...eqs]=set;
+          // make a fake one
+          const fake=[n+1, d+rand(1,2)];
+          const opts=[`${eqs[0][0]}/${eqs[0][1]}`,`${eqs[1][0]}/${eqs[1][1]}`,`${eqs[2][0]}/${eqs[2][1]}`,`${fake[0]}/${fake[1]}`];
+          const correct=`${fake[0]}/${fake[1]}`;
+          return mcQ(`Which is <strong>NOT</strong> equivalent to ${n}/${d}?`, opts, correct, `The others can be reached by multiplying ${n}/${d}. ${correct} cannot.`);
+        }
+        case 4: { // compare
+          const pairs=[[2,3,5,9],[1,2,4,9],[3,4,5,8],[2,3,7,12],[1,3,2,9]];
+          const [a,b,c,d]=choose(pairs);
+          const va=a/b, vc=c/d;
+          const bigger=va>vc?`${a}/${b}`:`${c}/${d}`;
+          return mcQ(`Which is GREATER: <strong>${a}/${b}</strong> or <strong>${c}/${d}</strong>?`, [`${a}/${b}`,`${c}/${d}`,"Equal"], bigger, `Convert to common denom and compare. ${bigger} is bigger.`);
+        }
+      }
+    }
+  },
+  { week:2, day:2, theme:"sand", icon:"🏛️", title:"The Hall of Mirrors",
+    tag:"WEEK 2 · DAY 2 · TEMPLE", skill:"Comparing fractions",
+    supply:{icon:"🪞",name:"Magic Mirror"}, badge:"Mirror-Reader",
+    story:"🏛️ The Hall of Mirrors reflects fractions. Choose the <em>bigger</em> or <em>smaller</em>.",
+    teach:`<div class="teach-step"><strong>Same denominator?</strong> Bigger numerator = bigger fraction.</div><div class="teach-step green"><strong>Same numerator?</strong> SMALLER denominator = BIGGER fraction.</div><div class="teach-step gold"><strong>Different both?</strong> Common denominator first.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const d=rand(5,9), a=rand(1, d-1), b=rand(1, d-1); if (a===b) return LESSONS[6].gen(0); const bigger=a>b?`${a}/${d}`:`${b}/${d}`; return mcQ(`GREATER: ${a}/${d} or ${b}/${d}?`, [`${a}/${d}`,`${b}/${d}`,"Equal"], bigger, `Same denominator: bigger numerator wins.`); }
+        case 1: { const a=rand(2,6), b=a+rand(1,4); const bigger=`1/${a}`; return mcQ(`GREATER: 1/${a} or 1/${b}?`, [`1/${a}`,`1/${b}`,"Equal"], bigger, `Same numerator: smaller denominator = bigger piece.`); }
+        case 2: { const pairs=[[2,3,3,4,"3/4"],[1,2,3,5,"3/5"],[3,4,5,6,"5/6"],[2,5,3,4,"3/4"],[1,3,2,5,"2/5"]]; const p=choose(pairs); const [a,b,c,d,big]=p; return mcQ(`GREATER: ${a}/${b} or ${c}/${d}?`, [`${a}/${b}`,`${c}/${d}`,"Equal"], big, `Common denominator reveals ${big}.`); }
+        case 3: { const sets=[[[1,2],[1,3],[1,4]],[[1,3],[1,4],[1,6]],[[1,2],[1,5],[1,10]]]; const set=choose(sets); set.sort((a,b)=>a[0]*b[1]-b[0]*a[1]); // small to large
+          const opts=[`${set[0][0]}/${set[0][1]}, ${set[1][0]}/${set[1][1]}, ${set[2][0]}/${set[2][1]}`,
+                     `${set[2][0]}/${set[2][1]}, ${set[1][0]}/${set[1][1]}, ${set[0][0]}/${set[0][1]}`,
+                     `${set[1][0]}/${set[1][1]}, ${set[0][0]}/${set[0][1]}, ${set[2][0]}/${set[2][1]}`];
+          return mcQ(`Order from SMALLEST to LARGEST:`, opts, opts[0], `Same numerator, smaller denom = bigger piece. So the smallest one has the biggest denom.`);
+        }
+        case 4: { const opts=[["7/8","Closest"],["1/2","Far from 1"],["3/4","Closer to 1"],["5/6","Closer still"]]; const correct="7/8"; return mcQ(`Which fraction is CLOSEST to 1?`, ["1/2","7/8","3/4","5/6"], correct, `7/8 = 0.875 — only 1/8 from 1. The closest.`); }
+      }
+    }
+  },
+  { week:2, day:3, theme:"sand", icon:"🏛️", title:"The Adding Pool",
+    tag:"WEEK 2 · DAY 3 · TEMPLE", skill:"Adding fractions",
+    supply:{icon:"💧",name:"Water Drop"}, badge:"Pool-Filler",
+    story:"🏛️ Combine fraction drops correctly to fill the Adding Pool!",
+    teach:`<div class="teach-step"><strong>Same denominator?</strong> Add numerators. Keep denominator.</div><div class="teach-step green"><strong>Different?</strong> Find common denominator first.</div><div class="teach-step gold"><strong>Simplify</strong> when you can.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: case 1: { const d=rand(4,8); const a=rand(1, d-2), b=rand(1, d-a); const correct=`${a+b}/${d}`; const dist=[`${a+b}/${d*2}`,`${a*b}/${d}`,`${a+b+1}/${d}`]; return mcQ(`${a}/${d} + ${b}/${d} = ?`, [correct,...dist], correct, `${a}+${b}=${a+b}, keep ${d}.`); }
+        case 2: { const pairs=[[1,2,1,4,3,4],[1,3,1,6,1,2],[1,4,1,8,3,8],[1,2,1,6,2,3]]; const [a,b,c,d,sn,sd]=choose(pairs); const correct=`${sn}/${sd}`; const dist=[`${a+c}/${b+d}`,`${a*c}/${b*d}`,`${a+c}/${b*d}`]; return mcQ(`${a}/${b} + ${c}/${d} = ?`, [correct,...dist], correct, `Common denom ${b*d/gcd(b,d)}: result simplifies to ${correct}.`); }
+        case 3: { const d=rand(4,9); const a=rand(1, d-3), b=rand(1, d-a-1); return numQ(`Fill the blank: ${a}/${d} + ${b}/${d} = ?/${d}`, a+b, `${a}+${b}=${a+b}.`); }
+        case 4: { const pairs=[[1,3,1,6,1,2],[1,4,1,8,3,8],[1,2,1,4,3,4],[2,3,1,6,5,6]]; const [a,b,c,d,sn,sd]=choose(pairs); const correct=`${sn}/${sd}`; return mcQ(`${a}/${b} + ${c}/${d} = ?`, [correct,`${a+c}/${b+d}`,`${a+c}/${d}`,`${a*c}/${b*d}`], correct, `Common denom → result = ${correct}.`); }
+      }
+    }
+  },
+  { week:2, day:4, theme:"sand", icon:"🏛️", title:"The Subtracting Doorway",
+    tag:"WEEK 2 · DAY 4 · TEMPLE", skill:"Subtracting fractions",
+    supply:{icon:"🗝️",name:"Stone Key"}, badge:"Door-Opener",
+    story:"🏛️ The doorway demands balance. Subtract the right fraction.",
+    teach:`<div class="teach-step"><strong>Same denominator?</strong> Subtract numerators.</div><div class="teach-step green"><strong>Different?</strong> Common denominator first.</div><div class="teach-step gold"><strong>Mixed numbers:</strong> 2 1/2 = 5/2.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const d=rand(5,9); const a=rand(2,d-1); const b=rand(1,a-1); return mcQ(`${a}/${d} − ${b}/${d} = ?`, [`${a-b}/${d}`,`${a-b}/${d*2}`,`${a+b}/${d}`,`${a*b}/${d}`], `${a-b}/${d}`, `${a}−${b}=${a-b}, keep ${d}.`); }
+        case 1: { const pairs=[[3,4,1,2,1,4],[5,6,1,3,1,2],[5,6,1,2,1,3],[7,8,1,4,5,8],[3,4,1,4,1,2]]; const [a,b,c,d,sn,sd]=choose(pairs); const correct=`${sn}/${sd}`; return mcQ(`${a}/${b} − ${c}/${d} = ?`, [correct,`${a-c}/${b+d}`,`${a-c}/${b-d}`,`${a*c}/${b*d}`], correct, `Common denom, then subtract: ${correct}.`); }
+        case 2: { const w=rand(2,4); const n=rand(1,3); const d=rand(n+1,5); return numQ(`Convert ${w} ${n}/${d} to improper: ?/${d}`, w*d+n, `${w}×${d}+${n} = ${w*d+n}. So ${w*d+n}/${d}.`); }
+        case 3: { const d=rand(4,8); const n=rand(d-3, d-1); return mcQ(`1 − ${n}/${d} = ?`, [`${d-n}/${d}`,`${n}/${d}`,`${d}/${d}`,`${1}/${d}`], `${d-n}/${d}`, `1 = ${d}/${d}. ${d}/${d} − ${n}/${d} = ${d-n}/${d}.`); }
+        case 4: { const pairs=[[5,6,1,3,1,2],[3,4,1,2,1,4],[7,8,1,2,3,8],[5,6,2,3,1,6],[4,5,1,10,7,10]]; const [a,b,c,d,sn,sd]=choose(pairs); const correct=`${sn}/${sd}`; return mcQ(`${a}/${b} − ${c}/${d} = ?`, [correct,`${a-c}/${b-d}`,`${a-c}/${b+d}`,`${a*c}/${b*d}`], correct, `Common denom: result = ${correct}.`); }
+      }
+    }
+  },
+  { week:2, day:5, theme:"sand", icon:"⚔", boss:true, title:"The Sacred Relic (BOSS)",
+    tag:"WEEK 2 · DAY 5 · BOSS", skill:"All fractions",
+    supply:{icon:"🔑",name:"Pyramid Key + Temple Map Piece"}, badge:"Captain of Week 2",
+    story:"⚔ The sacred relic awaits! Combine all your fraction skills.",
+    teach:`<div class="teach-step"><strong>Simplify as you go.</strong></div><div class="teach-step green"><strong>Common denominators</strong> for ±.</div><div class="teach-step gold"><strong>Check:</strong> does the answer make sense?</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: return LESSONS[5].gen(0);
+        case 1: return LESSONS[6].gen(2);
+        case 2: return LESSONS[7].gen(0);
+        case 3: return LESSONS[8].gen(0);
+        case 4: { const pairs=[[1,2,1,4,1,4],[1,3,1,3,1,3],[2,5,1,5,2,5],[3,4,1,4,1,4],[1,4,1,2,1,4]]; const [a,b,c,d,sn,sd]=choose(pairs); const otherFrac=`${sn}/${sd}`; return mcQ(`🔑 FINAL: ${a}/${b} is gold, ${c}/${d} is silver. The rest is OTHER materials. Other = ?`, [otherFrac,`${a+c}/${b+d}`,`${a+c}/${b*d}`,"0"], otherFrac, `Gold + silver = ${a*d+c*b}/${b*d}. Other = 1 minus that.`); }
+      }
+    }
+  },
+  // ━━ WEEK 3 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { week:3, day:1, theme:"cave", icon:"💎", title:"Glowing Crystals",
+    tag:"WEEK 3 · DAY 1 · CAVE", skill:"Decimal place value",
+    supply:{icon:"🔦",name:"Crystal Lantern"}, badge:"Crystal Bearer",
+    story:"💎 Crystals glow brighter with bigger numbers. A 0.4 glows MUCH brighter than a 0.04!",
+    teach:`<div class="teach-step"><strong>The decimal point separates whole from parts.</strong></div><div class="teach-step green"><strong>Position matters!</strong> 0.4 = 4 tenths. 0.04 = 4 hundredths (10× smaller).</div><div class="teach-step gold"><strong>Comparing?</strong> Line up decimal points.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const places=["tenths","hundredths","thousandths"]; const idx=rand(0,2); const w=rand(1,9), o=rand(0,9), t=rand(0,9), th=rand(0,9); const num=w+(o/10)+(t/100)+(th/1000); const digits=[o,t,th]; const d=digits[idx]; if (d===0) return LESSONS[10].gen(slot); return mcQ(`What is the place of the ${d} in ${num.toFixed(3)}?`, ["Tenths","Hundredths","Thousandths","Ones"], places[idx].charAt(0).toUpperCase()+places[idx].slice(1), `After the decimal: position ${idx+1} = ${places[idx]}.`); }
+        case 1: { const t=rand(1,9), h=rand(0,9); const ans=t/10+h/100; const ansStr=ans.toFixed(2); const word=`${t} tenth${t>1?'s':''} and ${h} hundredth${h===1?'':'s'}`; return numQ(`Write <em>${word}</em> as a decimal (use period).`, ans, `${t} tenths + ${h} hundredths = ${ansStr}.`); }
+        case 2: { const a=rand(1,9)/10; const b=rand(50,99)/100; const bigger=Math.max(a,b); return mcQ(`Which is GREATER: ${a} or ${b.toFixed(2)}?`, [String(a), b.toFixed(2), "Equal"], String(bigger), `Pad: ${a.toFixed(2)} vs ${b.toFixed(2)}.`); }
+        case 3: { const sets=[[0.04, 0.044, 0.4, 0.404],[0.1, 0.11, 0.101, 0.011],[0.5, 0.55, 0.505, 0.055]]; const set=choose(sets); const sorted=[...set].sort((a,b)=>a-b); const correct=sorted.join(", "); const wrong1=[...set].sort((a,b)=>b-a).join(", "); const wrong2=set.join(", "); return mcQ(`Order from smallest to largest: ${set.join(", ")}`, [correct, wrong1, wrong2, [...set].reverse().join(", ")], correct, `Pad zeros and compare digit by digit.`); }
+        case 4: { const vals=[rand(60,75)/100, rand(70,80)/100, rand(700,750)/1000, rand(60,75)/1000]; const max=Math.max(...vals); return mcQ(`Which crystal glows BRIGHTEST?`, vals.map(v=>String(v)), String(max), `Pad to match: ${max} is the largest.`); }
+      }
+    }
+  },
+  { week:3, day:2, theme:"cave", icon:"💎", title:"Crystal Comparison",
+    tag:"WEEK 3 · DAY 2 · CAVE", skill:"Comparing decimals",
+    supply:{icon:"🔍",name:"Magnifier"}, badge:"Decimal Detective",
+    story:"💎 Some crystals look the same but are very different sizes. Spot the differences!",
+    teach:`<div class="teach-step"><strong>Line up decimals</strong>, compare left to right.</div><div class="teach-step green"><strong>Add trailing zeros</strong>: 0.5 = 0.50.</div><div class="teach-step gold"><strong>Whole numbers matter MOST.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const a=rand(1,9)/10, b=rand(50,90)/100; const bigger=Math.max(a,b); return mcQ(`GREATER: ${a} or ${b.toFixed(2)}?`, [String(a),b.toFixed(2),"Equal"], String(bigger), `${a.toFixed(2)} vs ${b.toFixed(2)}.`); }
+        case 1: { const sets=[[1.2,1.02,1.20,1.002],[2.5,2.05,2.50,2.005],[0.8,0.08,0.80,0.008]]; const set=choose(sets); const min=Math.min(...set); return mcQ(`SMALLEST: ${set.map(String).join(", ")}?`, set.map(String), String(min), `${min} is the smallest.`); }
+        case 2: { const set=[0.3, 0.33, 0.303, 0.033]; shuffleA(set); const correct=[...set].sort((a,b)=>b-a).join(", "); return mcQ(`Order largest to smallest: ${set.join(", ")}`, [correct, set.join(", "), [...set].sort((a,b)=>a-b).join(", "), [...set].reverse().join(", ")], correct, `Sort largest first.`); }
+        case 3: { const n=rand(10,99)/100; return numQ(`How many hundredths in ${n.toFixed(2)}? (just the number)`, n*100, `${n.toFixed(2)} = ${n*100} hundredths.`); }
+        case 4: { const vals=[rand(50,80)/100, rand(55,80)/100, rand(550,650)/1000, rand(5,9)/100]; const max=Math.max(...vals); return mcQ(`Which crystal is HEAVIEST?`, vals.map(v=>String(v)+" g"), String(max)+" g", `${max} g is the heaviest.`); }
+      }
+    }
+  },
+  { week:3, day:3, theme:"cave", icon:"💎", title:"Combining Crystals",
+    tag:"WEEK 3 · DAY 3 · CAVE", skill:"Adding decimals",
+    supply:{icon:"⚗️",name:"Crystal Vial"}, badge:"Cluster Maker",
+    story:"💎 Combine smaller crystals to form a giant glowing cluster!",
+    teach:`<div class="teach-step"><strong>Stack &amp; align decimals.</strong></div><div class="teach-step green"><strong>Fill missing places with zeros.</strong></div><div class="teach-step gold"><strong>Bring the decimal straight down.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const a=rand(1,4)/10, b=rand(1,5)/10; return numQ(`${a} + ${b} = ?`, +(a+b).toFixed(2), `= ${(a+b).toFixed(1)}.`); }
+        case 1: { const a=rand(1,5)/10, b=rand(10,40)/100; const ans=+(a+b).toFixed(2); return numQ(`${a} + ${b} = ?`, ans, `Pad: ${a.toFixed(2)} + ${b.toFixed(2)} = ${ans}.`); }
+        case 2: { const a=rand(11,29)/10, b=rand(11,29)/10; const ans=+(a+b).toFixed(2); return numQ(`${a} + ${b} = ?`, ans, `${a} + ${b} = ${ans}.`); }
+        case 3: { const a=rand(1,9)/100, b=rand(10,40)/100; const ans=+(a+b).toFixed(2); return numQ(`${a.toFixed(2)} + ${b.toFixed(2)} = ?`, ans, `= ${ans}.`); }
+        case 4: { const a=rand(2,5)/10, b=rand(40,60)/100, c=rand(1,15)/100; const ans=+(a+b+c).toFixed(2); return numQ(`Three crystals: ${a} g, ${b.toFixed(2)} g, ${c.toFixed(2)} g. Total?`, ans, `Sum = ${ans} g.`); }
+      }
+    }
+  },
+  { week:3, day:4, theme:"cave", icon:"💎", title:"Splitting Crystals",
+    tag:"WEEK 3 · DAY 4 · CAVE", skill:"Subtracting decimals; ×10s",
+    supply:{icon:"⛏️",name:"Pickaxe"}, badge:"Crystal Splitter",
+    story:"💎 Trim crystals to exact sizes for the cave guardian.",
+    teach:`<div class="teach-step"><strong>Line up, subtract.</strong></div><div class="teach-step green"><strong>×10:</strong> move decimal 1 place RIGHT.</div><div class="teach-step gold"><strong>×100:</strong> move 2 places right.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const a=rand(5,9)/10, b=rand(1,Math.floor(a*10)-1)/10; const ans=+(a-b).toFixed(2); return numQ(`${a} − ${b} = ?`, ans, `= ${ans}.`); }
+        case 1: { const a=rand(15,29)/10, b=rand(50,100)/100; const ans=+(a-b).toFixed(2); return numQ(`${a} − ${b.toFixed(2)} = ?`, ans, `${a.toFixed(2)} − ${b.toFixed(2)} = ${ans}.`); }
+        case 2: { const n=rand(10,90)/100; return numQ(`${n.toFixed(2)} × 10 = ?`, +(n*10).toFixed(2), `Move decimal 1 right: ${(n*10).toFixed(1)}.`); }
+        case 3: { const n=rand(1,9)/100; return numQ(`${n.toFixed(2)} × 100 = ?`, n*100, `Move decimal 2 right: ${n*100}.`); }
+        case 4: { const w=rand(2,5), p=rand(1,9)/10, s=rand(10,50)/100; const start=w+p; const ans=+(start-s).toFixed(2); return numQ(`A crystal weighs ${start.toFixed(1)} g. You shave off ${s.toFixed(2)} g. New weight in grams?`, ans, `${start.toFixed(2)} − ${s.toFixed(2)} = ${ans} g.`); }
+      }
+    }
+  },
+  { week:3, day:5, theme:"cave", icon:"⚔", boss:true, title:"The Crystal Heart (BOSS)",
+    tag:"WEEK 3 · DAY 5 · BOSS", skill:"All decimals",
+    supply:{icon:"💖",name:"Crystal Heart + Cave Map Piece"}, badge:"Captain of Week 3",
+    story:"⚔ The Crystal Heart pulses at the cave's center. Claim it!",
+    teach:`<div class="teach-step"><strong>Estimate first.</strong></div><div class="teach-step green"><strong>One step at a time.</strong></div><div class="teach-step gold"><strong>Read units carefully.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: return LESSONS[10].gen(0);
+        case 1: return LESSONS[11].gen(1);
+        case 2: return LESSONS[12].gen(1);
+        case 3: return LESSONS[13].gen(1);
+        case 4: { const c=rand(3,5); const w=rand(20,30)/100; const ans=+(c*w).toFixed(2); return numQ(`💎 FINAL: ${c} crystals weigh ${w.toFixed(2)} g each. Total in grams?`, ans, `${c} × ${w.toFixed(2)} = ${ans} g.`); }
+      }
+    }
+  },
+  // ━━ WEEK 4 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { week:4, day:1, theme:"sky", icon:"☁️", title:"Cloud Architects",
+    tag:"WEEK 4 · DAY 1 · SKY", skill:"Perimeter",
+    supply:{icon:"📐",name:"Sky Protractor"}, badge:"Sky Architect",
+    story:"☁️ Build fences around cloud-gardens. Compute perimeters!",
+    teach:`<div class="teach-step"><strong>Perimeter = sum of all sides.</strong></div><div class="teach-step green"><strong>Rectangle:</strong> P = 2(l+w).</div><div class="teach-step gold"><strong>Include units!</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const l=rand(4,12), w=rand(3,10); return numQ(`Rectangle ${l} × ${w} cm. Perimeter? (number only)`, 2*(l+w), `2 × (${l}+${w}) = ${2*(l+w)}.`); }
+        case 1: { const s=rand(4,15); return numQ(`Square with side ${s} m. Perimeter?`, 4*s, `4 × ${s} = ${4*s}.`); }
+        case 2: { const a=rand(4,10), b=rand(4,10), c=rand(4,10); return numQ(`Triangle with sides ${a}, ${b}, ${c} m. Perimeter?`, a+b+c, `${a}+${b}+${c} = ${a+b+c}.`); }
+        case 3: { const target=choose([20,24,28,30,36]); const valid=[]; for(let l=2;l<=target/2;l++){const w=target/2-l; if(w>0 && Number.isInteger(w)) valid.push([l,w]);} const pick=choose(valid); return mcQ(`You have ${target} m of rope. Which rectangle uses ALL of it?`, [`${pick[0]} × ${pick[1]}`,`${pick[0]+1} × ${pick[1]}`,`${pick[0]} × ${pick[1]+1}`,`${pick[0]-1} × ${pick[1]}`], `${pick[0]} × ${pick[1]}`, `2(${pick[0]}+${pick[1]})=${target}.`); }
+        case 4: { const sides=[rand(2,8),rand(2,8),rand(2,8),rand(2,8),rand(2,8),rand(2,8)]; const sum=sides.reduce((a,b)=>a+b,0); return numQ(`L-shape with sides ${sides.join(", ")} m. Perimeter?`, sum, `Sum all sides: ${sum} m.`); }
+      }
+    }
+  },
+  { week:4, day:2, theme:"sky", icon:"☁️", title:"Sky Pastures",
+    tag:"WEEK 4 · DAY 2 · SKY", skill:"Area",
+    supply:{icon:"🐑",name:"Sheep Counter"}, badge:"Pasture Master",
+    story:"☁️ How many sky-sheep can graze? Area = space inside.",
+    teach:`<div class="teach-step"><strong>Area = length × width</strong> for a rectangle.</div><div class="teach-step green"><strong>Square units</strong> (m², cm²).</div><div class="teach-step gold"><strong>Square = side × side.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const l=rand(5,12), w=rand(3,10); return numQ(`Rectangle ${l} × ${w} cm. Area?`, l*w, `${l} × ${w} = ${l*w}.`); }
+        case 1: { const s=rand(5,12); return numQ(`Square with side ${s} m. Area?`, s*s, `${s} × ${s} = ${s*s}.`); }
+        case 2: { const l=rand(10,15), w=rand(8,12); return numQ(`Pasture ${l} × ${w} m. Area?`, l*w, `${l} × ${w} = ${l*w}.`); }
+        case 3: { const area=choose([12,18,24,36,48]); const pairs=[]; for(let a=2;a<=area;a++){if(area%a===0 && area/a<=12) pairs.push([a, area/a]);} const picks=pairs.slice(0,3); return mcQ(`A rectangle has area ${area} cm². Which COULD be its sides?`, [`${picks[0][0]}×${picks[0][1]}`,`${picks[1][0]}×${picks[1][1]}`,`${picks[2][0]}×${picks[2][1]}`,"All three"], "All three", `All these products equal ${area}.`); }
+        case 4: { const l=rand(8,15), w=rand(4,8); const per=rand(2,4); return numQ(`Pasture ${l}×${w} m. Each sheep needs ${per} m². How many sheep fit?`, Math.floor((l*w)/per), `${l*w} ÷ ${per} = ${Math.floor((l*w)/per)} sheep.`); }
+      }
+    }
+  },
+  { week:4, day:3, theme:"sky", icon:"☁️", title:"Angle Birds",
+    tag:"WEEK 4 · DAY 3 · SKY", skill:"Angles",
+    supply:{icon:"🦅",name:"Sky Bird"}, badge:"Angle Master",
+    story:"☁️ Identify angles to direct birds home!",
+    teach:`<div class="teach-step"><strong>Right = 90°.</strong> Acute &lt; 90°. Obtuse 90°-180°.</div><div class="teach-step green"><strong>Straight = 180°.</strong></div><div class="teach-step gold"><strong>Use a protractor.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const a=rand(15,85); return mcQ(`A ${a}° angle is:`, ["Acute","Right","Obtuse","Straight"], "Acute", `< 90° = acute.`); }
+        case 1: { return mcQ(`A 90° angle is:`, ["Acute","Right","Obtuse","Straight"], "Right", `Exactly 90° = right.`); }
+        case 2: { const a=rand(100,170); return mcQ(`A ${a}° angle is:`, ["Acute","Right","Obtuse","Straight"], "Obtuse", `Between 90° and 180° = obtuse.`); }
+        case 3: { const a=rand(20,160); return numQ(`Two angles together make a straight angle (180°). One is ${a}°. The other is ?°`, 180-a, `180 − ${a} = ${180-a}.`); }
+        case 4: { const a=rand(10,80); return numQ(`Two angles make a right angle (90°). One is ${a}°. The other?`, 90-a, `90 − ${a} = ${90-a}.`); }
+      }
+    }
+  },
+  { week:4, day:4, theme:"sky", icon:"☁️", title:"Star Maps",
+    tag:"WEEK 4 · DAY 4 · SKY", skill:"Coordinate plane",
+    supply:{icon:"⭐",name:"Star Compass"}, badge:"Star Cartographer",
+    story:"☁️ Find sky-islands using (x, y) coordinates!",
+    teach:`<div class="teach-step"><strong>(x, y)</strong>: x across, y up.</div><div class="teach-step green"><strong>(3, 5)</strong> = 3 right, 5 up.</div><div class="teach-step gold"><strong>Always x first, y second.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const x=rand(1,9), y=rand(1,9); return mcQ(`Where is the point (${x}, ${y})?`, [`${x} up, ${y} right`,`${x} right, ${y} up`,`${y} right, ${x} up`,`At the origin`], `${x} right, ${y} up`, `x=across, y=up.`); }
+        case 1: { return mcQ(`The origin is at:`, ["(0, 0)","(1, 1)","(0, 1)","(1, 0)"], "(0, 0)", `(0, 0) is the origin.`); }
+        case 2: { const x=rand(2,7), y=rand(2,7), d=rand(1,3); return mcQ(`A sky island is at (${x}, ${y}). Move ${d} right. New?`, [`(${x}, ${y+d})`,`(${x+d}, ${y})`,`(${x-d}, ${y})`,`(${x}, ${y-d})`], `(${x+d}, ${y})`, `Add to x: (${x+d}, ${y}).`); }
+        case 3: { const t=choose([[3,4,5],[6,8,10],[5,12,13]]); return mcQ(`Distance from (0,0) to (${t[0]}, ${t[1]})?`, [`${t[2]} units`,`${t[0]+t[1]} units`,`${t[0]*t[1]} units`,`${Math.floor((t[0]+t[1])/2)} units`], `${t[2]} units`, `√(${t[0]}² + ${t[1]}²) = ${t[2]}.`); }
+        case 4: { const x=rand(2,8), y=rand(2,8); return numQ(`Plot (${x}, ${y}). What's the x-coordinate?`, x, `x is the first number: ${x}.`); }
+      }
+    }
+  },
+  { week:4, day:5, theme:"sky", icon:"⚔", boss:true, title:"Build the Sky Bridge (BOSS)",
+    tag:"WEEK 4 · DAY 5 · BOSS", skill:"All geometry",
+    supply:{icon:"🌉",name:"Bridge Plans + Sky Map Piece"}, badge:"Captain of Week 4",
+    story:"⚔ Connect two sky-islands using all your geometry skills!",
+    teach:`<div class="teach-step"><strong>Draw it first.</strong></div><div class="teach-step green"><strong>Match constraints.</strong></div><div class="teach-step gold"><strong>Check units.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: return LESSONS[15].gen(0);
+        case 1: return LESSONS[16].gen(0);
+        case 2: { return mcQ(`Corner of a square is:`, ["Acute","Right","Obtuse","Straight"], "Right", `Square corners = 90° = right.`); }
+        case 3: { const x=rand(3,8), y=rand(3,8), d=rand(1,2); return mcQ(`Point (${x}, ${y}). Move ${d} down. New?`, [`(${x}, ${y+d})`,`(${x}, ${y-d})`,`(${x-d}, ${y})`,`(${x+d}, ${y})`], `(${x}, ${y-d})`, `Subtract from y: (${x}, ${y-d}).`); }
+        case 4: { const l=rand(8,12), w=rand(3,5); return numQ(`🌉 FINAL: Bridge ${l}×${w} m. Area in m²?`, l*w, `${l} × ${w} = ${l*w}.`); }
+      }
+    }
+  },
+  // ━━ WEEK 5 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  { week:5, day:1, theme:"space", icon:"🚀", title:"Stellar Data",
+    tag:"WEEK 5 · DAY 1 · SPACE", skill:"Bar graphs &amp; mean",
+    supply:{icon:"📊",name:"Data Pad"}, badge:"Data Analyst",
+    story:"🚀 Read planet temperature data: Mercury 95, Venus 80, Earth 45, Mars 25, Jupiter 15.",
+    teach:`<div class="teach-step"><strong>Bar graphs:</strong> taller = bigger.</div><div class="teach-step green"><strong>Mean = sum ÷ count.</strong></div><div class="teach-step gold"><strong>Max = biggest. Min = smallest.</strong></div>`,
+    gen: (slot) => {
+      const data={Mercury:95,Venus:80,Earth:45,Mars:25,Jupiter:15};
+      const names=Object.keys(data);
+      switch(slot) {
+        case 0: { const hot=names.reduce((a,b)=>data[a]>data[b]?a:b); return mcQ(`Which planet has the HIGHEST temp?`, names, hot, `${hot} at ${data[hot]}°.`); }
+        case 1: { const cold=names.reduce((a,b)=>data[a]<data[b]?a:b); return mcQ(`Which has the LOWEST temp?`, names, cold, `${cold} at ${data[cold]}°.`); }
+        case 2: { const [a,b]=shuffleA([...names]).slice(0,2); return numQ(`${a} (${data[a]}°) minus ${b} (${data[b]}°) = ? degrees`, Math.abs(data[a]-data[b]), `|${data[a]} − ${data[b]}| = ${Math.abs(data[a]-data[b])}.`); }
+        case 3: { const sum=Object.values(data).reduce((a,b)=>a+b,0); return numQ(`Mean of 95, 80, 45, 25, 15?`, sum/5, `${sum}÷5 = ${sum/5}.`); }
+        case 4: { return mcQ(`Cooler than Earth (45°)?`, ["Mercury, Venus","Mars, Jupiter","Earth only","All five"], "Mars, Jupiter", `Mars (25) and Jupiter (15) are cooler.`); }
+      }
+    }
+  },
+  { week:5, day:2, theme:"space", icon:"🚀", title:"Constellation Patterns",
+    tag:"WEEK 5 · DAY 2 · SPACE", skill:"Patterns &amp; ratios",
+    supply:{icon:"✨",name:"Star Decoder"}, badge:"Pattern Reader",
+    story:"🚀 Decode star patterns and discover hidden ratios!",
+    teach:`<div class="teach-step"><strong>Patterns:</strong> find the rule.</div><div class="teach-step green"><strong>Ratios:</strong> 2:3 means 2 for every 3.</div><div class="teach-step gold"><strong>Equivalent ratios:</strong> multiply both sides.</div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const step=rand(2,5); const start=rand(2,5); const seq=[start, start+step, start+2*step, start+3*step]; return numQ(`Pattern: ${seq.join(", ")}, ?`, seq[3]+step, `Adding ${step} each time. Next = ${seq[3]+step}.`); }
+        case 1: { const start=rand(2,4); const seq=[start, start*2, start*4, start*8]; return numQ(`Pattern: ${seq.join(", ")}, ?`, seq[3]*2, `Doubling. Next = ${seq[3]*2}.`); }
+        case 2: { const step=rand(5,15); const start=100; const seq=[start, start-step, start-2*step, start-3*step]; return numQ(`Pattern: ${seq.join(", ")}, ?`, seq[3]-step, `Subtracting ${step}. Next = ${seq[3]-step}.`); }
+        case 3: { const a=rand(2,4), b=rand(3,6); const k=rand(2,3); return mcQ(`Ratio ${a}:${b} is equivalent to:`, [`${a*k}:${b*k}`,`${a+1}:${b+1}`,`${a*k}:${b}`,`${a}:${b*k}`], `${a*k}:${b*k}`, `Multiply both by ${k}.`); }
+        case 4: { const f=rand(2,3), w=rand(3,5); const target=w*rand(2,3); const flour=(f/w)*target; return numQ(`Recipe: ${f} cups flour per ${w} cups water. With ${target} cups water, how much flour?`, flour, `Ratio ${f}:${w}. With ${target} water, flour = ${flour}.`); }
+      }
+    }
+  },
+  { week:5, day:3, theme:"space", icon:"🚀", title:"Galactic Distances",
+    tag:"WEEK 5 · DAY 3 · SPACE", skill:"Large numbers; scientific notation",
+    supply:{icon:"🌌",name:"Cosmic Map"}, badge:"Distance Calculator",
+    story:"🚀 Galactic distances are HUGE. Scientific notation makes them readable.",
+    teach:`<div class="teach-step"><strong>Sci notation:</strong> (1-10) × power of 10.</div><div class="teach-step green"><strong>10²=100. 10³=1,000.</strong></div><div class="teach-step gold"><strong>Each zero = +1 in exponent.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const e=rand(3,6); return numQ(`How many zeros in 10^${e}?`, e, `10^${e} has ${e} zeros.`); }
+        case 1: { const e=rand(2,4); return numQ(`10^${e} as a regular number?`, Math.pow(10,e), `10^${e} = ${Math.pow(10,e)}.`); }
+        case 2: { const c=rand(1,9); const e=rand(6,8); const real=c*Math.pow(10,e); return mcQ(`${c} × 10^${e} as a regular number:`, [String(real), String(real/10), String(real*10), String(c*Math.pow(10,e-1))], String(real), `Move decimal ${e} places right: ${real}.`); }
+        case 3: { const e1=rand(3,6), e2=rand(2,e1-1); return mcQ(`BIGGER: 10^${e1} or 10^${e2}?`, [`10^${e1}`,`10^${e2}`,"Equal"], `10^${e1}`, `Higher exponent = bigger.`); }
+        case 4: { const e=rand(4,8); return numQ(`${"1"+"0".repeat(e)} = 10 to what power?`, e, `${e} zeros = 10^${e}.`); }
+      }
+    }
+  },
+  { week:5, day:4, theme:"space", icon:"🚀", title:"Mission Calculations",
+    tag:"WEEK 5 · DAY 4 · SPACE", skill:"Multi-step word problems",
+    supply:{icon:"🛸",name:"Engine Plans"}, badge:"Mission Planner",
+    story:"🚀 Plan the launch! Calculate fuel, food, time.",
+    teach:`<div class="teach-step"><strong>Read twice.</strong> Given? Asked?</div><div class="teach-step green"><strong>Break into steps.</strong></div><div class="teach-step gold"><strong>Estimate first.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: { const f=rand(200,400), d=rand(5,12); return numQ(`Spaceship uses ${f} L fuel/day. ${d}-day trip. Total fuel?`, f*d, `${f} × ${d} = ${fmt(f*d)}.`); }
+        case 1: { const c=rand(4,8), kg=rand(2,4), d=rand(7,12); return numQ(`Crew of ${c}. Each needs ${kg} kg food/day. ${d}-day mission. Total kg?`, c*kg*d, `${c}×${kg}×${d} = ${c*kg*d}.`); }
+        case 2: { const s=rand(400,600), h=rand(5,10); return numQ(`Ship goes ${s} km/h. How far in ${h} hours?`, s*h, `${s} × ${h} = ${fmt(s*h)}.`); }
+        case 3: { const c=rand(4,8); const per=rand(8000,12000); return numQ(`Mission costs $${fmt(c*per)}. ${c} crew split equally. Each pays $?`, per, `${fmt(c*per)} ÷ ${c} = ${per}.`); }
+        case 4: { const s=rand(400,600), d=rand(s*5, s*12); const h=d/s; if (!Number.isInteger(h)) return LESSONS[23].gen(slot); return numQ(`Travel ${fmt(d)} km at ${s} km/h. Hours needed?`, h, `${fmt(d)} ÷ ${s} = ${h}.`); }
+      }
+    }
+  },
+  { week:5, day:5, theme:"space", icon:"⚔", boss:true, title:"Return Home (FINAL BOSS)",
+    tag:"WEEK 5 · DAY 5 · FINAL", skill:"All 5 weeks!",
+    supply:{icon:"🏆",name:"Captain's Badge + Master Atlas"}, badge:"RISING STAR CAPTAIN",
+    story:"⚔ The final test! Combine EVERY skill to chart the path home!",
+    teach:`<div class="teach-step"><strong>You've mastered everything.</strong></div><div class="teach-step green"><strong>Stay sharp.</strong></div><div class="teach-step gold"><strong>Trust your training, Captain.</strong></div>`,
+    gen: (slot) => {
+      switch(slot) {
+        case 0: return LESSONS[0].gen(0);
+        case 1: return LESSONS[7].gen(0);
+        case 2: return LESSONS[12].gen(0);
+        case 3: return LESSONS[16].gen(0);
+        case 4: { const set=[12,18,24,30,36]; const sum=set.reduce((a,b)=>a+b,0); return numQ(`🏆 FINAL (Week 5): Mean of ${set.join(", ")}?`, sum/5, `Sum=${sum}. ${sum}÷5=${sum/5}.`); }
+      }
+    }
+  }
+];
+
+// ═══════════════════════════════════════════════════════════════════
+// MULTI-PROFILE STATE MANAGEMENT
+// ═══════════════════════════════════════════════════════════════════
+const PROFILES_KEY = "risingStarsProfiles_v1";
+const OLD_STATE_KEY = "risingStarsProgress_v2"; // migrate from single-user
+let currentLesson = -1;
+let selectedOpt = null;
+let currentQuestion = null;
+
+function makeId() { return 'p_' + Math.random().toString(36).slice(2, 10); }
+
+function loadProfileData() {
+  try {
+    const raw = localStorage.getItem(PROFILES_KEY);
+    if (raw) {
+      const data = JSON.parse(raw);
+      data.profiles.forEach(p => {
+        if (!p.avatar) p.avatar = "🧭";
+        while (p.lessonStates.length < LESSONS.length) {
+          p.lessonStates.push({ slot:0, attempts:0, completed:false });
+        }
+      });
+      return data;
+    }
+    // Migrate from old single-user storage
+    const oldRaw = localStorage.getItem(OLD_STATE_KEY);
+    if (oldRaw) {
+      const old = JSON.parse(oldRaw);
+      if (old.name && old.lessonStates) {
+        const profile = { id: makeId(), name: old.name, avatar: "🧭", lessonStates: old.lessonStates };
+        const data = { profiles: [profile], activeId: profile.id };
+        localStorage.setItem(PROFILES_KEY, JSON.stringify(data));
+        return data;
+      }
+    }
+  } catch (e) {}
+  return { profiles: [], activeId: null };
+}
+
+function saveProfileData() {
+  try { localStorage.setItem(PROFILES_KEY, JSON.stringify(profileData)); } catch (e) {}
+}
+
+let profileData = loadProfileData();
+
+function activeProfile() {
+  if (!profileData.activeId) return null;
+  return profileData.profiles.find(p => p.id === profileData.activeId) || null;
+}
+
+// `state` is a thin shim — its lessonStates is a REFERENCE to the active profile's lessonStates,
+// so in-place mutations (state.lessonStates[i].slot++) update both.
+let state = { name: "", lessonStates: LESSONS.map(() => ({ slot:0, attempts:0, completed:false })) };
+
+function syncStateFromActiveProfile() {
+  const p = activeProfile();
+  if (!p) {
+    state.name = "";
+    state.lessonStates = LESSONS.map(() => ({ slot:0, attempts:0, completed:false }));
+    return;
+  }
+  state.name = p.name;
+  state.lessonStates = p.lessonStates;
+}
+
+function saveState() {
+  const p = activeProfile();
+  if (p) {
+    p.name = state.name;
+    p.lessonStates = state.lessonStates;
+  }
+  saveProfileData();
+}
+
+syncStateFromActiveProfile();
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// PROFILE MODAL + ACTIONS
+// ═══════════════════════════════════════════════════════════════════
+function openProfileModal() {
+  document.getElementById('profileModal').classList.add('show');
+  renderProfileList();
+  setTimeout(() => { const i = document.getElementById('newProfileName'); if (i) i.focus(); }, 100);
+}
+function closeProfileModal() { document.getElementById('profileModal').classList.remove('show'); }
+document.addEventListener('click', (e) => {
+  if (e.target && e.target.id === 'profileModal') closeProfileModal();
+});
+
+function renderProfileList() {
+  const list = document.getElementById('profileList');
+  if (!list) return;
+  if (profileData.profiles.length === 0) {
+    list.innerHTML = '<p style="color:var(--dim);text-align:center;padding:14px;">No explorers yet. Create your first one below!</p>';
+    return;
+  }
+  list.innerHTML = profileData.profiles.map(p => {
+    const done = p.lessonStates.filter(s => s.completed).length;
+    const isActive = p.id === profileData.activeId;
+    return `<div class="profile-card ${isActive?'active':''}" onclick="switchToProfile('${p.id}')">
+      <span class="avatar">${p.avatar}</span>
+      <div class="info">
+        <div class="name">${escapeHtml(p.name)}</div>
+        <div class="progress">${done} of 25 lessons complete${isActive?' &middot; <em>active</em>':''}</div>
+      </div>
+      <button class="delete" onclick="event.stopPropagation(); deleteProfile('${p.id}')" title="Delete explorer">🗑</button>
+    </div>`;
+  }).join('');
+}
+
+function createProfile() {
+  const nameInp = document.getElementById('newProfileName');
+  const name = nameInp.value.trim();
+  const avatar = document.getElementById('newAvatar').value;
+  if (!name) { alert('Please type a name first!'); nameInp.focus(); return; }
+  const profile = {
+    id: makeId(), name, avatar,
+    lessonStates: LESSONS.map(() => ({ slot:0, attempts:0, completed:false }))
+  };
+  profileData.profiles.push(profile);
+  profileData.activeId = profile.id;
+  saveProfileData();
+  syncStateFromActiveProfile();
+  closeProfileModal();
+  nameInp.value = '';
+  renderExplorerBanner();
+  renderWeekSections();
+}
+
+function switchToProfile(id) {
+  profileData.activeId = id;
+  saveProfileData();
+  syncStateFromActiveProfile();
+  closeProfileModal();
+  renderExplorerBanner();
+  renderWeekSections();
+}
+
+function deleteProfile(id) {
+  const p = profileData.profiles.find(x => x.id === id);
+  if (!p) return;
+  if (!confirm(`Delete explorer "${p.name}" and all their progress? This can't be undone.`)) return;
+  profileData.profiles = profileData.profiles.filter(x => x.id !== id);
+  if (profileData.activeId === id) {
+    profileData.activeId = profileData.profiles[0]?.id || null;
+  }
+  saveProfileData();
+  syncStateFromActiveProfile();
+  renderProfileList();
+  renderExplorerBanner();
+  renderWeekSections();
+}
+
+function renderExplorerBanner() {
+  const p = activeProfile();
+  const banner = document.getElementById('explorerBanner');
+  const empty = document.getElementById('noProfileState');
+  if (!banner || !empty) return;
+  if (!p) {
+    banner.style.display = 'none';
+    empty.style.display = 'block';
+    document.getElementById('weekSections').innerHTML = '';
+    return;
+  }
+  banner.style.display = 'flex';
+  empty.style.display = 'none';
+  document.getElementById('bannerAvatar').textContent = p.avatar;
+  document.getElementById('bannerName').textContent = p.name;
+  const done = p.lessonStates.filter(s => s.completed).length;
+  document.getElementById('bannerProgress').textContent = `${done} of 25 lessons complete`;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// EXPORT / IMPORT
+// ═══════════════════════════════════════════════════════════════════
+function exportProgress() {
+  const p = activeProfile();
+  if (!p) { alert('No active explorer to save. Create one first.'); return; }
+  const data = {
+    name: p.name, avatar: p.avatar,
+    lessonStates: p.lessonStates,
+    exportedAt: new Date().toISOString(),
+    risingStarsVersion: 1
+  };
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `rising-stars-${p.name.replace(/\s+/g,'-').toLowerCase()}.json`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+function importProgress() { document.getElementById('importFile').click(); }
+
+function handleImport(e) {
+  const file = e.target.files[0];
+  if (!file) return;
+  const reader = new FileReader();
+  reader.onload = (ev) => {
+    try {
+      const data = JSON.parse(ev.target.result);
+      if (!data.name || !Array.isArray(data.lessonStates)) {
+        alert("That file doesn't look like a Rising Stars progress file.");
+        return;
+      }
+      const existing = profileData.profiles.find(pr => pr.name === data.name);
+      let p;
+      if (existing) {
+        if (!confirm(`Explorer "${data.name}" already exists on this device. Replace their progress with the file?`)) return;
+        p = existing;
+      } else {
+        p = { id: makeId(), name: data.name, avatar: data.avatar || "🧭", lessonStates: [] };
+        profileData.profiles.push(p);
+      }
+      p.lessonStates = data.lessonStates;
+      p.avatar = data.avatar || p.avatar || "🧭";
+      while (p.lessonStates.length < LESSONS.length) {
+        p.lessonStates.push({ slot:0, attempts:0, completed:false });
+      }
+      profileData.activeId = p.id;
+      saveProfileData();
+      syncStateFromActiveProfile();
+      closeProfileModal();
+      renderExplorerBanner();
+      renderWeekSections();
+      alert(`Welcome back, ${data.name}! Your progress has been loaded.`);
+    } catch (err) {
+      alert('Could not read that file. Please pick a Rising Stars progress JSON file.');
+    }
+  };
+  reader.readAsText(file);
+  e.target.value = ''; // reset so same file can be re-picked
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// VIEW SWITCHING
+// ═══════════════════════════════════════════════════════════════════
+function showView(name) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(`view-${name}`).classList.add('active');
+  document.getElementById(`nav${name.charAt(0).toUpperCase()+name.slice(1)}`).classList.add('active');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (name === 'lessons') {
+    // Always show selector when opening Lessons view (not stuck on prior lesson)
+    document.getElementById('lessonSelector').style.display = 'block';
+    document.getElementById('lessonView').style.display = 'none';
+    document.getElementById('lessonView').innerHTML = '';
+    renderExplorerBanner();
+    renderWeekSections();
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  renderExplorerBanner();
+});
+
+// ═══════════════════════════════════════════════════════════════════
+// WEEK SECTIONS
+// ═══════════════════════════════════════════════════════════════════
+function renderWeekSections() {
+  const container = document.getElementById('weekSections');
+  container.innerHTML = '';
+  if (!activeProfile()) return; // no profile = no week sections
+  const weeks = [
+    { num:1, name:"Lost Island of Numbers", icon:"🏝️" },
+    { num:2, name:"Temple of Fractions", icon:"🏛️" },
+    { num:3, name:"Cave of Decimals", icon:"💎" },
+    { num:4, name:"Sky Kingdom of Geometry", icon:"☁️" },
+    { num:5, name:"Space Station of Stars", icon:"🚀" }
+  ];
+  weeks.forEach(week => {
+    const weekLessons = LESSONS.filter(l => l.week === week.num);
+    const doneCount = weekLessons.filter(lesson => {
+      const lessonIdx = LESSONS.findIndex(l => l === lesson);
+      return state.lessonStates[lessonIdx].completed;
+    }).length;
+    const div = document.createElement('div');
+    div.className = 'week-group';
+    div.innerHTML = `
+      <div class="week-group-header">
+        <div class="week-group-title">
+          <span class="week-num-chip">WEEK ${week.num}</span>
+          <span class="week-icon">${week.icon}</span>
+          ${week.name}
+        </div>
+        <div class="week-progress">${doneCount} / 5 complete</div>
+      </div>
+      <div class="day-tabs">
+        ${weekLessons.map(lesson => {
+          const lessonIdx = LESSONS.findIndex(l => l === lesson);
+          const isLocked = !isLessonUnlocked(lessonIdx);
+          const isDone = state.lessonStates[lessonIdx].completed;
+          const isBoss = lesson.boss;
+          return `<div class="day-tab ${isLocked?'locked':''} ${isDone?'done':''} ${isBoss?'boss':''}" onclick="${isLocked?'':`selectLesson(${lessonIdx})`}">
+            <div class="day-num-chip">${lesson.day}</div>
+            <div class="day-name">${lesson.title.replace(' (BOSS)','').replace(' (FINAL BOSS)','')}</div>
+            ${isLocked?'<span class="lock">🔒</span>':''}
+            <span class="check">✓</span>
+          </div>`;
+        }).join('')}
+      </div>`;
+    container.appendChild(div);
+  });
+}
+function isLessonUnlocked(idx) {
+  if (idx === 0) return true;
+  return state.lessonStates[idx-1].completed;
+}
+function updateOverallProgress() {
+  renderExplorerBanner();
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// SELECT & RENDER LESSON
+// ═══════════════════════════════════════════════════════════════════
+function selectLesson(idx) {
+  currentLesson = idx;
+  const lesson = LESSONS[idx];
+  const s = state.lessonStates[idx];
+  const view = document.getElementById('lessonView');
+  // Hide the lesson selector, show the lesson view as a fresh page
+  document.getElementById('lessonSelector').style.display = 'none';
+  view.style.display = 'block';
+  view.innerHTML = `
+    <div style="margin: 18px 0 14px;">
+      <button onclick="backToLessons()"
+              style="background:#1a2a4a; color:#FFD100; border:none;
+                     padding:10px 18px; border-radius:8px;
+                     font-weight:800; font-size:0.9rem; cursor:pointer;
+                     box-shadow:0 3px 10px rgba(26,42,74,0.25);">
+        ← Back to Adventure Lessons
+      </button>
+    </div>
+    <div class="l-banner ${lesson.boss?'boss':lesson.theme}">
+      <span class="b-icon">${lesson.icon}</span>
+      <div style="flex:1;">
+        <div class="b-tag">${lesson.tag}</div>
+        <h2>${lesson.title}</h2>
+        <div class="b-skill">${lesson.skill}</div>
+      </div>
+    </div>
+    <div class="story-card">${lesson.story}</div>
+    <div class="teach"><h3>🧠 Mini-Lesson</h3>${lesson.teach}</div>
+    <div class="practice"><div class="practice-head"><h3>⚔️ Practice Mission &mdash; You must get all 5 correct to earn the supply!</h3><div class="progress-bar"><div class="progress-fill" id="pfill"></div></div><div class="progress-text" id="ptext">0 / 5</div></div><div id="qcontainer"></div></div>
+    <div id="completeContainer"></div>`;
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  if (s.completed) {
+    showCompleteScreen();
+  } else {
+    s.slot = 0; s.attempts = 0; saveState();
+    renderQuestion();
+  }
+}
+
+function backToLessons() {
+  document.getElementById('lessonView').style.display = 'none';
+  document.getElementById('lessonView').innerHTML = '';
+  document.getElementById('lessonSelector').style.display = 'block';
+  renderWeekSections();
+  updateOverallProgress();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function renderQuestion() {
+  const lesson = LESSONS[currentLesson];
+  const s = state.lessonStates[currentLesson];
+  if (s.slot >= 5) {
+    s.completed = true; saveState();
+    renderWeekSections(); updateOverallProgress();
+    showCompleteScreen();
+    return;
+  }
+  currentQuestion = lesson.gen(s.slot);
+  let html = `<div class="question">
+    <span class="q-num">QUESTION ${s.slot+1} OF 5</span>
+    <div class="q-text">${currentQuestion.q}</div>`;
+  if (currentQuestion.type === "mc") {
+    html += `<div class="options">`;
+    currentQuestion.opts.forEach((opt, i) => {
+      html += `<label class="opt" onclick="selectOption(${i})"><input type="radio" name="opt">${opt}</label>`;
+    });
+    html += `</div><button class="check-btn" id="checkBtn" onclick="checkMC()" disabled>Check Answer</button>`;
+  } else {
+    html += `<div style="margin-bottom:12px;"><input type="text" class="num-input" id="numInp" placeholder="?" autocomplete="off"></div><button class="check-btn" onclick="checkNum()">Check Answer</button>`;
+  }
+  html += `<div class="feedback" id="fb"></div></div>`;
+  document.getElementById('qcontainer').innerHTML = html;
+  selectedOpt = null;
+  updateProgress();
+  const numInp = document.getElementById('numInp');
+  if (numInp) {
+    numInp.focus();
+    numInp.addEventListener('keypress', e => { if (e.key === 'Enter') checkNum(); });
+  }
+}
+function selectOption(i) {
+  selectedOpt = i;
+  document.querySelectorAll('.opt').forEach((el, idx) => el.classList.toggle('selected', idx === i));
+  document.getElementById('checkBtn').disabled = false;
+}
+function checkMC() {
+  const s = state.lessonStates[currentLesson];
+  const correct = selectedOpt === currentQuestion.ans;
+  document.querySelectorAll('.opt').forEach((el, idx) => {
+    el.classList.add('disabled');
+    if (idx === currentQuestion.ans) el.classList.add('correct');
+    if (idx === selectedOpt && !correct) el.classList.add('incorrect');
+  });
+  document.getElementById('checkBtn').style.display = 'none';
+  s.attempts++;
+  if (correct) s.slot++;
+  saveState();
+  showFeedback(correct, currentQuestion.hint);
+}
+function checkNum() {
+  const s = state.lessonStates[currentLesson];
+  const raw = document.getElementById('numInp').value.trim();
+  const userAns = parseFloat(raw);
+  if (isNaN(userAns)) {
+    const fb = document.getElementById('fb');
+    fb.className = 'feedback incorrect show';
+    fb.innerHTML = '<strong>Hmm...</strong>Please type a number.';
+    return;
+  }
+  const correct = Math.abs(userAns - currentQuestion.ans) < 0.001;
+  document.getElementById('numInp').disabled = true;
+  document.getElementById('numInp').style.background = correct ? '#dcfce7' : '#fee2e2';
+  document.querySelector('.check-btn').style.display = 'none';
+  s.attempts++;
+  if (correct) s.slot++;
+  saveState();
+  showFeedback(correct, currentQuestion.hint);
+}
+function showFeedback(correct, hint) {
+  const fb = document.getElementById('fb');
+  fb.className = `feedback show ${correct?'correct':'incorrect'}`;
+  const s = state.lessonStates[currentLesson];
+  let buttonLabel, buttonAction;
+  if (correct) {
+    if (s.slot >= 5) { buttonLabel = "See Results →"; }
+    else { buttonLabel = `Next Question (${s.slot+1} of 5) →`; }
+    buttonAction = "renderQuestion()";
+  } else {
+    buttonLabel = "🔄 Try a New Problem";
+    buttonAction = "renderQuestion()";
+  }
+  fb.innerHTML = `${correct?'<strong>✓ Correct! High-five, explorer!</strong>':'<strong>✗ Not quite. Try a fresh problem for this slot!</strong>'}${hint}<div style="margin-top:12px;"><button class="next-btn" onclick="${buttonAction}">${buttonLabel}</button></div>`;
+  updateProgress();
+}
+function updateProgress() {
+  const s = state.lessonStates[currentLesson];
+  const pf = document.getElementById('pfill');
+  const pt = document.getElementById('ptext');
+  if (pf) pf.style.width = `${(s.slot/5)*100}%`;
+  if (pt) pt.textContent = `${s.slot} / 5`;
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// COMPLETION
+// ═══════════════════════════════════════════════════════════════════
+function showCompleteScreen() {
+  const lesson = LESSONS[currentLesson];
+  const s = state.lessonStates[currentLesson];
+  const html = `<div class="complete">
+    <div class="badge-icon">${lesson.supply.icon}</div>
+    <h2>${lesson.boss ? 'BOSS DEFEATED!' : 'Perfect Score!'}</h2>
+    <div class="score-big">5 / 5 Correct!</div>
+    <div class="supply-earned">
+      <div class="label">SUPPLY EARNED</div>
+      <span class="ico">${lesson.supply.icon}</span>
+      <div class="name">${lesson.supply.name}</div>
+    </div>
+    <br><div class="badge-name">🎖 BADGE: ${lesson.badge.toUpperCase()}</div>
+    <p style="font-weight:600;margin-bottom:8px;">🎉 You aced every problem — you earned this supply and unlocked the next adventure!</p>
+    <p style="font-size:0.86rem;color:var(--navy);">Total attempts: ${s.attempts}</p>
+    <div class="complete-actions">
+      <button class="email" onclick="emailTeacher()">📧 Email My Accomplishment to My Teacher</button>
+      <button onclick="restartLesson()">↺ Replay</button>
+      ${currentLesson < LESSONS.length-1 ? `<button onclick="selectLesson(${currentLesson+1})">Next Lesson →</button>` : ''}
+    </div>
+  </div>`;
+  document.getElementById('completeContainer').innerHTML = html;
+}
+function restartLesson() {
+  state.lessonStates[currentLesson] = { slot:0, attempts:0, completed:false };
+  saveState();
+  renderWeekSections(); updateOverallProgress();
+  selectLesson(currentLesson);
+}
+function emailTeacher() {
+  const lesson = LESSONS[currentLesson];
+  const s = state.lessonStates[currentLesson];
+  const name = (state.name || "").trim();
+  const totalEarned = state.lessonStates.filter(ls => ls.completed).length;
+  const lines = [
+    `Aloha Ms. Glavan and Dr. Park,`,
+    ``,
+    `I just earned a perfect 5/5 on a Rising Stars Math Adventures lesson!`,
+    ``,
+    `Explorer: ${name || '(name not provided)'}`,
+    `Lesson: Week ${lesson.week}, Day ${lesson.day} — ${lesson.title}`,
+    `Skill: ${lesson.skill.replace(/&amp;/g,'&')}`,
+    `Score: 5 out of 5 (perfect!)`,
+    `Total attempts taken: ${s.attempts}`,
+    ``,
+    `🎒 Supply earned: ${lesson.supply.icon} ${lesson.supply.name}`,
+    `🎖 Badge unlocked: ${lesson.badge}`,
+    ``,
+    `Overall progress: ${totalEarned} of 25 lessons complete`,
+    ``,
+    `Mahalo,`,
+    name || `An Explorer`
+  ];
+  const subject = `Rising Stars Adventure — Week ${lesson.week} Day ${lesson.day} 5/5 Perfect! (${name || 'Explorer'})`;
+  const body = lines.join('\n');
+  const to = 'lglavan@starofthesea.org,ppark@starofthesea.org';
+  const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=${encodeURIComponent(to)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.open(gmailUrl, '_blank');
+}
+
+// ═══════════════════════════════════════════════════════════════════
+// EXPLORER PACK MODAL
+// ═══════════════════════════════════════════════════════════════════
+function openPack() {
+  const grid = document.getElementById('packGrid');
+  const completed = state.lessonStates.filter(s => s.completed).length;
+  document.getElementById('packCount').textContent = `${completed} / 25`;
+  grid.innerHTML = LESSONS.map((lesson, i) => {
+    const earned = state.lessonStates[i].completed;
+    return `<div class="pack-item ${earned?'':'locked'}">
+      <span class="ico">${earned ? lesson.supply.icon : '🔒'}</span>
+      <div class="name">${earned ? lesson.supply.name : `W${lesson.week}D${lesson.day}`}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('packModal').classList.add('show');
+}
+function closePack() { document.getElementById('packModal').classList.remove('show'); }
+document.getElementById('packModal').addEventListener('click', (e) => {
+  if (e.target.id === 'packModal') closePack();
+});
+
+</script>
+</body>
+</html>
