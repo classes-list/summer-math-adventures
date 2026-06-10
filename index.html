@@ -746,7 +746,245 @@
       .nav-tab, .pack-btn, .hero-cta { display: none; }
       .week-section { page-break-inside: avoid; box-shadow: none; }
     }
-  </style>
+  
+/* ===== TEACHER PLAYBOOK CSS START ===== */
+/* ═══════ TEACHER PLAYBOOK — SCOPED STYLES ═══════ */
+#view-playbook { padding:0 22px 60px; max-width:980px; margin:0 auto; }
+#view-playbook *, #view-playbook *::before, #view-playbook *::after {
+  box-sizing:border-box;
+}
+
+/* Hero */
+#view-playbook .pb-hero {
+  background:linear-gradient(135deg, #0c1633 0%, #1a2a4a 50%, #134e4a 100%);
+  color:#fff; padding:50px 40px; border-radius:18px; margin-top:24px;
+  text-align:center; box-shadow:0 10px 40px rgba(0,0,0,0.18);
+  position:relative; overflow:hidden;
+}
+#view-playbook .pb-hero::before {
+  content:""; position:absolute; inset:0;
+  background-image:
+    radial-gradient(2px 2px at 20% 30%, #fff, transparent),
+    radial-gradient(1px 1px at 60% 20%, #fff, transparent),
+    radial-gradient(2px 2px at 85% 45%, #fff, transparent),
+    radial-gradient(1px 1px at 35% 65%, #fff, transparent),
+    radial-gradient(2px 2px at 75% 80%, #fff, transparent),
+    radial-gradient(1px 1px at 10% 80%, #fff, transparent);
+  opacity:.5; pointer-events:none;
+}
+#view-playbook .pb-hero > * { position:relative; z-index:2; }
+#view-playbook .pb-eyebrow {
+  display:inline-block; background:#FFD100; color:#1a2a4a;
+  padding:6px 14px; border-radius:18px;
+  font-weight:800; font-size:.78rem; letter-spacing:.1em; margin-bottom:16px;
+}
+#view-playbook .pb-hero h1 { font-size:2.4rem; font-weight:900; line-height:1.1; margin-bottom:10px; color:#fff; }
+#view-playbook .pb-hero h1 .pb-accent { color:#FFD100; }
+#view-playbook .pb-sub { font-size:1.05rem; opacity:.92; max-width:680px; margin:0 auto 22px; }
+#view-playbook .pb-hero-meta { display:flex; gap:14px; flex-wrap:wrap; justify-content:center; }
+#view-playbook .pb-hero-meta-item {
+  background:rgba(255,255,255,.10); padding:10px 16px; border-radius:10px;
+  font-size:.88rem; border:1px solid rgba(255,209,0,.3);
+}
+#view-playbook .pb-hero-meta-item strong { color:#FFD100; display:block; font-size:1.15rem; }
+
+/* Print/Save buttons */
+#view-playbook .pb-actions {
+  display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin-top:24px;
+}
+#view-playbook .pb-action-btn {
+  background:#FFD100; color:#1a2a4a; border:none; cursor:pointer;
+  font-weight:800; padding:12px 22px; border-radius:10px;
+  font-size:.95rem; box-shadow:0 4px 12px rgba(0,0,0,.15);
+  transition:transform .15s ease;
+}
+#view-playbook .pb-action-btn:hover { transform:translateY(-2px); }
+#view-playbook .pb-action-btn.ghost { background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,209,0,.4); }
+
+/* TOC */
+#view-playbook .pb-toc {
+  background:#fff; border-radius:14px; padding:24px 28px;
+  box-shadow:0 4px 18px rgba(0,0,0,.08); margin-top:30px;
+}
+#view-playbook .pb-toc h3 {
+  font-size:1.3rem; font-weight:900; color:#1a2a4a;
+  margin-bottom:14px; padding-bottom:8px;
+  border-bottom:3px solid #FFD100;
+}
+#view-playbook .pb-toc-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(170px, 1fr)); gap:12px; margin-top:14px; }
+#view-playbook .pb-toc-item {
+  padding:14px 16px; border-radius:10px; color:#fff;
+  display:flex; flex-direction:column; gap:4px; cursor:pointer;
+  text-decoration:none; transition:transform .15s ease;
+}
+#view-playbook .pb-toc-item:hover { transform:translateY(-3px); box-shadow:0 6px 18px rgba(0,0,0,.18); }
+#view-playbook .pb-toc-item strong { font-size:1.05rem; font-weight:900; }
+#view-playbook .pb-toc-item span { font-size:.78rem; opacity:.95; }
+
+/* How it works */
+#view-playbook section.pb-section { margin-top:36px; }
+#view-playbook .pb-section-eyebrow {
+  display:inline-block; background:#1a2a4a; color:#FFD100;
+  padding:5px 14px; border-radius:16px;
+  font-weight:800; font-size:.72rem; letter-spacing:.1em; margin-bottom:12px;
+}
+#view-playbook .pb-section-title {
+  font-size:1.6rem; font-weight:900; color:#1a2a4a;
+  margin-bottom:10px; letter-spacing:-.01em;
+}
+#view-playbook .pb-section-sub { font-size:1rem; color:#64748b; margin-bottom:22px; max-width:720px; }
+#view-playbook .pb-card {
+  background:#fff; border-radius:14px; padding:22px 26px;
+  box-shadow:0 4px 18px rgba(0,0,0,.08); margin-bottom:18px;
+}
+#view-playbook .pb-card p { font-size:.95rem; color:#1f2937; line-height:1.55; }
+
+/* Timing summary */
+#view-playbook .pb-timing-summary {
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:14px; margin-top:14px;
+}
+#view-playbook .pb-timing-card {
+  background:#fff; border-radius:12px; padding:18px 20px;
+  text-align:center; border-top:5px solid #0d9488;
+  box-shadow:0 3px 12px rgba(0,0,0,.06);
+}
+#view-playbook .pb-timing-card.pb-phase1-c { border-top-color:#b8860b; }
+#view-playbook .pb-timing-card.pb-phase3-c { border-top-color:#dc2626; }
+#view-playbook .pb-timing-card .pb-num { font-size:.7rem; letter-spacing:.1em; color:#64748b; font-weight:800; }
+#view-playbook .pb-timing-card .pb-time { font-size:2rem; font-weight:900; color:#1a2a4a; margin:4px 0; }
+#view-playbook .pb-timing-card .pb-name { font-size:.9rem; color:#1a2a4a; font-weight:700; }
+#view-playbook .pb-timing-card .pb-desc { font-size:.78rem; color:#64748b; margin-top:4px; }
+
+/* Week divider */
+#view-playbook .pb-week-divider {
+  margin-top:60px; padding:50px 40px; border-radius:18px;
+  color:#fff; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.18);
+  position:relative; overflow:hidden; scroll-margin-top:80px;
+}
+#view-playbook .pb-week-divider::before {
+  content:""; position:absolute; inset:0;
+  background-image:
+    radial-gradient(2px 2px at 25% 35%, #fff, transparent),
+    radial-gradient(1px 1px at 65% 25%, #fff, transparent),
+    radial-gradient(2px 2px at 80% 55%, #fff, transparent);
+  opacity:.4; pointer-events:none;
+}
+#view-playbook .pb-week-divider-inner { position:relative; z-index:2; }
+#view-playbook .pb-week-eyebrow {
+  display:inline-block; color:#0c1633;
+  padding:6px 14px; border-radius:18px;
+  font-weight:800; font-size:.74rem; letter-spacing:.1em; margin-bottom:14px;
+}
+#view-playbook .pb-week-divider h2 { font-size:2.2rem; font-weight:900; margin-bottom:12px; line-height:1.1; color:#fff; }
+#view-playbook .pb-week-divider p { font-size:1.05rem; opacity:.92; max-width:600px; margin:0 auto 18px; }
+#view-playbook .pb-week-days-preview {
+  background:rgba(255,255,255,.10); padding:12px 18px; border-radius:10px;
+  display:inline-block; font-size:.86rem; max-width:740px;
+  border:1px solid rgba(255,255,255,.2);
+}
+
+/* Day section */
+#view-playbook .pb-day-section { margin-top:36px; }
+#view-playbook .pb-day-banner {
+  border-radius:14px 14px 0 0; padding:24px 28px; color:#fff;
+  background:linear-gradient(135deg, #0d9488 0%, #134e4a 100%);
+  display:flex; gap:20px; align-items:center; flex-wrap:wrap;
+}
+#view-playbook .pb-day-num {
+  background:rgba(255,255,255,.18); backdrop-filter:blur(8px);
+  border:2px solid rgba(255,209,0,.4);
+  width:60px; height:60px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:1.6rem; color:#FFD100;
+}
+#view-playbook .pb-day-banner h2 { font-size:1.5rem; font-weight:900; line-height:1.1; margin-bottom:2px; color:#fff; }
+#view-playbook .pb-day-tag {
+  color:#FFD100; font-size:.7rem; letter-spacing:.1em;
+  text-transform:uppercase; font-weight:800; margin-bottom:4px;
+}
+#view-playbook .pb-day-skill { font-size:.9rem; opacity:.92; }
+#view-playbook .pb-day-icon { font-size:2.6rem; line-height:1; margin-left:auto; }
+#view-playbook .pb-day-section.pb-boss .pb-day-banner {
+  background:linear-gradient(135deg, #991b1b 0%, #450a0a 100%) !important;
+  border:3px solid #FFD100;
+}
+
+/* Phases */
+#view-playbook .pb-phases-stack {
+  background:#fff; border-radius:0 0 14px 14px;
+  padding:20px; box-shadow:0 4px 18px rgba(0,0,0,.08);
+  display:grid; gap:16px;
+}
+#view-playbook .pb-phase-card {
+  background:#fafafa; border-radius:10px; padding:18px 20px;
+  border-left:6px solid #1a2a4a;
+  display:grid; grid-template-columns:90px 1fr; gap:18px;
+  align-items:start;
+}
+#view-playbook .pb-phase-card.pb-phase1 { border-left-color:#b8860b; background:#fffdf2; }
+#view-playbook .pb-phase-card.pb-phase2 { border-left-color:#0d9488; background:#f0fdfa; }
+#view-playbook .pb-phase-card.pb-phase3 { border-left-color:#dc2626; background:#fff7f3; }
+#view-playbook .pb-phase-meta { text-align:center; }
+#view-playbook .pb-phase-num {
+  background:#1a2a4a; color:#FFD100;
+  width:42px; height:42px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-weight:900; font-size:1.05rem; margin:0 auto 6px;
+}
+#view-playbook .pb-phase1 .pb-phase-num { background:#b8860b; color:#fff; }
+#view-playbook .pb-phase2 .pb-phase-num { background:#0d9488; color:#fff; }
+#view-playbook .pb-phase3 .pb-phase-num { background:#dc2626; color:#fff; }
+#view-playbook .pb-phase-time {
+  background:#fef3c7; color:#b8860b;
+  padding:4px 10px; border-radius:14px;
+  font-size:.76rem; font-weight:800; display:inline-block;
+}
+#view-playbook .pb-phase-type {
+  display:block; margin-top:6px;
+  font-size:.6rem; letter-spacing:.08em;
+  text-transform:uppercase; color:#64748b; font-weight:800;
+}
+#view-playbook .pb-phase-body h3 {
+  color:#1a2a4a; font-size:1.2rem; font-weight:900; line-height:1.2; margin-bottom:12px;
+}
+#view-playbook .pb-phase-block { margin-bottom:12px; }
+#view-playbook .pb-phase-block h4 {
+  color:#1a2a4a; font-size:.72rem; letter-spacing:.06em;
+  text-transform:uppercase; font-weight:800; margin-bottom:6px;
+}
+#view-playbook .pb-phase-block ul,
+#view-playbook .pb-phase-block ol {
+  font-size:.9rem; color:#1f2937; line-height:1.55; padding-left:22px;
+}
+#view-playbook .pb-phase-block li { padding:3px 0; }
+#view-playbook .pb-phase-block code { font-family:monospace; background:#fff; padding:2px 6px; border-radius:4px; font-size:.85rem; }
+#view-playbook .pb-teacher-tip {
+  background:#fef3c7; border-left:3px solid #b8860b;
+  padding:10px 14px; border-radius:6px; margin-top:10px;
+  font-size:.84rem; color:#5b3d00; font-style:italic;
+}
+#view-playbook .pb-teacher-tip strong { font-style:normal; color:#7a5f00; }
+
+@media (max-width:700px) {
+  #view-playbook .pb-phase-card { grid-template-columns:1fr; }
+  #view-playbook .pb-phase-meta { text-align:left; display:flex; gap:10px; align-items:center; }
+  #view-playbook .pb-phase-num { margin:0; }
+  #view-playbook .pb-toc-grid { grid-template-columns:1fr 1fr; }
+}
+
+/* PRINT — when printing only the playbook view */
+@media print {
+  body.printing-playbook > *:not(#view-playbook) { display:none !important; }
+  body.printing-playbook #view-playbook { display:block !important; padding:0; max-width:none; }
+  body.printing-playbook .pb-actions { display:none !important; }
+  body.printing-playbook .pb-toc { page-break-after:always; }
+  body.printing-playbook .pb-week-divider { page-break-before:always; box-shadow:none; }
+  body.printing-playbook .pb-day-section { page-break-before:always; }
+  body.printing-playbook .pb-phase-card { break-inside:avoid; }
+  body.printing-playbook .pb-day-banner { break-inside:avoid; }
+}
+/* ===== TEACHER PLAYBOOK CSS END ===== */
+</style>
 </head>
 <body>
 
@@ -757,6 +995,9 @@
     <div class="topnav-tabs">
       <button class="nav-tab active" id="navOverview" onclick="showView('overview')">📋 Program Overview</button>
       <button class="nav-tab" id="navLessons" onclick="showView('lessons')">🎮 Adventure Lessons</button>
+      <!-- TEACHER PLAYBOOK TAB START -->
+      <button class="nav-tab" id="navPlaybook" onclick="showView('playbook')">📖 Teacher Playbook</button>
+      <!-- TEACHER PLAYBOOK TAB END -->
     </div>
     <div class="topnav-actions">
       <button class="pack-btn" onclick="openPack()">🎒 My Pack</button>
@@ -935,6 +1176,2861 @@
   <div class="lesson-view" id="lessonView" style="display:none;"></div>
 </div>
 </div><!-- /view-lessons -->
+<!-- ===== TEACHER PLAYBOOK VIEW START ===== -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<!-- ═══ TEACHER PLAYBOOK VIEW ═══════════════════════════════ -->
+<!-- ═══════════════════════════════════════════════════════ -->
+<div class="view" id="view-playbook">
+
+  <div class="pb-hero">
+    <span class="pb-eyebrow">CREW OF FOUR EDITION · MASTER PLAYBOOK</span>
+    <h1>Teacher<br><span class="pb-accent">Playbook · All 5 Weeks</span></h1>
+    <p class="pb-sub">The complete classroom guide for running the 35-minute Adventure Workshop across the full 5-week journey with a crew of four explorers.</p>
+    <div class="pb-hero-meta">
+      <div class="pb-hero-meta-item"><strong>5 weeks</strong>full program</div>
+      <div class="pb-hero-meta-item"><strong>25 days</strong>of adventure</div>
+      <div class="pb-hero-meta-item"><strong>4 explorers</strong>one crew</div>
+      <div class="pb-hero-meta-item"><strong>35 min</strong>per day</div>
+      <div class="pb-hero-meta-item"><strong>3 phases</strong>per session</div>
+    </div>
+    <div class="pb-actions">
+      <button class="pb-action-btn" onclick="printPlaybook()">🖨️ Print the Playbook</button>
+      <button class="pb-action-btn ghost" onclick="document.getElementById('pb-week-1').scrollIntoView({behavior:'smooth'})">📖 Jump to Week 1 ↓</button>
+    </div>
+  </div>
+
+  <div class="pb-toc">
+    <h3>🗺️ The 5-Week Journey</h3>
+    <div class="pb-toc-grid">
+      <a href="#pb-week-1" class="pb-toc-item" style="background:linear-gradient(135deg,#134e4a 0%,#0c1633 100%);"><strong>🏝️ Week 1</strong><span>Lost Island</span><span style="opacity:.7;">Place value · rounding · ops</span></a>
+      <a href="#pb-week-2" class="pb-toc-item" style="background:linear-gradient(135deg,#92400e 0%,#451a03 100%);"><strong>🏛️ Week 2</strong><span>Temple of Fractions</span><span style="opacity:.7;">Equivalence · compare · ± frac</span></a>
+      <a href="#pb-week-3" class="pb-toc-item" style="background:linear-gradient(135deg,#4c1d95 0%,#1e1b4b 100%);"><strong>💎 Week 3</strong><span>Cave of Decimals</span><span style="opacity:.7;">Place value · compare · ops</span></a>
+      <a href="#pb-week-4" class="pb-toc-item" style="background:linear-gradient(135deg,#0c4a6e 0%,#082f49 100%);"><strong>☁️ Week 4</strong><span>Sky Kingdom</span><span style="opacity:.7;">Perimeter · area · angles · grid</span></a>
+      <a href="#pb-week-5" class="pb-toc-item" style="background:linear-gradient(135deg,#1e1b4b 0%,#020617 100%);"><strong>🚀 Week 5</strong><span>Space Station</span><span style="opacity:.7;">Data · patterns · big numbers</span></a>
+    </div>
+  </div>
+
+  <section class="pb-section">
+    <span class="pb-section-eyebrow">HOW IT WORKS</span>
+    <h2 class="pb-section-title">One Crew, Three Phases, Full Attention</h2>
+    <p class="pb-section-sub">With four explorers, you don't need rotating stations. Run the whole 35 minutes as one continuous Adventure Workshop with the same crew, transitioning through three different activity formats. You're present for all of it.</p>
+
+    <div class="pb-card">
+      <p><strong>Phase 1 &mdash; Game:</strong> All four explorers play the day's game together at one table. The competition still works perfectly with 4 players.</p>
+      <p style="margin-top:8px;"><strong>Phase 2 &mdash; Hands-on Build:</strong> Each explorer works with their own materials. You float between them, asking questions.</p>
+      <p style="margin-top:8px;"><strong>Phase 3 &mdash; Coach &amp; Challenge:</strong> You lead the whole crew through harder problems together &mdash; deep small-group coaching.</p>
+
+      <div class="pb-timing-summary">
+        <div class="pb-timing-card pb-phase1-c">
+          <div class="pb-num">PHASE 1</div>
+          <div class="pb-time">10</div>
+          <div class="pb-name">Game</div>
+          <div class="pb-desc">minutes &middot; whole crew</div>
+        </div>
+        <div class="pb-timing-card">
+          <div class="pb-num">PHASE 2</div>
+          <div class="pb-time">15</div>
+          <div class="pb-name">Hands-on Build</div>
+          <div class="pb-desc">minutes &middot; each with own materials</div>
+        </div>
+        <div class="pb-timing-card pb-phase3-c">
+          <div class="pb-num">PHASE 3</div>
+          <div class="pb-time">10</div>
+          <div class="pb-name">Coach &amp; Challenge</div>
+          <div class="pb-desc">minutes &middot; teacher leads</div>
+        </div>
+      </div>
+
+      <p style="margin-top:18px; padding:12px 14px; background:#fef3c7; border-radius:6px; font-style:italic;">
+        💡 <strong>Why this is great for 4 students:</strong> Every kid gets your eyes and attention for the whole 35 minutes. No rotation logistics, no &quot;hope station B is going OK.&quot;
+      </p>
+    </div>
+  </section>
+
+  
+  <div class="pb-week-divider" id="pb-week-1" style="background:linear-gradient(135deg, #134e4a 0%, #0c1633 100%);">
+    <div class="pb-week-divider-inner">
+      <span class="pb-week-eyebrow" style="background:#FFD100;">WEEK 1 OF 5</span>
+      <h2>🏝️ Lost Island of Numbers</h2>
+      <p>Place value, rounding, addition, subtraction, and multi-digit multiplication.</p>
+      <div class="pb-week-days-preview">
+        Counting the Shipwreck Supplies · Reading the Tide · Building the Shelter · Crab Catch Multiplication · The Compass Quest
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #0d9488 0%, #134e4a 100%);">
+      <div class="pb-day-num">1</div>
+      <div>
+        <div class="pb-day-tag">WEEK 1 · DAY 1 · ISLAND</div>
+        <h2>Counting the Shipwreck Supplies</h2>
+        <div class="pb-day-skill">Place value through hundred-thousands</div>
+      </div>
+      <div class="pb-day-icon">🏝️</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Place Value War 🃏</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>1 deck of cards (Ace-9 only, remove 10s and face cards = 36 cards)</li>
+              <li>1 place-value mat per explorer</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Shuffle the deck. Deal 6 cards to each of the 4 explorers.</li>
+              <li>Each explorer picks 5 of their 6 cards and arranges them to make the BIGGEST 5-digit number on their mat.</li>
+              <li>Going around the crew, each explorer reads their number aloud ("Forty-seven thousand, two hundred eighty-six").</li>
+              <li>Whoever has the biggest number wins the round &mdash; earns 1 doubloon (tally).</li>
+              <li>Reshuffle. Play best of 7 rounds.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Variation:</strong> Switch to making the SMALLEST number partway through &mdash; flips the strategy and forces them to rethink place value.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Treasure Pile Estimator 💰</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 tubs labeled "Pile A" through "Pile D"</li>
+              <li>Each tub: beans / beads / coins / pebbles (50&ndash;300 per tub)</li>
+              <li>1 estimate-sheet per kid</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer starts at a different pile.</li>
+              <li>Without touching: WRITE your estimate on the sheet.</li>
+              <li>Now count by grouping into 10s, then 100s. Write the actual count.</li>
+              <li>Subtract: "off by ___."</li>
+              <li>Rotate piles every ~3 min so each kid touches all 4 piles by the end.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Kids who never group &mdash; they're counting one at a time and losing track. Pause them with: "What if you made small groups of 10?"
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Number Detective 🧐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>Your prepared list of 8 numbers to call aloud</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Numbers to call: <code>234,567 · 890,103 · 456,789 · 105,030 · 700,089 · 632,500 · 90,005 · 348,902</code></li>
+              <li>Read a number aloud, slowly, ONCE. All 4 race to write the digits on their whiteboards.</li>
+              <li>Ask: "What's the value of the 4 in your number?" Pause and hear all 4 answers.</li>
+              <li>Ask: "What place is the 0 in?" Pause again.</li>
+              <li>Discuss disagreements together &mdash; the small group makes this safe.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Listen to the "how did you know?" answers. Kids who reason place-value-by-position are strong. Kids who guess will need targeted reinforcement tomorrow.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #0d9488 0%, #134e4a 100%);">
+      <div class="pb-day-num">2</div>
+      <div>
+        <div class="pb-day-tag">WEEK 1 · DAY 2 · ISLAND</div>
+        <h2>Reading the Tide</h2>
+        <div class="pb-day-skill">Rounding to 10, 100, 1,000</div>
+      </div>
+      <div class="pb-day-icon">🌊</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Tide Roller 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 dice per explorer</li>
+              <li>1 score sheet per player</li>
+              <li>Pencil per player</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer rolls all 4 dice.</li>
+              <li>Arrange the digits to make any 4-digit number.</li>
+              <li>Round 1: round to nearest 10. Round 2: nearest 100. Round 3: nearest 1,000.</li>
+              <li>Each correct rounded answer = 1 doubloon.</li>
+              <li>Compare doubloons after 5 rolls each. Highest wins.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Trick to teach:</strong> Underline the digit you're rounding TO. Look just to the RIGHT.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>The Number Line Walk 🚶</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Large floor number line (painter's tape on floor, marked 0&ndash;100 by 10s)</li>
+              <li>Stack of cards 0&ndash;99 (printed or handwritten)</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer draws a card (e.g., "47").</li>
+              <li>Walk to that spot on the floor number line.</li>
+              <li>Look LEFT and RIGHT: are you closer to 40 or 50?</li>
+              <li>Walk to the nearest 10. That's your rounded answer.</li>
+              <li>Discuss the "close call" cases (like 45, exactly between). Repeat with new cards.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why physical works:</strong> Rounding is about DISTANCE. When kids actually walk it, they feel whether 47 is closer to 50 or 40 &mdash; not just memorize a rule.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Tide Chart Riddles 🌊</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 whiteboards + markers</li>
+              <li>Printed riddle set (below)</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Riddle 1: "The tide is at 3,672 mm. The rocks stay dry only when the tide rounds DOWN to 3,000 mm. Are the rocks dry?"</li>
+              <li>Riddle 2: "Your treasure pile has 4,499 coins. Round to nearest 1,000. Are you a millionaire?"</li>
+              <li>Riddle 3: "You sailed 826 km yesterday and 174 km today. Round each to nearest 100, then add."</li>
+              <li>Riddle 4: "Crew estimated catch at 6,500 fish. Actual is 6,378. Was the estimate close?"</li>
+              <li>Read each aloud; all 4 race to write their rounded answer; discuss.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Kids who freeze on word problems benefit from saying the math aloud first: "What's the question asking?" then "What numbers do I have?"
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #0d9488 0%, #134e4a 100%);">
+      <div class="pb-day-num">3</div>
+      <div>
+        <div class="pb-day-tag">WEEK 1 · DAY 3 · ISLAND</div>
+        <h2>Building the Shelter</h2>
+        <div class="pb-day-skill">Multi-digit addition &amp; subtraction</div>
+      </div>
+      <div class="pb-day-icon">🪵</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Lumber Yard Bingo 🪓</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 printed bingo cards (different layouts, 16 sums/diffs each)</li>
+              <li>Stack of 30 addition/subtraction cards (problems)</li>
+              <li>Beans or chips for marking</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer gets a different bingo card. You are the "caller."</li>
+              <li>Flip an addition or subtraction card and read aloud: "348 + 567."</li>
+              <li>Everyone solves on their whiteboard.</li>
+              <li>If your bingo card has the answer (915), mark it!</li>
+              <li>First explorer to mark 4 in a row wins. Then play another round.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>You are the caller:</strong> No need to designate someone &mdash; you can also pause to coach when someone struggles. Win-win.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Log Counter Shelter 🏚️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>1 set of base-10 blocks (divided among the 4 explorers)</li>
+              <li>"Shelter Challenge" sheet (printed)</li>
+              <li>Graph paper</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Read the first challenge: "You need 348 logs. You have 142. How many more?"</li>
+              <li>Each explorer builds 142 with blocks. Then they BUILD UP to 348.</li>
+              <li>Count the new blocks added &mdash; that's the answer (206).</li>
+              <li>Compare answers; discuss who built fastest and why.</li>
+              <li>Try the next challenge.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why this builds intuition:</strong> Subtraction-as-building shows kids that "how many more" is the same as the GAP between two numbers.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>The Carry Coach 👨‍🏫</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 whiteboards + markers</li>
+              <li>List of problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: 905 &minus; 437 (borrow across zero is tricky!)</li>
+              <li>Problem 2: 2,000 &minus; 1,357 (borrow ALL the way)</li>
+              <li>Problem 3: 4,567 + 8,945 (multiple carries)</li>
+              <li>Story: "We have 1,847 coconuts. Crew ate 729. How many left?"</li>
+              <li>Work each one as a group; pause to discuss strategies.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Kids who skip the borrow when subtracting from a zero. Pause them: "What number do you turn the 0 into when you borrow?" (10.)
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #0d9488 0%, #134e4a 100%);">
+      <div class="pb-day-num">4</div>
+      <div>
+        <div class="pb-day-tag">WEEK 1 · DAY 4 · ISLAND</div>
+        <h2>Crab Catch Multiplication</h2>
+        <div class="pb-day-skill">Multi-digit multiplication</div>
+      </div>
+      <div class="pb-day-icon">🦀</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Crab Trap Roll 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>2 dice per explorer (different colors)</li>
+              <li>1 score sheet per player</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer rolls both dice.</li>
+              <li>Multiply the two numbers &mdash; that's how many crabs your trap caught.</li>
+              <li>Write the multiplication and the answer on your sheet.</li>
+              <li>Best of 10 rolls. Most crabs wins.</li>
+              <li>Extension: roll 3 dice and multiply 2 of them. Pick which two to MAXIMIZE crabs!</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Differentiation:</strong> For stronger explorers, swap 6-sided dice for 10-sided dice, or multiply 3 dice at once.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Crab Array Drawings 📐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Graph paper (1 sheet per kid)</li>
+              <li>Colored pencils or markers</li>
+              <li>List of multiplications to draw</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Pick a multiplication: e.g., 6 × 24.</li>
+              <li>Draw a rectangle on graph paper that's 6 squares tall and 24 squares wide.</li>
+              <li>Count the squares &mdash; that's the answer!</li>
+              <li>Color in the answer in a fun pattern (each row a different color).</li>
+              <li>Move to the next multiplication. Compare drawings: same shape?</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why arrays:</strong> Kids who SEE multiplication as a rectangle (length × width) build a deeper understanding than rote times-tables. The visual stays with them.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Big Catch Coach &amp; the Box Method 👨‍🏫</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 whiteboards + markers</li>
+              <li>Pre-drawn 2x2 box-method grids on each board</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: 23 × 15 (box method walkthrough together)</li>
+              <li>Problem 2: 34 × 18 (kids try; you coach)</li>
+              <li>Word: "6 islands × 24 beaches each = ?"</li>
+              <li>Challenge: 47 × 26</li>
+              <li>Work each; emphasize partial-products and place-value reasoning.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> The box method exposes which kids understand place value, and which are just memorizing "carry the 1." Push for understanding over speed.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section pb-boss">
+    <div class="pb-day-banner" style="">
+      <div class="pb-day-num">5</div>
+      <div>
+        <div class="pb-day-tag">WEEK 1 · DAY 5 · ISLAND</div>
+        <h2>The Compass Quest</h2>
+        <div class="pb-day-skill">BOSS DAY — All Week 1 skills combined</div>
+      </div>
+      <div class="pb-day-icon">⚔️</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Compass Treasure Hunt 🧭</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>20 problem cards (mix of all 4 skills from Days 1-4)</li>
+              <li>5 small "Compass Piece" tokens hidden around the room</li>
+              <li>Map of the room with hidden-location clues</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>The crew works TOGETHER. Pick 5 problem cards.</li>
+              <li>Solve each one &mdash; the answer reveals a location clue (e.g., "457 = behind the blue book").</li>
+              <li>The crew races to find the hidden compass pieces.</li>
+              <li>5 correct answers = 5 compass pieces found = mission complete!</li>
+              <li>Celebrate finds with a quick group cheer.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Setup tip:</strong> Hide compass pieces somewhere kids can find them in 90 seconds (behind chairs, under books). The math, not the hunt, is the focus.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Island Map Builder 🗺️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Large blank paper (poster size)</li>
+              <li>Rulers and colored pencils</li>
+              <li>"Island facts" sheet (uses all Week 1 skills)</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Read the Island Facts sheet aloud (e.g., "The volcano is 4,832 meters tall").</li>
+              <li>Each explorer rounds each fact to the nearest 100 on their own sheet.</li>
+              <li>Together, draw a shared map of the island showing each feature.</li>
+              <li>Add a scale: 1 cm = 100 m.</li>
+              <li>Each kid signs the map.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why this is great:</strong> Combines rounding (Day 2), measurement (Days 3-4), and storytelling. Plus, you get cool art to display.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Final Strategy Session 🎯</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 whiteboards + markers</li>
+              <li>5 sample boss problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Place value: "What is the value of the 7 in 147,832?"</li>
+              <li>Rounding: "Round 4,683 to the nearest 1,000."</li>
+              <li>Subtract: "You have 2,847 fish; crew ate 1,259. Left?"</li>
+              <li>Multiply: "Each raft fits 18 explorers. 12 rafts carry how many?"</li>
+              <li>Multi-step: "Sail 250 km/day × 8 days = ? km total trip."</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>How to coach:</strong> Don't just give answers &mdash; ask "What kind of problem is this?" and "What's the first step?" Empower their boss-day confidence.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="pb-week-divider" id="pb-week-2" style="background:linear-gradient(135deg, #92400e 0%, #451a03 100%);">
+    <div class="pb-week-divider-inner">
+      <span class="pb-week-eyebrow" style="background:#d97706;">WEEK 2 OF 5</span>
+      <h2>🏛️ Temple of Fractions</h2>
+      <p>Fractions, equivalence, comparing, adding, and subtracting.</p>
+      <div class="pb-week-days-preview">
+        Stone of Equivalence · Hall of Mirrors · Adding Pool · Mixing Chamber · Sacred Relic
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #a16207 0%, #713f12 100%);">
+      <div class="pb-day-num">1</div>
+      <div>
+        <div class="pb-day-tag">WEEK 2 · DAY 1 · TEMPLE</div>
+        <h2>Stone of Equivalence</h2>
+        <div class="pb-day-skill">Equivalent fractions (1/2 = 2/4 = 4/8)</div>
+      </div>
+      <div class="pb-day-icon">🪨</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Equivalence Match 🃏</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Printable card set: 24 fraction cards, 12 pairs of equivalents</li>
+              <li>(e.g., 1/2 ↔ 4/8, 2/3 ↔ 6/9, 3/4 ↔ 9/12)</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Shuffle. Lay all 24 cards face-down in a 4×6 grid.</li>
+              <li>Going around the crew, each explorer flips 2 cards.</li>
+              <li>If the fractions are equivalent, they keep the pair and go again.</li>
+              <li>If not, flip them back. Memory + math!</li>
+              <li>Most pairs at the end wins. Play 2 rounds.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Variation:</strong> For struggling kids, allow them to use fraction strips to test equivalence before claiming a pair.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Fraction Strip Quarry 📏</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>1 set fraction strips per explorer (halves, thirds, fourths, sixths, eighths, twelfths)</li>
+              <li>Equivalence record sheet</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer takes one half-strip and lays it on the table.</li>
+              <li>Find which other strips, lined up end-to-end, exactly match the half.</li>
+              <li>Write the equivalence: 1/2 = 2/4 = 3/6 = 4/8 = 6/12.</li>
+              <li>Repeat for 1/3, 2/3, 3/4, 5/6.</li>
+              <li>Compare findings at the end &mdash; same equivalences?</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Kids who guess equivalence numerically without checking visually. Make them line up the strips every time.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Stone Riddles 🧐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>Riddle list below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Read riddle 1 aloud: "I have a half-stone. My friend has 4 of the same shape. How many of my friend's stones equal my stone? <em>Answer: 2.</em>"</li>
+              <li>All 4 race to write the equivalent fraction on their boards.</li>
+              <li>Reveal answers simultaneously. Discuss disagreements.</li>
+              <li>Move to riddle 2: "Two-thirds of the temple is sand. Write this with sixths." <em>Answer: 4/6.</em></li>
+              <li>Continue with 4 more: 3/4 = ?/8, 5/6 = ?/12, 1/3 = ?/9, 7/8 = ?/16.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Listen to the explanations. Kids who say "I multiplied top and bottom by the same number" understand the rule. Kids who guess need more strip practice.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #a16207 0%, #713f12 100%);">
+      <div class="pb-day-num">2</div>
+      <div>
+        <div class="pb-day-tag">WEEK 2 · DAY 2 · TEMPLE</div>
+        <h2>Hall of Mirrors</h2>
+        <div class="pb-day-skill">Comparing fractions with < > =</div>
+      </div>
+      <div class="pb-day-icon">🪞</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Fraction War ⚔️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>1 deck of cards (Ace-10, where Ace = 1)</li>
+              <li>Pencil and tally sheet</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Deal the deck evenly to all 4 explorers.</li>
+              <li>Each round: all 4 flip 2 cards &mdash; first card = numerator, second card = denominator.</li>
+              <li>If numerator > denominator, flip another for denominator.</li>
+              <li>Compare fractions. Biggest wins all 4 fractions.</li>
+              <li>Play until one explorer has all cards, or 10 rounds (most wins).</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching moment:</strong> If two kids think their fractions are equal, have them prove it with fraction strips. Great teaching moment.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Floor Number Line 📐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Painter's tape: long line on floor (0 at one end, 1 at other)</li>
+              <li>Index cards with fractions: 1/4, 3/4, 1/2, 2/3, 5/8, 1/3, 7/8, 1/6</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Lay the tape line on the floor. Mark 0 and 1.</li>
+              <li>Each explorer gets 2 fraction cards and physically stands where they think their fractions go.</li>
+              <li>Once all 4 have stood, the crew judges: are they in the right order?</li>
+              <li>Discuss disagreements. Move kids as needed.</li>
+              <li>Reshuffle and repeat with new cards.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why this works:</strong> Physical movement makes the comparison concrete. Kids "feel" that 3/4 is closer to 1 than 1/2 is.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Mirror Riddles 🪞</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 comparison problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Riddle 1: "You ate 3/8 of a pizza. I ate 1/2. Who ate more? Why?"</li>
+              <li>Riddle 2: "5/6 or 4/5 &mdash; which is bigger? Explain."</li>
+              <li>Riddle 3: "Order from least to greatest: 2/3, 1/2, 5/8."</li>
+              <li>Riddle 4: "Is 7/10 closer to 1/2 or to 1?"</li>
+              <li>Riddle 5: "True or false: 3/4 = 9/12. Prove it."</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Push their thinking:</strong> Ask "is there a benchmark like 1/2 or 1 that could help?" Benchmarks beat common denominators when speed matters.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #a16207 0%, #713f12 100%);">
+      <div class="pb-day-num">3</div>
+      <div>
+        <div class="pb-day-tag">WEEK 2 · DAY 3 · TEMPLE</div>
+        <h2>Adding Pool</h2>
+        <div class="pb-day-skill">Adding fractions with like and unlike denominators</div>
+      </div>
+      <div class="pb-day-icon">💧</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Pool Race 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>8 dice (2 per explorer)</li>
+              <li>Pool sheet: blank fraction circle worth 1 whole, divided into 12 wedges</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer has a pool sheet (a 12-wedge circle).</li>
+              <li>Roll 2 dice. Smaller = numerator, bigger = denominator. (Re-roll if numerator > denominator.)</li>
+              <li>Convert to twelfths and color in that many wedges on your pool.</li>
+              <li>Roll again. Add the new fraction. Color it in.</li>
+              <li>First to fill the whole pool (12/12) wins!</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Variation:</strong> Use the rule "if you go over 12/12 you spill and lose half your wedges." Adds risk and forces careful adding.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Fraction Strip Adding 🧱</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Fraction strips per explorer</li>
+              <li>Worksheet with 8 addition problems</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer takes a worksheet: 1/4 + 1/2 = ?, 1/3 + 1/6 = ?, etc.</li>
+              <li>Build each addition with strips: place a 1/4 strip + a 1/2 strip end-to-end.</li>
+              <li>Find which single set of equal strips matches the total (e.g., 3/4).</li>
+              <li>Write the sum.</li>
+              <li>Move to next. 8 problems total.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Kids who add numerators AND denominators (1/4 + 1/2 = 2/6). Strips immediately show why that's wrong.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Pool Problems 🏊</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 word problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "You filled 1/3 of the temple pool. Your friend added another 1/6. How much is full?"</li>
+              <li>Problem 2: "3/8 of the pool is from rain, 1/4 is from a spring. Total?"</li>
+              <li>Problem 3: "2/5 + 1/5 + 1/10 = ?"</li>
+              <li>Problem 4: "Two-thirds of a barrel plus one-fourth of a barrel?"</li>
+              <li>Problem 5: "You need 7/8 of a pool. You have 1/2 + 1/4. Are you there yet?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coach the strategy:</strong> Always ask "do these denominators match?" first. If not, find a common one. Make this a chant.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #a16207 0%, #713f12 100%);">
+      <div class="pb-day-num">4</div>
+      <div>
+        <div class="pb-day-tag">WEEK 2 · DAY 4 · TEMPLE</div>
+        <h2>Mixing Chamber</h2>
+        <div class="pb-day-skill">Subtracting fractions and mixed numbers</div>
+      </div>
+      <div class="pb-day-icon">⚗️</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Subtraction Dice 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>8 dice (2 per explorer)</li>
+              <li>Score sheet with starting whole of 1 (= 12/12)</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer starts with a "chamber" of 1 whole (12/12).</li>
+              <li>Roll 2 dice: bigger = denominator, smaller = numerator. Convert to twelfths.</li>
+              <li>Subtract that fraction from your chamber. Write the new amount.</li>
+              <li>Keep rolling. First to empty (or go negative) loses.</li>
+              <li>Last one standing wins!</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Discussion moment:</strong> When someone has 3/12 left and rolls 1/2 (= 6/12), pause and ask: "Can you subtract? What happens?" Great way to surface mixed/improper thinking.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Carving the Stone 🪓</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Fraction circles (pie pieces)</li>
+              <li>Subtraction worksheet</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer builds a "stone" from 1 whole circle.</li>
+              <li>Problem 1: "Carve away 1/4. What's left?" Remove a 1/4 piece, name the remainder.</li>
+              <li>Problem 2: "Carve away 2/3 of what's left." Track new total.</li>
+              <li>Continue through 8 problems, increasing complexity (mixed numbers like 1 1/2 &minus; 3/4).</li>
+              <li>Final problem: 2 wholes &minus; 5/6.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Mixed numbers trick:</strong> When subtracting from a whole, replace 1 with the equivalent fraction (e.g., 1 = 4/4). Demonstrate physically first.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Mixed Number Coaching 🧮</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 mixed-number problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "2 &minus; 1/3 = ?" (Convert 2 to 6/3.)</li>
+              <li>Problem 2: "1 1/2 &minus; 3/4 = ?"</li>
+              <li>Problem 3: "3 1/4 &minus; 1 1/2 = ?"</li>
+              <li>Problem 4: "You had 4 cups of water. Used 2 2/3. Left?"</li>
+              <li>Problem 5: "The recipe needed 3 1/2 cups, you have 1 3/4. How much more?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coach the move:</strong> "Borrow from the whole." 3 1/4 becomes 2 + 5/4 when you need to subtract more than 1/4. Show it as physical strips first.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section pb-boss">
+    <div class="pb-day-banner" style="">
+      <div class="pb-day-num">5</div>
+      <div>
+        <div class="pb-day-tag">WEEK 2 · DAY 5 · TEMPLE</div>
+        <h2>Sacred Relic</h2>
+        <div class="pb-day-skill">BOSS DAY — All Week 2 fraction skills</div>
+      </div>
+      <div class="pb-day-icon">💎</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Relic Treasure Hunt 🗝️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>5 sealed envelopes with clues (you prepare ahead)</li>
+              <li>Each clue has a fraction problem; solving reveals the next location</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Envelope 1: Equivalent fraction problem. Answer = location of envelope 2.</li>
+              <li>Envelope 2: Comparing fractions. Answer = location of envelope 3.</li>
+              <li>Envelope 3: Adding fractions. Answer = location of envelope 4.</li>
+              <li>Envelope 4: Subtracting mixed numbers. Answer = location of envelope 5.</li>
+              <li>Envelope 5: The Sacred Relic (a printable certificate or small prize).</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Setup time:</strong> Plan envelope locations the night before. Use furniture, classroom corners. Numbers should match physical clue locations ("go to chair #3").
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Temple Mosaic 🎨</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Large blank paper (poster size)</li>
+              <li>Pre-cut fraction shapes (halves, quarters, eighths) in different colors</li>
+              <li>Glue sticks</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>The crew builds one big mosaic together.</li>
+              <li>Each kid commits to a section: "I'm filling 1/4 of the poster."</li>
+              <li>Within their section, they tile fraction shapes that sum to that section.</li>
+              <li>Write the fraction equation on each section (e.g., 1/8 + 1/8 + 1/4 = 1/2 of mine).</li>
+              <li>Sign and date the temple mosaic.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why this is great:</strong> Combines equivalence, addition, and physical fraction sense. Plus, beautiful classroom display.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Final Strategy Session 🎯</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 whiteboards + markers</li>
+              <li>5 sample boss problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Equivalence: "3/4 = ?/12"</li>
+              <li>Comparing: "Which is bigger: 5/8 or 2/3?"</li>
+              <li>Adding: "1/2 + 1/3 = ?"</li>
+              <li>Subtracting: "2 1/4 &minus; 5/6 = ?"</li>
+              <li>Multi-step: "Recipe needs 3 cups. You have 1 1/2 + 3/4. How much more?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>How to coach:</strong> Don't just give answers &mdash; ask "what fraction skill is this?" first. Building habit of categorizing problems is half the battle.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="pb-week-divider" id="pb-week-3" style="background:linear-gradient(135deg, #4c1d95 0%, #1e1b4b 100%);">
+    <div class="pb-week-divider-inner">
+      <span class="pb-week-eyebrow" style="background:#7c3aed;">WEEK 3 OF 5</span>
+      <h2>💎 Cave of Decimals</h2>
+      <p>Decimal place value, comparing, adding, subtracting, and multiplying by powers of 10.</p>
+      <div class="pb-week-days-preview">
+        Glowing Crystals · Crystal Comparison · Combining Crystals · Splitting Crystals · Crystal Heart
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #5b21b6 0%, #3b0764 100%);">
+      <div class="pb-day-num">1</div>
+      <div>
+        <div class="pb-day-tag">WEEK 3 · DAY 1 · CAVE</div>
+        <h2>Glowing Crystals</h2>
+        <div class="pb-day-skill">Decimal place value (tenths, hundredths, thousandths)</div>
+      </div>
+      <div class="pb-day-icon">💎</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Crystal Glow War 🃏</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>1 deck of cards (Ace-9 only)</li>
+              <li>Decimal place-value mats for each explorer</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Deal 4 cards to each explorer.</li>
+              <li>Each explorer arranges their 4 cards as a decimal: _ . _ _ _</li>
+              <li>Reads it aloud: "three and four hundred eighty-seven thousandths."</li>
+              <li>Biggest decimal wins the round &mdash; earns 1 "crystal" tally.</li>
+              <li>Reshuffle. Best of 7 rounds.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Variation:</strong> Switch to smallest mid-game. Forces them to rethink &mdash; small decimals are tricky (0.029 vs 0.092).
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Crystal Sort 🔬</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>20 pre-made decimal cards (mix of tenths, hundredths, thousandths)</li>
+              <li>Sample cards: 0.3, 0.30, 0.300, 0.03, 0.003, 0.33, 0.333, etc.</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Spread all 20 cards face-up.</li>
+              <li>Each explorer picks 5. They have 3 min to order their 5 from smallest to largest.</li>
+              <li>Going around, each shows their order and explains.</li>
+              <li>Crew checks: do they agree?</li>
+              <li>Highlight the surprising ones: 0.3 = 0.30 = 0.300.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Kids who think 0.27 > 0.3 because "27 is bigger than 3." Classic error. Use the grid sheet to show 0.27 = 27/100 vs 0.3 = 30/100.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Glow Detective 🔦</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>Decimals list to call: 4.205, 0.067, 12.034, 8.703, 0.508, 6.090, 23.100, 0.045</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Read a decimal aloud, slowly, ONCE. All 4 race to write it on whiteboards.</li>
+              <li>Ask: "What's the value of the digit in the hundredths place?"</li>
+              <li>Ask: "What place is the 0 in?"</li>
+              <li>Discuss disagreements as a group. Small group = safe.</li>
+              <li>Move to next decimal.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Listen for the "zero" confusion:</strong> Trailing zeros (4.20) vs internal zeros (4.02) cause big misunderstandings. Spend extra time on those.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #5b21b6 0%, #3b0764 100%);">
+      <div class="pb-day-num">2</div>
+      <div>
+        <div class="pb-day-tag">WEEK 3 · DAY 2 · CAVE</div>
+        <h2>Crystal Comparison</h2>
+        <div class="pb-day-skill">Comparing and ordering decimals</div>
+      </div>
+      <div class="pb-day-icon">🔍</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Dim or Bright? 💡</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Set of 24 decimal cards</li>
+              <li>"<", ">", "=" symbol cards</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Deal cards evenly to all 4.</li>
+              <li>Each round: all 4 flip the top card simultaneously.</li>
+              <li>Highest decimal ("brightest crystal") wins the round.</li>
+              <li>Whoever wins collects all 4 cards.</li>
+              <li>Play until cards run out. Most cards wins.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching:</strong> When two kids tie or both think they won, force them to use the symbol cards: "prove it with <, >, or =."
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Crystal Number Line 📐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Painter's tape line on floor, marked 0 and 1</li>
+              <li>Index cards: 0.25, 0.5, 0.75, 0.1, 0.9, 0.05, 0.55, 0.333</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Tape a line 0 to 1 on the floor.</li>
+              <li>Each kid gets 2 cards. They stand at the spot they think their decimals belong.</li>
+              <li>Crew judges. Discuss any disagreements.</li>
+              <li>Reshuffle, repeat. Try harder values: 0.07, 0.7, 0.07, 0.007 (4 sneaky ones).</li>
+              <li>End with kids creating their own decimal card and finding its place.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Critical insight:</strong> 0.07 is closer to 0 than to 0.1. Most kids will instinctively want to put it near 0.7. Physical placement makes this stick.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Comparison Riddles 🧐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Riddle 1: "Which is bigger: 0.4 or 0.39? How do you know?"</li>
+              <li>Riddle 2: "Order least to greatest: 0.07, 0.7, 0.077, 0.707."</li>
+              <li>Riddle 3: "True or false: 0.50 = 0.5. Prove it."</li>
+              <li>Riddle 4: "Is 0.6 closer to 0.5 or to 1?"</li>
+              <li>Riddle 5: "Fill the blank: 0.8 > ___ > 0.65. (Find 2 valid answers.)"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Teach a strategy:</strong> "Line up the decimal points, add zeros to match length, then compare like whole numbers." Have them write it as a chant.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #5b21b6 0%, #3b0764 100%);">
+      <div class="pb-day-num">3</div>
+      <div>
+        <div class="pb-day-tag">WEEK 3 · DAY 3 · CAVE</div>
+        <h2>Combining Crystals</h2>
+        <div class="pb-day-skill">Adding decimals</div>
+      </div>
+      <div class="pb-day-icon">✨</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Crystal Combiner 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>8 dice (2 per explorer)</li>
+              <li>Sum sheet starting at 0</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer starts at 0.</li>
+              <li>Roll 2 dice. First = tenths, second = hundredths. (4 and 7 = 0.47.)</li>
+              <li>Add 0.47 to your sum. Write the new total.</li>
+              <li>Keep rolling. First to reach EXACTLY 5.00 wins.</li>
+              <li>If you overshoot, you have to subtract (and may not be back).</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching:</strong> Force them to line up the decimals. Use a graph-paper column. Misalignment is the #1 mistake.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Crystal Stacker 🧱</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Base-10 blocks: hundredths squares and tenths rods</li>
+              <li>8 addition problems on cards</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: 0.34 + 0.21. Build each with blocks. Combine. Count: 0.55.</li>
+              <li>Problem 2: 0.7 + 0.05. Tricky: 7 tenths + 5 hundredths. Build and count.</li>
+              <li>Problem 3: 1.45 + 0.6. Carry from hundredths to tenths to ones.</li>
+              <li>Continue with 5 more, increasing difficulty.</li>
+              <li>End: 2.8 + 1.45.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why blocks first:</strong> When you carry from hundredths to tenths, you're physically trading 10 small squares for 1 rod. Algorithm makes sense after the trade.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Adding Coach ➕</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 word problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "You found 2.4 g of crystal and your friend found 1.78 g. Total?"</li>
+              <li>Problem 2: "3.5 + 0.07 = ?"</li>
+              <li>Problem 3: "$4.99 + $0.85 + $2.50 = ?"</li>
+              <li>Problem 4: "Three crystals weighed 0.4, 0.85, 1.205 kg. Total?"</li>
+              <li>Problem 5: "You walked 1.2 km, then 0.85 km, then 2 km. How far altogether?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coach the move:</strong> "Line up the dots first." Make this a mantra. Have them write the problem vertically before computing.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #5b21b6 0%, #3b0764 100%);">
+      <div class="pb-day-num">4</div>
+      <div>
+        <div class="pb-day-tag">WEEK 3 · DAY 4 · CAVE</div>
+        <h2>Splitting Crystals</h2>
+        <div class="pb-day-skill">Subtracting decimals & multiplying by powers of 10</div>
+      </div>
+      <div class="pb-day-icon">⚡</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Crystal Splitter 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>8 dice (2 per explorer)</li>
+              <li>Start sheet at 10.00</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer starts at 10.00.</li>
+              <li>Roll 2 dice: first = tenths digit, second = hundredths digit. (e.g., 0.36)</li>
+              <li>Subtract 0.36 from your sum.</li>
+              <li>Keep rolling. First to reach EXACTLY 0 (or closest) wins.</li>
+              <li>If you'd go negative, skip your turn until you can subtract validly.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching:</strong> Subtraction across decimal points is harder than addition. Have them write each step vertically.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Powers-of-Ten Multiplier ✖️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Place-value mats with 4 decimal places</li>
+              <li>Digit cards or chips</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Place a number on the mat: 0.045.</li>
+              <li>Multiply by 10: every digit slides LEFT one place. Now it's 0.45.</li>
+              <li>Multiply by 10 again: 4.5.</li>
+              <li>By 10 again: 45. By 10 again: 450.</li>
+              <li>Now go backwards: divide by 10 (slide right). Practice both directions with 5 numbers.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Common error:</strong> Kids think "multiply by 10 = add a zero." That fails with decimals. Physical sliding fixes it. Drill the slide.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Decimal Coach 🧮</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "5 &minus; 0.3 = ?" (Trick: line up dots, fill with zeros.)</li>
+              <li>Problem 2: "4.50 &minus; 2.78 = ?"</li>
+              <li>Problem 3: "You had $20.00. Spent $13.45. Change?"</li>
+              <li>Problem 4: "0.07 × 100 = ?"</li>
+              <li>Problem 5: "450 ÷ 1000 = ?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coach the shortcut:</strong> Multiplying by 100 = slide 2 places left. Dividing by 1000 = slide 3 places right. Practice the slide each problem.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section pb-boss">
+    <div class="pb-day-banner" style="">
+      <div class="pb-day-num">5</div>
+      <div>
+        <div class="pb-day-tag">WEEK 3 · DAY 5 · CAVE</div>
+        <h2>Crystal Heart</h2>
+        <div class="pb-day-skill">BOSS DAY — All Week 3 decimal skills</div>
+      </div>
+      <div class="pb-day-icon">❤️</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Heart Hunt 🗝️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>5 sealed envelopes with decimal clues</li>
+              <li>Each clue's answer = location of the next</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Envelope 1: place value. Answer = location of envelope 2.</li>
+              <li>Envelope 2: comparing decimals. Answer = location of envelope 3.</li>
+              <li>Envelope 3: adding decimals. Answer = location of envelope 4.</li>
+              <li>Envelope 4: subtracting & ×10. Answer = location of envelope 5.</li>
+              <li>Envelope 5: the Crystal Heart (certificate or small prize).</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Setup:</strong> Map locations the night before. Number physical locations 1-10. Each answer routes to a specific location.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Cave Map Build 🗺️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Large blank paper (poster size)</li>
+              <li>Rulers and colored pencils</li>
+              <li>"Cave facts" sheet with decimal measurements</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Read cave facts: "Crystal Hall is 12.4 m wide, ceiling 3.85 m."</li>
+              <li>Each explorer measures and draws one section of the cave to scale (1 cm = 1 m).</li>
+              <li>Add labels with decimal lengths.</li>
+              <li>Combine sections into one master cave map.</li>
+              <li>Sign and decorate.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why this is great:</strong> Combines decimal measurement, scale, and teamwork. Display the map for parents pickup.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Final Strategy Session 🎯</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 whiteboards + markers</li>
+              <li>5 sample boss problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Place value: "What's the value of the 7 in 4.073?"</li>
+              <li>Comparing: "Which is bigger: 0.6 or 0.59?"</li>
+              <li>Adding: "3.45 + 0.7 = ?"</li>
+              <li>Subtracting: "10 &minus; 4.85 = ?"</li>
+              <li>Multi-step: "Crystals weigh 0.4 kg each. 12 crystals total weight? Then × 100?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>How to coach:</strong> Ask "what skill does this problem need?" before they compute. Categorization confidence = boss confidence.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="pb-week-divider" id="pb-week-4" style="background:linear-gradient(135deg, #0c4a6e 0%, #082f49 100%);">
+    <div class="pb-week-divider-inner">
+      <span class="pb-week-eyebrow" style="background:#0284c7;">WEEK 4 OF 5</span>
+      <h2>☁️ Sky Kingdom of Geometry</h2>
+      <p>Perimeter, area, angles, and the coordinate plane.</p>
+      <div class="pb-week-days-preview">
+        Cloud Architects · Sky Pastures · Angle Birds · Star Maps · Sky Bridge
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%);">
+      <div class="pb-day-num">1</div>
+      <div>
+        <div class="pb-day-tag">WEEK 4 · DAY 1 · SKY</div>
+        <h2>Cloud Architects</h2>
+        <div class="pb-day-skill">Perimeter of rectangles and irregular shapes</div>
+      </div>
+      <div class="pb-day-icon">🏗️</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Build the Sky Pen 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>8 dice (2 per explorer)</li>
+              <li>Graph paper, 1 sheet per kid</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer rolls 2 dice: first = length, second = width.</li>
+              <li>Draw a rectangle on graph paper using those dimensions.</li>
+              <li>Calculate the perimeter (2L + 2W).</li>
+              <li>Roll again. Add the new rectangle next to the old one. Calculate the combined perimeter (look for shared sides!).</li>
+              <li>Most accurate combined perimeter after 3 rolls wins.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching:</strong> When two rectangles share a side, that side is INSIDE the figure and doesn't count toward perimeter. Show this visually before they try.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>String Perimeter Hunt 🧵</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Long string (3-5 m per kid)</li>
+              <li>Rulers, scissors</li>
+              <li>Real classroom objects: book, table, notebook, your shoe</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each kid grabs a string and a ruler.</li>
+              <li>Pick an object. Wrap the string around its border (perimeter).</li>
+              <li>Mark and cut the string at the meeting point.</li>
+              <li>Measure the cut length. That's the perimeter!</li>
+              <li>Find perimeters of 4 different objects. Compare with crewmates.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Kids who pull the string tight vs. follow the actual edges. Show: "string follows the shape, not the shortcut."
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Architect Riddles 🧐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "A rectangle is 8 m by 5 m. What's the perimeter?"</li>
+              <li>Problem 2: "A square garden has perimeter 36 cm. Side length?"</li>
+              <li>Problem 3: "L-shape (sketch): sides are 6, 3, 4, 5, 2, 8. Perimeter?"</li>
+              <li>Problem 4: "A field is 100 m by 60 m. How much fencing for the perimeter?"</li>
+              <li>Problem 5: "A regular pentagon has perimeter 35 cm. Side?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coach the strategy:</strong> Always sketch first, label every side, then add ALL sides. Drilling the sketch-and-label habit is gold.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%);">
+      <div class="pb-day-num">2</div>
+      <div>
+        <div class="pb-day-tag">WEEK 4 · DAY 2 · SKY</div>
+        <h2>Sky Pastures</h2>
+        <div class="pb-day-skill">Area of rectangles and composite shapes</div>
+      </div>
+      <div class="pb-day-icon">🌥️</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Pasture Roll 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>8 dice (2 per explorer)</li>
+              <li>Graph paper, 1 sheet per kid</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer rolls 2 dice: length, width.</li>
+              <li>Draw the rectangle. Calculate area (L × W) and count squares to verify.</li>
+              <li>Roll 2 more. Draw a SECOND rectangle next to the first.</li>
+              <li>Calculate the total area (sum the two).</li>
+              <li>Most area after 3 rolls wins.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Connect to multiplication:</strong> Area = repeated addition of rows. Show why L × W gives the count of squares. Make it visual.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Grid Pasture Builder 🟦</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Graph paper</li>
+              <li>Pattern blocks or tangrams</li>
+              <li>Colored pencils</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each kid draws an irregular pasture (compound shape) on graph paper.</li>
+              <li>Decompose it into rectangles (draw dotted lines).</li>
+              <li>Calculate each rectangle's area. Sum them.</li>
+              <li>Trade pastures with a crewmate &mdash; verify their math.</li>
+              <li>Bonus: design a pasture with area exactly 24.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>What to watch for:</strong> Kids who count squares one-by-one (tedious) vs. kids who decompose into rectangles. Push them toward decomposition &mdash; it's the algebra precursor.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Sheep Counter Riddles 🐑</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "Pasture is 7 m by 4 m. Area?"</li>
+              <li>Problem 2: "Square pen, side 9 m. Area?"</li>
+              <li>Problem 3: "L-shape pasture: 6×4 rectangle + 3×2 rectangle. Total area?"</li>
+              <li>Problem 4: "You need pasture with area 60 m². Suggest 3 different rectangle dimensions."</li>
+              <li>Problem 5: "Rectangle has area 48 and length 8. Width?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Push their thinking:</strong> Area = 60 has many dimension pairs (1×60, 2×30, 3×20, 4×15, 5×12, 6×10). Great factor practice.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%);">
+      <div class="pb-day-num">3</div>
+      <div>
+        <div class="pb-day-tag">WEEK 4 · DAY 3 · SKY</div>
+        <h2>Angle Birds</h2>
+        <div class="pb-day-skill">Measuring and classifying angles</div>
+      </div>
+      <div class="pb-day-icon">🐦</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Angle Toss 🎯</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Printed angle cards: 30°, 45°, 60°, 90°, 110°, 135°, 175°, 180°</li>
+              <li>Protractors per kid</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Lay angle cards face-down.</li>
+              <li>Each round: flip one card. Read the angle.</li>
+              <li>All 4 race to draw the angle using their protractor on a whiteboard.</li>
+              <li>Compare drawings. Closest to the actual angle wins.</li>
+              <li>Play 8 rounds.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching:</strong> Show how to align the protractor zero line correctly. The #1 error is reading the wrong scale (inside vs. outside of the protractor).
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Real-World Angle Hunt 🔍</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Protractors per kid</li>
+              <li>Painter's tape (for marking angles found)</li>
+              <li>Recording sheet</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each kid hunts the classroom for angles: corner of a book, slope of a chair, scissors open, fingers spread, hinges.</li>
+              <li>Use protractor to measure each angle. Tape it briefly for visibility.</li>
+              <li>Record: object + angle + acute/right/obtuse classification.</li>
+              <li>Find at least 6 angles total.</li>
+              <li>Share favorite finds with the crew.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Vocabulary check:</strong> Acute &lt; 90°, right = 90°, obtuse &gt; 90° but &lt; 180°. Drill these terms during the hunt.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Angle Riddles 🧐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "Two angles together make a straight line. One is 50°. The other?"</li>
+              <li>Problem 2: "Three angles inside a triangle sum to 180°. Two are 60° and 70°. Third?"</li>
+              <li>Problem 3: "Classify: 91°, 89°, 90°, 180°, 100°, 45°. Acute, right, obtuse, straight?"</li>
+              <li>Problem 4: "A clock at 3:00 makes what angle?"</li>
+              <li>Problem 5: "Two angles together make 90°. One is 25°. The other?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Big idea:</strong> Complementary = sum to 90°, Supplementary = sum to 180°. Teach these as "angle partners".
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #0369a1 0%, #0c4a6e 100%);">
+      <div class="pb-day-num">4</div>
+      <div>
+        <div class="pb-day-tag">WEEK 4 · DAY 4 · SKY</div>
+        <h2>Star Maps</h2>
+        <div class="pb-day-skill">Coordinate plane and plotting points</div>
+      </div>
+      <div class="pb-day-icon">⭐</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Coordinate Battleship ⚔️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 blank coordinate grids per kid (1st quadrant)</li>
+              <li>Painted ships in 2-square length</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each kid places 4 "sky ships" on their grid (each ship covers 2 squares).</li>
+              <li>Pair up: 2 vs. 2.</li>
+              <li>Take turns calling coordinates: "(3, 5)."</li>
+              <li>Opponent says "hit" or "miss."</li>
+              <li>First pair to sink all opponent ships wins.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching:</strong> The convention is (x, y) &mdash; x first (left/right), then y (up/down). Drill the order. Some kids reverse it.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Treasure Map Plot 🗺️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Coordinate grid (printed, 1 per kid)</li>
+              <li>List of points to plot, with a hidden picture</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Hand each kid a list of 12 coordinate pairs.</li>
+              <li>Plot each point. Connect them in order with lines.</li>
+              <li>The result is a hidden picture (cloud, kite, star, rocket).</li>
+              <li>Compare results. Did everyone get the same picture?</li>
+              <li>Bonus: each kid designs their own coordinate-list picture.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why this works:</strong> Hidden pictures make plotting feel like a reward, not a chore. Prep 4 different lists for variety.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Map Coach 🧭</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "Plot (4, 7). Then (4, 2). What's the distance?"</li>
+              <li>Problem 2: "A square has corners at (1,1), (1,5), (5,5). What's the 4th corner?"</li>
+              <li>Problem 3: "You move from (3, 2) right 4, up 3. New point?"</li>
+              <li>Problem 4: "Name 3 points on the line y = 5."</li>
+              <li>Problem 5: "Triangle corners: (0,0), (4,0), (0,3). Sketch and find perimeter."</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Connect to geometry:</strong> Coordinate distances connect to perimeter and area from earlier days. Show the synergy.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section pb-boss">
+    <div class="pb-day-banner" style="">
+      <div class="pb-day-num">5</div>
+      <div>
+        <div class="pb-day-tag">WEEK 4 · DAY 5 · SKY</div>
+        <h2>Sky Bridge</h2>
+        <div class="pb-day-skill">BOSS DAY — All Week 4 geometry skills</div>
+      </div>
+      <div class="pb-day-icon">🌉</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Bridge Treasure Hunt 🗝️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>5 sealed envelopes with geometry clues</li>
+              <li>Each clue's answer = location of the next envelope</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Envelope 1: perimeter problem. Answer = next location.</li>
+              <li>Envelope 2: area problem. Answer = next location.</li>
+              <li>Envelope 3: angle problem. Answer = next location.</li>
+              <li>Envelope 4: coordinate plot. Answer = next location.</li>
+              <li>Envelope 5: the Sky Bridge medal (certificate or prize).</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Setup:</strong> Map locations in advance. Use desk numbers or coordinates on the classroom floor for the final clue. Bonus geometry connection.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Master Sky Kingdom Map 🎨</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Large blank paper (poster size)</li>
+              <li>Rulers, protractors, colored pencils</li>
+              <li>List of buildings with dimensions</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Read building list aloud: "Sky Tower: 5×8 m. Cloud Palace: triangle, base 6, height 4."</li>
+              <li>Each kid designs and draws one building on the master map.</li>
+              <li>Calculate perimeter and area of their building.</li>
+              <li>Place buildings on the map using coordinates (give each a center point).</li>
+              <li>Sign and add a sky compass rose.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why this is great:</strong> Combines every skill from the week. Display the map for end-of-week celebration.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Final Strategy Session 🎯</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 whiteboards + markers</li>
+              <li>5 sample boss problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Perimeter: "Rectangle 8 × 3. Perimeter?"</li>
+              <li>Area: "Square, side 7. Area?"</li>
+              <li>Angles: "Two angles in a triangle are 50° and 60°. The third?"</li>
+              <li>Coordinates: "Distance between (2,5) and (2,1)?"</li>
+              <li>Multi-step: "A 4×6 garden has 2 m walkways around it. New outer perimeter?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>How to coach:</strong> Sketch every problem first. Sketching is geometry's universal translator. No sketch = high error rate.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="pb-week-divider" id="pb-week-5" style="background:linear-gradient(135deg, #1e1b4b 0%, #020617 100%);">
+    <div class="pb-week-divider-inner">
+      <span class="pb-week-eyebrow" style="background:#4338ca;">WEEK 5 OF 5</span>
+      <h2>🚀 Space Station of Stars</h2>
+      <p>Data, patterns, large numbers, and multi-step problem solving.</p>
+      <div class="pb-week-days-preview">
+        Stellar Data · Constellation Patterns · Galactic Distances · Mission Calculations · Return Home
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #3730a3 0%, #1e1b4b 100%);">
+      <div class="pb-day-num">1</div>
+      <div>
+        <div class="pb-day-tag">WEEK 5 · DAY 1 · SPACE</div>
+        <h2>Stellar Data</h2>
+        <div class="pb-day-skill">Bar graphs and mean (average)</div>
+      </div>
+      <div class="pb-day-icon">📊</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Star Dice Data 🎲</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>8 dice (2 per explorer)</li>
+              <li>Tally sheet</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer rolls 2 dice and sums them (range 2-12).</li>
+              <li>Record the sum. Roll 10 times total &mdash; you have 10 data points.</li>
+              <li>Find your data's MEAN: add all 10 sums, divide by 10.</li>
+              <li>Compare crew means. Whose data set has the highest mean?</li>
+              <li>Plot all 4 means on a small bar graph.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Discussion moment:</strong> Did anyone get a mean exactly 7? Why is 7 likely (it's the most common dice sum)? Great intro to probability.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Build a Bar Graph 📊</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Connecting cubes (100+)</li>
+              <li>Bar-graph printable (4 categories)</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Survey the crew: "Favorite planet: Mars, Jupiter, Saturn, or other?" Quick poll.</li>
+              <li>Each kid builds a cube tower for one category, height = vote count.</li>
+              <li>Place towers side-by-side on the printable to form a physical bar graph.</li>
+              <li>Label axes, give graph a title.</li>
+              <li>Calculate: which category had the most? Total votes? Mean votes per category?</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why physical first:</strong> Bar graphs are abstract. Cube towers make them concrete. Kids who build one understand the printable forever.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Data Riddles 🧐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "Data: 4, 7, 9, 6, 4. What's the mean?"</li>
+              <li>Problem 2: "3 explorers' scores: 80, 90, 100. Mean?"</li>
+              <li>Problem 3: "5 explorers' heights: 120, 130, 125, 135, 140. Mean?"</li>
+              <li>Problem 4: "Bar graph shows: Mon=10, Tue=20, Wed=15, Thu=25. Total + mean?"</li>
+              <li>Problem 5: "You scored 80, 70, 90 on 3 tests. What does the 4th need to be for a mean of 85?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Push their thinking:</strong> Problem 5 is reverse mean. Show: total needed = mean × number of items. Work backward. Huge algebra setup.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #3730a3 0%, #1e1b4b 100%);">
+      <div class="pb-day-num">2</div>
+      <div>
+        <div class="pb-day-tag">WEEK 5 · DAY 2 · SPACE</div>
+        <h2>Constellation Patterns</h2>
+        <div class="pb-day-skill">Number patterns and ratios</div>
+      </div>
+      <div class="pb-day-icon">✨</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Pattern Predict 🔮</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Printed pattern cards: 12 patterns, each showing 3-4 terms</li>
+              <li>Patterns like: 3, 6, 12, 24, ___ (×2); 2, 5, 8, 11, ___ (+3); 100, 90, 81, 73, ___ (-10, -9, -8, -7)</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Lay all 12 pattern cards face-up.</li>
+              <li>Each round: pick a card. All 4 race to write the next 2 terms on whiteboards.</li>
+              <li>Reveal answers. Whoever got both right earns 1 star.</li>
+              <li>Discuss the rule for each pattern.</li>
+              <li>Play 8 rounds.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Trap-spotting:</strong> Kids will try to apply the SAME rule for every pattern (e.g., always +3). Push them to TEST their rule with all given terms.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Constellation Ratio Builder ⭐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Pattern blocks (or star stickers in 3 colors)</li>
+              <li>Recipe sheet with target ratios</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Recipe 1: "Build a constellation with 3 yellow stars for every 2 blue stars. Target total: 15."</li>
+              <li>Each kid builds it with blocks/stickers (9 yellow + 6 blue).</li>
+              <li>Recipe 2: "Ratio 1:2:3 (red:yellow:blue). Total: 18."</li>
+              <li>Recipe 3: "Same ratio but total: 24."</li>
+              <li>End: each kid invents their own ratio recipe for crewmates.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Discussion:</strong> Use the words PART and WHOLE. "Yellow is 3 parts of 5 total parts." Lays groundwork for percent and fractions.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Pattern Coach 🧠</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "4, 7, 10, 13, ___. Next 3 terms?"</li>
+              <li>Problem 2: "1, 4, 9, 16, 25, ___. (Squares.) Rule + next term?"</li>
+              <li>Problem 3: "Ratio of teachers to students at a school = 1:15. 90 students means how many teachers?"</li>
+              <li>Problem 4: "A recipe uses 2 cups sugar for every 3 cups flour. For 12 cups flour?"</li>
+              <li>Problem 5: "100, 50, 25, 12.5, ___. Next term?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Big idea:</strong> Always ASK what's happening between consecutive terms. Differences, ratios, or some other operation. Naming the pattern reveals the rule.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #3730a3 0%, #1e1b4b 100%);">
+      <div class="pb-day-num">3</div>
+      <div>
+        <div class="pb-day-tag">WEEK 5 · DAY 3 · SPACE</div>
+        <h2>Galactic Distances</h2>
+        <div class="pb-day-skill">Large numbers and intro to scientific notation</div>
+      </div>
+      <div class="pb-day-icon">🌌</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Distance Match 🔭</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Match cards: 12 pairs. Half show standard form, half show expanded form.</li>
+              <li>Examples: 4,500,000 ↔ 4.5 million; 230,000 ↔ 2.3 × 100,000</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Shuffle all 24 cards. Lay face-up.</li>
+              <li>Each round: each explorer finds 1 matching pair.</li>
+              <li>Wrong matches get returned to the pile.</li>
+              <li>First to collect 3 correct pairs wins.</li>
+              <li>Play 2 rounds.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching:</strong> Teach the shortcut: 4.5 million = 4.5 × 1,000,000. Move the decimal 6 places right. Reverse: count zeros to convert standard to expanded.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Cosmic Distance Sort 🪐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Cards with real cosmic distances (Earth-to-X in km)</li>
+              <li>Sample: Moon: 384,400 km; Sun: 149,600,000 km; Mars: 225 million km; Jupiter: 778 million km; Pluto: 5.9 billion km; nearest star: 40 trillion km</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Lay all cards face-up.</li>
+              <li>Each kid takes 3-4 cards and orders them smallest to largest.</li>
+              <li>Crew discusses: any disagreements?</li>
+              <li>Add a number line on the floor (10x scale: 1 m = 1 million km). Walk to where each distance "would be."</li>
+              <li>Reflect: most distances quickly run off the available space.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Real-world connection:</strong> Pluto is 5.9 BILLION km. The brain can't directly imagine that. Big numbers need scientific notation for sanity.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Big Number Coach 📐</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "Write 4 million in standard form."</li>
+              <li>Problem 2: "Write 35,000,000 in expanded form (3.5 × ?)."</li>
+              <li>Problem 3: "Order: 4.5 billion, 450 million, 4.5 trillion."</li>
+              <li>Problem 4: "The galaxy has about 100 billion stars. Write in standard form."</li>
+              <li>Problem 5: "Light travels 300,000 km/sec. How many km in 60 seconds?"</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coach the shortcuts:</strong> Million = 1,000,000 (6 zeros). Billion = 1,000,000,000 (9 zeros). Trillion = 12 zeros. Drill these.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section">
+    <div class="pb-day-banner" style="background:linear-gradient(135deg, #3730a3 0%, #1e1b4b 100%);">
+      <div class="pb-day-num">4</div>
+      <div>
+        <div class="pb-day-tag">WEEK 5 · DAY 4 · SPACE</div>
+        <h2>Mission Calculations</h2>
+        <div class="pb-day-skill">Multi-step word problems (all 4 operations)</div>
+      </div>
+      <div class="pb-day-icon">🛰️</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Mission Card Round 📇</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>20 mission cards, each a 2-step word problem</li>
+              <li>Example: "The ship has 480 fuel pods. You burn 12 per day. After 15 days, how many left?"</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Shuffle cards. Each round: deal one to each explorer.</li>
+              <li>Race to solve! First correct answer earns a star.</li>
+              <li>Compare strategies: did you do it the same way?</li>
+              <li>Play 8 rounds.</li>
+              <li>Discuss which problem types were hardest.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Coaching:</strong> Force them to write out the steps, not just the final number. Show your work = catch errors.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Spaceship Designer 🛸</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Graph paper</li>
+              <li>Multi-step design challenge</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each explorer designs a spaceship with these specs:</li>
+              <li>(a) 4 fuel tanks, each holding 250 liters. Total fuel?</li>
+              <li>(b) Ship burns 15 L/hour. How many hours can it fly?</li>
+              <li>(c) Cabin holds 6 explorers. You have 30 crewmates. How many cabins needed?</li>
+              <li>(d) Mission cost: $1.2 million per cabin + $80K per tank. Total cost?</li>
+              <li>Draw and label the ship. Calculate total stats.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why integrated:</strong> Single-step problems are easy. Multi-step requires PLANNING. Make kids state plan before computing: "First I'll multiply, then divide."
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Word Problem Coach 🧠</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>4 small whiteboards + dry-erase markers</li>
+              <li>5 problems below</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Problem 1: "32 explorers split into 4 teams. Each team gets $200. Total?"</li>
+              <li>Problem 2: "A satellite costs $4.5M. You raise $1.2M and $2.8M. How much more needed?"</li>
+              <li>Problem 3: "3 ships, each carrying 24 explorers. Each explorer needs 5 L water/day. Total water for 1 day?"</li>
+              <li>Problem 4: "Mission lasts 90 days. Each explorer eats 3 meals/day. How many meals for 8 explorers total?"</li>
+              <li>Problem 5: "You have 1000 fuel pods. Use 35 per day. How many full days, and pods left?" (Division with remainder.)</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Teach a framework:</strong> 1) Read twice. 2) Identify what's being asked. 3) Plan the steps. 4) Compute. 5) Check it's reasonable. Drill it.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="pb-day-section pb-boss">
+    <div class="pb-day-banner" style="">
+      <div class="pb-day-num">5</div>
+      <div>
+        <div class="pb-day-tag">WEEK 5 · DAY 5 · SPACE</div>
+        <h2>Return Home</h2>
+        <div class="pb-day-skill">FINAL BOSS — All 5 weeks combined</div>
+      </div>
+      <div class="pb-day-icon">🌍</div>
+    </div>
+    <div class="pb-phases-stack">
+      
+      <div class="pb-phase-card pb-phase1">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">1</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Game</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Captain's Final Hunt 🗝️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>5 sealed envelopes, each themed to one week (Island, Temple, Cave, Sky, Space)</li>
+              <li>Each envelope's problem represents one of the 5 weeks</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Envelope 1 (Island): place value or rounding problem.</li>
+              <li>Envelope 2 (Temple): fraction problem.</li>
+              <li>Envelope 3 (Cave): decimal problem.</li>
+              <li>Envelope 4 (Sky): geometry problem.</li>
+              <li>Envelope 5 (Space): final multi-step mission &mdash; combines all 5 skills. Reward: graduation certificate.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Make it ceremonial:</strong> Frame envelope 5 as the "Return Home" letter. Have certificates ready with each explorer's name.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase2">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">2</div>
+          <span class="pb-phase-time">15 min</span>
+          <span class="pb-phase-type">Hands-On Build</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Master Atlas Assembly 🗺️</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Large posterboard</li>
+              <li>All 4 weekly maps (Island, Temple, Cave, Sky) plus a new Space Station section</li>
+              <li>Glue, colored pencils, decorations</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Crew assembles the Master Atlas: a 5-section poster combining all 5 lands.</li>
+              <li>Each kid contributes one section, retelling that week's adventure.</li>
+              <li>Add a Space Station section: what they learned about data, patterns, distances.</li>
+              <li>Sign and date with crew name.</li>
+              <li>Display in classroom or at parents' pickup.</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why this matters:</strong> The atlas is a visual record of a 5-week journey. Kids remember adventures, not worksheets.
+          </div>
+        </div>
+      </div>
+      
+      <div class="pb-phase-card pb-phase3">
+        <div class="pb-phase-meta">
+          <div class="pb-phase-num">3</div>
+          <span class="pb-phase-time">10 min</span>
+          <span class="pb-phase-type">Coach &amp; Challenge</span>
+        </div>
+        <div class="pb-phase-body">
+          <h3>Captain's Pep Talk & Reflection 🏆</h3>
+          <div class="pb-phase-block">
+            <h4>Materials</h4>
+            <ul>
+              <li>Reflection sheet per kid</li>
+              <li>Optional: small graduation certificates</li>
+            </ul>
+          </div>
+          <div class="pb-phase-block">
+            <h4>How to Run</h4>
+            <ol>
+              <li>Each kid completes the reflection: "My favorite week was ___ because ___."</li>
+              <li>"The hardest thing I learned was ___."</li>
+              <li>"One math skill I want to keep practicing is ___."</li>
+              <li>Share around the crew. You highlight specific growth in each explorer.</li>
+              <li>Present certificates. Group photo with the Master Atlas. Celebrate!</li>
+            </ol>
+          </div>
+          <div class="pb-teacher-tip">
+            <strong>Why end with reflection:</strong> Naming what they've learned cements it. Kids who reflect retain twice as much. End the journey with reverence.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div><!-- /view-playbook -->
+<!-- ===== TEACHER PLAYBOOK VIEW END ===== -->
+
 
 <!-- Profile Modal -->
 <div class="modal-bg" id="profileModal">
@@ -2042,6 +5138,17 @@ document.getElementById('packModal').addEventListener('click', (e) => {
   if (e.target.id === 'packModal') closePack();
 });
 
+
+// ===== TEACHER PLAYBOOK JS START =====
+// ═══════════════════════════════════════════════════════════════════
+// PRINT PLAYBOOK
+// ═══════════════════════════════════════════════════════════════════
+function printPlaybook() {
+  document.body.classList.add('printing-playbook');
+  window.print();
+  setTimeout(() => document.body.classList.remove('printing-playbook'), 500);
+}
+// ===== TEACHER PLAYBOOK JS END =====
 </script>
 </body>
 </html>
