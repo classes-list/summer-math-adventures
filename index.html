@@ -55,6 +55,30 @@
       padding: 8px 14px; border-radius: 8px;
       font-weight: 800; font-size: 0.85rem; cursor: pointer;
     }
+    /* External MSOS links in top nav */
+    .nav-sep {
+      width:1px; align-self:stretch; margin:4px 6px;
+      background:rgba(255,255,255,0.15);
+    }
+    .nav-link {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(255,255,255,0.04);
+      border:2px solid rgba(255,255,255,0.18);
+      color:#fff; padding:8px 14px; border-radius:8px;
+      font-weight:700; font-size:0.85rem;
+      text-decoration:none; cursor:pointer;
+      transition:all 0.15s;
+    }
+    .nav-link:hover {
+      background:rgba(255,209,0,0.15);
+      border-color:var(--gold);
+      color:var(--gold);
+    }
+    .nav-link .ext { font-size:0.7em; opacity:0.6; }
+    @media (max-width:900px) {
+      .nav-sep { display:none; }
+      .nav-link { font-size:0.78rem; padding:6px 10px; }
+    }
     .pack-btn:hover { background: #0f766e; }
 
     /* ─── VIEW WRAPPERS ───────────────────────────────── */
@@ -1112,6 +1136,11 @@
       <!-- TEACHER PLAYBOOK TAB START -->
       <button class="nav-tab" id="navPlaybook" onclick="showView('playbook')">📖 Teacher Playbook</button>
       <!-- TEACHER PLAYBOOK TAB END -->
+      <!-- MSOS LINKS START -->
+      <div class="nav-sep"></div>
+      <a class="nav-link" href="https://classes-list.github.io/msos-middle-school/msos-math-4.html" target="_blank" rel="noopener" title="MSOS Math 4 (school year)">🏫 Math 4 <span class="ext">↗</span></a>
+      <a class="nav-link" href="https://classes-list.github.io/msos-middle-school/msos-math-5.html" target="_blank" rel="noopener" title="MSOS Math 5 (school year)">🏫 Math 5 <span class="ext">↗</span></a>
+      <!-- MSOS LINKS END -->
     </div>
     <div class="topnav-actions">
       <button class="pack-btn" onclick="openPack()">🎒 My Pack</button>
